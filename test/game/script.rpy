@@ -15,6 +15,7 @@ label start:
     # images directory to show it.
 
     scene bg room
+    with moveintop
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
