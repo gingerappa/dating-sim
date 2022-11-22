@@ -22,7 +22,6 @@ label start:
 
 
 label age:
-
     # Silver background
     scene expression Solid("c0c0c0")
 
@@ -40,9 +39,8 @@ label age:
 
         "Why is that important?":
             call explanation
+jump age
 
-jump end  
-        
 label explanation:
 e "It's important that I know your age so that I can optimise the game to best fill your expectations and provide you a nice experience!"
 return
