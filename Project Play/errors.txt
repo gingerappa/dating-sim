@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 55: Line is indented, but the preceding with statement statement does not expect a block. Please check this line's indentation.
+    e "Thanks! The game is now addapted to your age."
+    ^
+
+Ren'Py Version: Ren'Py 8.0.3.22090809
+Tue Nov 22 15:47:31 2022
