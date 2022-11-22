@@ -4,30 +4,88 @@
 # name of the character.
 
 define e = Character("Eileen")
+define u = Character("You")
 
 
 # The game starts here.
 
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
     scene bg room
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+    show girl sillhouete
+    with dissolve
 
-    show eileen happy
+    e "Hi! This is a prototype, welcome to SintLucas simulator."
 
-    # These display lines of dialogue.
+    e "It's amazing to meet you, can I know your age?"
 
-    e "You've created a new Ren'Py game."
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+label age:
 
-    # This ends the game.
+    # Silver background
+    scene expression Solid("c0c0c0")
 
-    return
+    show girl sillhouete
+
+    menu:
+    
+        "How old are you?"
+
+        "I'm <18":
+            jump friendly_start
+            
+        "I'm 18+":
+            jump dating_sim
+
+        "Why is that important?":
+            call explanation
+
+jump end  
+        
+label explanation:
+e "It's important that I know your age so that I can optimise the game to best fill your expectations and provide you a nice experience!"
+return
+
+label dating_sim:
+
+    e "Thanks! The game is now addapted to your age."
+    e "Welcome..."
+
+    show girl sus at center
+    with move
+    e "to the Sintlucas DATING simulator"
+    
+
+label friendly_start:
+    show girl sillhouete
+    u "Oh well, let's test it out"
+
+    # Silver background
+    scene expression Solid("c0c0c0")
+
+    # Show Eileen
+    show eileen:
+        xalign 0.5
+    
+    u "What should we say?"
+
+    menu:
+        "There she is! I should say something!"
+
+        "Hey, how are you doing?":
+
+            e "Hey! I'm really good!"
+            e "Come, let's do something cool"
+            
+
+        "Hey hottie, wanna make out?":
+
+            e "Always, babe"
+            e "You look amazing today."
+            u "Wow. Can't believe that worked."
+
+label end:
+
+    u "I love this game!"
+return
