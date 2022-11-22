@@ -1,32 +1,25 @@
-﻿# The script of the game goes in this file.
-
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-
-define e = Character("Eileen")
+﻿define e = Character("Eileen")
 define u = Character("You")
-
 
 # The game starts here.
 
 label start:
 
-    scene bg room
+    scene bg space
 
-    show girl sillhouete
+    show girl shadow
     with dissolve
 
     e "Hi! This is a prototype, welcome to SintLucas simulator."
 
     e "It's amazing to meet you, can I know your age?"
 
-
 label age:
 
     # Silver background
     scene expression Solid("c0c0c0")
 
-    show girl sillhouete
+    show girl shadow
 
     menu:
     
@@ -58,15 +51,14 @@ label dating_sim:
     
 
 label friendly_start:
-    show girl sillhouete
+    show girl shadow
     u "Oh well, let's test it out"
 
     # Silver background
     scene expression Solid("c0c0c0")
 
     # Show Eileen
-    show eileen:
-        xalign 0.5
+    show girl shadow
     
     u "What should we say?"
 
@@ -80,6 +72,7 @@ label friendly_start:
             
 
         "Hey hottie, wanna make out?":
+            show girl sus
 
             e "Always, babe"
             e "You look amazing today."
