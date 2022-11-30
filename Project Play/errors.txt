@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 55: Line is indented, but the preceding with statement statement does not expect a block. Please check this line's indentation.
-    e "Thanks! The game is now addapted to your age."
-    ^
+File "game/script.rpy", line 101: expected 'label_name' not found.
+    jump menu understand_map
+        ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Tue Nov 22 15:47:31 2022
+Wed Nov 30 12:50:07 2022

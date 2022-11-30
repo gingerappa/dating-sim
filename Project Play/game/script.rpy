@@ -1,34 +1,53 @@
-﻿define e = Character("Eileen")
+﻿define p = Character("Pauline")
 define u = Character("You")
+define g = Character("Game devs")
 
 # The game starts here.
 
 label start:
 
-    scene bg space
+    scene Placeholder
 
-    show girl shadow
-    with dissolve
+    show eileen happy at left
+    with move
 
-    e "Hi! This is a prototype, welcome to SintLucas simulator."
+    p "Hi! Welcome to SintLucas!"
+    p "I'm Pauline and I'll be your guide today"
+    # TODO: put Pauline's function (the correct way)
+    p "Oficially, I'm a softskills teacher"
+    p "First of all, what are your pronouns?"
 
-    e "It's amazing to meet you, can I know your age?"
+    menu:
+
+        "What are your pronouns?"
+
+        "He/him":
+            $ pronouns = "he"
+            
+        "She/her":
+            $ pronouns = "she"
+            
+        "They/them":
+            $ pronouns = "neutral"
+        "None":            
+            $ pronouns = "none"
+ 
+        
+    p "Alright! I'll remember that!"
+    p "It's amazing to meet you, can I know your age?"
 
 label age:
-
-    # Silver background
-    scene expression Solid("c0c0c0")
-
-    show girl shadow
 
     menu:
     
         "How old are you?"
 
-        "I'm <18":
-            jump friendly_start
+        "I'm a minor":
+            $ age = 1
+            jump minor
             
         "I'm 18+":
+            $ age = 18
             jump dating_sim
 
         "Why is that important?":
@@ -37,46 +56,50 @@ label age:
 jump end  
         
 label explanation:
-e "It's important that I know your age so that I can optimise the game to best fill your expectations and provide you a nice experience!"
+p "It's important that I know your age so that I can optimise the game to best fill your expectations and provide you a nice experience!"
 jump age
+
 
 label dating_sim:
 
-    e "Thanks! The game is now addapted to your age."
-    e "Welcome..."
+    g "Disclaimer: we hope you've been honest, because now there is no coming back."
+    #TODO change logo and name, unlock 18+ features
+    p "Thanks! The game is now addapted to your age."
+    p "Welcome..."
+    p "to the Sintlucas DATING simulator"
+jump map_info
 
-    show girl sus at center
-    with move
-    e "to the Sintlucas DATING simulator"
-    
+label minor:
 
-label friendly_start:
-    show girl shadow
-    u "Oh well, let's test it out"
+    show eileen vhappy    
+    p "Thanks for your honesty!"
 
-    # Silver background
-    scene expression Solid("c0c0c0")
+label map_info:
 
-    # Show Eileen
-    show girl shadow
-    
-    u "What should we say?"
+    p "Now that we have every important information about you, let's head to the real fun."
+    #TODO: show map given
+    p "This is a map, an useful gadget that you will use a lot around here."
+    p "Using it is quite simple, I'll teach you!"
+    #TODO: show picture of arcade button
+    p "Just press the third button on the arcade machine, just like this one! That should open the map."
+    p "With the map open, just hover around a place and click to go there. The paths aren't that long, so you should be able to arrive in a few seconds."
 
-    menu:
-        "There she is! I should say something!"
+    menu understand_map:
+        "Did you understand everything?"
 
-        "Hey, how are you doing?":
+        "Not really, can you repeat?":
+            jump understand_map_no
 
-            e "Hey! I'm really good!"
-            e "Come, let's do something cool"
-            
+        "Yes!":
+            p "Alright! Thanks for listening."
+            p "Feel free to explore all the classrooms. I'd specially recommend visiting the DDM place, there are some cool people in there."
+            u "Okay, thanks!."
+            jump end
 
-        "Hey hottie, wanna make out?":
-            show girl sus
-
-            e "Always, babe"
-            e "You look amazing today."
-            u "Wow. Can't believe that worked."
+label understand_map_no:
+    p "Just press the third button on the arcade machine, just like this one! That should open the map."
+    p "With the map open, just hover around a place and click to go there. The paths aren't that long, so you should be able to arrive in a few seconds."            
+jump understand_map
 
 label end:
 
