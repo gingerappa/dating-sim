@@ -23,7 +23,7 @@ label start:
 
 label age:
     # Silver background
-    scene expression Solid("c0c0c0")
+    scene expression Solid("#000000")
 
     show girl sillhouete
 
@@ -84,6 +84,11 @@ label friendly_start:
             u "Wow. Can't believe that worked."
 
 label end:
-
     u "I love this game!"
+    jump main
 return
+
+label house1_pressed:
+    show girl sillhouete
+    "test house 1"
+    jump main
