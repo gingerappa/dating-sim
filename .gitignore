@@ -1,24 +1,6 @@
-
 Project Play/log.txt
-*.save
-*.save
-*.rpyb
-*.rpyb
-*.txt
-*.txt
-Project Play/game/saves/auto-1-LT1.save
-*.txt
 Project Play/game/saves/persistent
-*.txt
 Project Play/game/cache/shaders.txt
-Project Play/game/saves/auto-1-LT1.save
-Project Play/game/saves/auto-2-LT1.save
-Project Play/game/saves/auto-3-LT1.save
 Project Play/game/saves/persistent
-Project Play/log.txt
-Project Play/.vscode/settings.json
-Project Play/.vscode/settings.json
-Project Play/game/cache/bytecode.rpyb
-Project Play/game/cache/screens.rpyb
-Project Play/game/gui.rpyc
-Project Play/game/options.rpyc
+Project Play/game/saves/
+Project Play/game/saves/persistent
