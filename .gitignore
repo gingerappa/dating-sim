@@ -1,18 +1,4 @@
-
-Project Play/log.txt
-*.save
 *.save
 *.rpyb
-*.rpyb
 *.txt
-*.txt
-Project Play/game/saves/auto-1-LT1.save
-*.txt
-Project Play/game/saves/persistent
-*.txt
-Project Play/game/cache/shaders.txt
-Project Play/game/saves/auto-1-LT1.save
-Project Play/game/saves/auto-2-LT1.save
-Project Play/game/saves/auto-3-LT1.save
-Project Play/game/saves/persistent
-Project Play/log.txt
+Project Play/game/cache
