@@ -101,7 +101,11 @@ label understand_map_no:
     p "With the map open, just hover around a place and click to go there. The paths aren't that long, so you should be able to arrive in a few seconds."            
 jump understand_map
 
+label house1_pressed:
+    "welcome to \{classroom\}!"
+    "ga daten ofzo"
+    jump main
 label end:
-
+    jump main
     u "I love this game!"
 return

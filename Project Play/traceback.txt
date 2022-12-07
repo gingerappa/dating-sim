@@ -1,22 +1,34 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 64, in script
-    Game devs "Disclaimer: we hope you've been honest, because now there is no coming back."
-Exception: Sayer 'Game' is not defined.
+  File "game/mainMenu.rpy", line 3, in script
+    call screen MapUI
+  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+Exception: Screen MapUI is not known.
+
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 64, in script
-    Game devs "Disclaimer: we hope you've been honest, because now there is no coming back."
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 881, in execute
-    who = eval_who(self.who, self.who_fast)
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 774, in eval_who
-    raise Exception("Sayer '%s' is not defined." % who)
-Exception: Sayer 'Game' is not defined.
+  File "game/mainMenu.rpy", line 3, in script
+    call screen MapUI
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 2232, in execute
+    self.call("execute")
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 2220, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\statements.py", line 281, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\exports.py", line 3167, in call_screen
+    show_screen(_screen_name, _transient=True, *args, **kwargs)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\screen.py", line 1185, in show_screen
+    raise Exception("Screen %s is not known.\n" % (name[0],))
+Exception: Screen MapUI is not known.
+
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
 Project Play 1.0
-Wed Nov 30 12:46:17 2022
+Wed Dec  7 10:09:08 2022
