@@ -40,11 +40,11 @@ label age:
         "How old are you?"
 
         "I'm a minor":
-            $ age = 1
+            $adult = false
             jump minor
             
         "I'm 18+":
-            $ age = 18
+            $adult = true
             jump dating_sim
 
         "Why is that important?":
