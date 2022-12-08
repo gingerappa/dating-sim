@@ -4,7 +4,7 @@ define g = Character("Game devs")
 
 """
 totalhearts
-jorrit     : 4
+jorrit     : 4 | 7
 """
 # The game starts here.
 label start:

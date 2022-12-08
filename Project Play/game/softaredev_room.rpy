@@ -91,33 +91,35 @@ label jorrit:
         "flirt!" if adult:
             menu flirt_js:
                 "Are you single?":
-                    #TODO: add variables to determine if Jorrit likes the player or not
-                    #if characters["jorrit"]["hearts"]
-                    js "As a pringle!" 
-                    $ characters["jorrit"]["hearts"] += 1
-
-                    js "Maybe you should ask again when I'm in a better mood." 
-                    $ characters["jorrit"]["hearts"] -= 1
+                    if characters["jorrit"]["hearts"] > 3:
+                        show js blush
+                        js "As a pringle!" 
+                        $ characters["jorrit"]["hearts"] += 1
+                    else:
+                        show js angry
+                        js "Maybe you should ask again when I'm in a better mood." 
+                        $ characters["jorrit"]["hearts"] -= 1
 
                     
                 "Any plans for after your'e done working??":
-                
-                    show js angry
-                    js "I'll probably visit some friends during the weekend!" 
-                    $ characters["jorrit"]["hearts"] += 1
-
-                    show js angry
-                    js "You mean for when I retire!? Do you really think I look that old???" 
-                    $ characters["jorrit"]["hearts"] -= 1
+                    if characters["jorrit"]["hearts"] > 2:
+                        show js happy
+                        js "I'll probably visit some friends during the weekend!" 
+                        $ characters["jorrit"]["hearts"] += 1
+                    else:
+                        show js angry
+                        js "You mean for when I retire!? Do you really think I look that old???" 
+                        $ characters["jorrit"]["hearts"] -= 1
 
                 "If you were my teacher I would be a teachers pet!":
-                    show js blush
-                    js "If you are thinking of bringing me an apple, make sure to bring a green one!" 
-                    $ characters["jorrit"]["hearts"] += 1
-
-                    show js angry
-                    js "If I was your teacher, I would kick you out of my class..." 
-                    $ characters["jorrit"]["hearts"] -= 1 
+                    if if characters["jorrit"]["hearts"] > 4:
+                        show js blush
+                        js "If you are thinking of bringing me an apple, make sure to bring a green one!" 
+                        $ characters["jorrit"]["hearts"] += 1
+                    else:
+                        show js angry
+                        js "If I was your teacher, I would kick you out of my class..." 
+                        $ characters["jorrit"]["hearts"] -= 1 
                 "nevermind...":
                     jump talk_js
     
