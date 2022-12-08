@@ -70,8 +70,8 @@ label jorrit:
                 js "As I said before..." 
             js "Quite frequently still!"
             #he tells all the games he plays
-
         "Any special interests?":
+            show jorrit special_interest
             js "AI image generation, Dungeons and dragons..." 
             js "i also love animals!"
             menu animalMenu_js:
@@ -153,6 +153,7 @@ label jorrit:
             show jorrit waving
             pause
             jump sd_room
+    show jorrit neutral
     jump talk_js
     
 return
