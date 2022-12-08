@@ -20,7 +20,7 @@ screen MapUI:
         ypos 974
         idle "map/sd.png"
         hover "map/sd_hover.png"
-        action Jump("house1_pressed")
+        action Jump("sd_room")
     imagebutton:
         xpos 821
         ypos 579

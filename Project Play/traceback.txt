@@ -1,34 +1,37 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/mainMenu.rpy", line 3, in script
-    call screen MapUI
-  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-Exception: Screen MapUI is not known.
-
+  File "renpy/common/00keymap.rpy", line 473, in script
+    python hide:
+  File "renpy/common/00keymap.rpy", line 473, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 497, in _execute_python_hide
+    renpy.save("_reload-1", "reload save game")
+KeyError: '__getstate__'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/mainMenu.rpy", line 3, in script
-    call screen MapUI
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 2232, in execute
-    self.call("execute")
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 2220, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\statements.py", line 281, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\exports.py", line 3167, in call_screen
-    show_screen(_screen_name, _transient=True, *args, **kwargs)
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\screen.py", line 1185, in show_screen
-    raise Exception("Screen %s is not known.\n" % (name[0],))
-Exception: Screen MapUI is not known.
-
+  File "renpy/common/00keymap.rpy", line 473, in script
+    python hide:
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 1131, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 1061, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/00keymap.rpy", line 473, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 497, in _execute_python_hide
+    renpy.save("_reload-1", "reload save game")
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\loadsave.py", line 403, in save
+    reraise(t, e, tb)
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\loadsave.py", line 389, in save
+    dump((roots, renpy.game.log), logf)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\compat\pickle.py", line 103, in dump
+    pickle.dump(o, f, pickle.HIGHEST_PROTOCOL if highest else PROTOCOL)
+KeyError: '__getstate__'
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
 Project Play 1.0
-Wed Dec  7 10:09:08 2022
+Thu Dec  8 13:37:04 2022

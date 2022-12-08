@@ -2,11 +2,9 @@
 errors listed below, and try again.
 
 
-The label house1_pressed is defined twice, at File "game/mainMenu.rpy", line 12:
-label house1_pressed:
-and File "game/script.rpy", line 91:
-label house1_pressed:
-
+File "game/softaredev_room.rpy", line 95: reached end of line when expecting ':'.
+    if characters["jorrit"]["hearts"]
+                                     ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed Nov 30 11:54:29 2022
+Thu Dec  8 14:11:18 2022
