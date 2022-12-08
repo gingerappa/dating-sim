@@ -13,7 +13,7 @@ label sd_room:
 
 
 label jorrit:
-    show js neutral at right
+    show jorrit neutral at right
     with dissolve
 
     js "Hey, welcome!"
@@ -33,23 +33,23 @@ label jorrit:
             js "The best part about working as a software development teacher is that I can combine my love for development with a ton of different working activities and tons of social interactions"
 
             "Is it actually that hard to keep up with grading?"
-            show js happy 
+            show jorrit happy 
             js "Depends on what you are grading and how you are grading!"
             js "Just writing V, G, O, V, V, in Magister is a lot less effort than giving useful feedback."
             js "Also, downloading big Unity projects or Blender files and waiting for the slow programs to open and close can eat up a bunch of time. Work smart!"
             menu jobQuestions_js:
                 "wow that sounds realy easy":
-                    show js angry
+                    show jorrit angry
                     $ characters["jorrit"]["hearts"] -= 1
                 "u seem like a great teacher":
-                    show js happy
+                    show jorrit happy
                     $ characters["jorrit"]["hearts"] += 1
     js "So, any other questions?"
     menu talk_js:
         "What are your hobbies?":
             js "I play Dungeons&Dragons once or twice a week! {i}As long as scheduling doesn't ruin everything...{/i}"
             js "Recently I've also discovered a new hobby in using AI's to generate art."
-            show js blush
+            show jorrit blush
             js "Of course I also like to play games which was one of the reasons that got me into development in the first place."
             $ characters["jorrit"]["askedHobbies"] = True
             js "I listen to a bunch of music, but like, who doesn't?"
@@ -74,15 +74,15 @@ label jorrit:
             js "i also love animals!"
             menu animalMenu_js:
                 "Me too i love cats!":
-                    show js happy
+                    show jorrit happy
                     js "Oh yea cats are pretty awesome!"
                     $ characters["jorrit"]["hearts"] += 1
                 "Me too i love dogs!":
-                    show js angry
+                    show jorrit angry
                     js "O yea i guese they exist too..."
                     $ characters["jorrit"]["hearts"] -= 1
                 "i dont realy like animals...":
-                    show js neutral
+                    show jorrit neutral
                     js "o, thats alright"
 
         
@@ -92,32 +92,32 @@ label jorrit:
             menu flirt_js:
                 "Are you single?":
                     if characters["jorrit"]["hearts"] > 3:
-                        show js blush
+                        show jorrit blush
                         js "As a pringle!" 
                         $ characters["jorrit"]["hearts"] += 1
                     else:
-                        show js angry
+                        show jorrit angry
                         js "Maybe you should ask again when I'm in a better mood." 
                         $ characters["jorrit"]["hearts"] -= 1
 
                     
                 "Any plans for after your'e done working??":
                     if characters["jorrit"]["hearts"] > 2:
-                        show js happy
+                        show jorrit happy
                         js "I'll probably visit some friends during the weekend!" 
                         $ characters["jorrit"]["hearts"] += 1
                     else:
-                        show js angry
+                        show jorrit angry
                         js "You mean for when I retire!? Do you really think I look that old???" 
                         $ characters["jorrit"]["hearts"] -= 1
 
                 "If you were my teacher I would be a teachers pet!":
                     if if characters["jorrit"]["hearts"] > 4:
-                        show js blush
+                        show jorrit blush
                         js "If you are thinking of bringing me an apple, make sure to bring a green one!" 
                         $ characters["jorrit"]["hearts"] += 1
                     else:
-                        show js angry
+                        show jorrit angry
                         js "If I was your teacher, I would kick you out of my class..." 
                         $ characters["jorrit"]["hearts"] -= 1 
                 "nevermind...":
