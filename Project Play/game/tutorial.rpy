@@ -75,4 +75,5 @@ label map_info:
             p "Alright! Thanks for listening."
             p "Feel free to explore all the classrooms. I'd specially recommend visiting the DDM place, there are some cool people in there."
             u "Okay, thanks!"
+            play music "music/main.mp3" fadein 1.0 volume 0.1
             jump end

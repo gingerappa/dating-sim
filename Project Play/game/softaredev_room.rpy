@@ -1,13 +1,13 @@
 ﻿#Defining characters
 
 define js = Character("Jorrit Slaats")
-define u = Character("You")
+define u = Character("You ({pronouns[0]}/{pronouns[1]})")
 #define g = Character("Game devs")
 
 # The game starts here.
 
 label sd_room:
-    scene Placeholder
+    scene bg sd
     "welcome to SD room"
     jump jorrit
 
@@ -32,18 +32,20 @@ label jorrit:
             js "however, I tend to get tired of it when I do it for long periods at a time."
             js "The best part about working as a software development teacher is that I can combine my love for development with a ton of different working activities and tons of social interactions"
 
-            "Is it actually that hard to keep up with grading?"
-            show jorrit happy 
+            u "Is it actually that hard to keep up with grading?"
             js "Depends on what you are grading and how you are grading!"
             js "Just writing V, G, O, V, V, in Magister is a lot less effort than giving useful feedback."
             js "Also, downloading big Unity projects or Blender files and waiting for the slow programs to open and close can eat up a bunch of time. Work smart!"
             menu jobQuestions_js:
                 "wow that sounds realy easy":
                     show jorrit angry
+                    pause
                     $ characters["jorrit"]["hearts"] -= 1
                 "u seem like a great teacher":
+                    "thank you"
                     show jorrit happy
                     $ characters["jorrit"]["hearts"] += 1
+    show jorrit neutral
     js "So, any other questions?"
     menu talk_js:
         "What are your hobbies?":
@@ -85,7 +87,6 @@ label jorrit:
                     show jorrit neutral
                     js "o, thats alright"
 
-        
         "Favorite food?":
             js "I love a proper hamburger! Not some McDonald's hamburger, but a good one."
         "flirt!" if adult:
@@ -122,5 +123,36 @@ label jorrit:
                         $ characters["jorrit"]["hearts"] -= 1 
                 "nevermind...":
                     jump talk_js
+        "say goodbye...":
+            menu goodbye_js:
+                "Thanks for talking to me!":
+                    $ characters["jorrit"]["hearts"] += 1
+                    if characters["jorrit"]["hearts"] > 0:
+                        show jorrit neutral
+                        js "Anytime!"
+                    else:
+                        show jorrit angry
+                        js "Wish I could say the same!"
+                "Talk to you later!":
+                    if characters["jorrit"]["hearts"] > 3:
+                        show jorrit blush
+                        js "Till next time"
+                    elif characters["jorrit"]["hearts"] > 0:
+                        show jorrit neutral
+                        js "Till next time"
+                    else:
+                        show jorrit irritated
+                        js "Oh god..."
+                "bye":
+                    if characters["jorrit"]["hearts"] > 0:
+                        show jorrit neutral
+                        js "See you later."
+                    else:
+                        show jorrit irritated
+                        js "{i}finally...{/i}"
+            show jorrit waving
+            pause
+            jump sd_room
+    jump talk_js
     
 return

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/softaredev_room.rpy", line 95: reached end of line when expecting ':'.
-    if characters["jorrit"]["hearts"]
-                                     ^
+File "game/softaredev_room.rpy", line 144: if statement expects a non-empty block.
+    if characters["jorrit"]["hearts"] > 0:
+                                          ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Thu Dec  8 14:11:18 2022
+Thu Dec  8 15:07:34 2022

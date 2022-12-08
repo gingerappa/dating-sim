@@ -1,8 +1,8 @@
 label main:
-    play music "music/main.mp3" fadein 1.0 volume 0.1
+    scene bg map
     call screen MapUI
 screen MapUI:
-    add "map/map.png"
+    #add "map/bg map.png"
     imagebutton:
         xpos 681
         ypos 296
