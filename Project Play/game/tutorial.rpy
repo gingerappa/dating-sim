@@ -36,13 +36,13 @@ label age:
         "How old are you?"
 
         "I'm a minor":
-            $adult = False
+            $ adult = False
             show eileen happy    
             p "Thanks for your honesty!"
             jump map_info
             
         "I'm 18+":
-            $adult = True
+            $ adult = True
             g "Disclaimer: we hope you've been honest, because now there is no coming back."
             #TODO change logo and name, unlock 18+ features
             p "Thanks! The game is now addapted to your age."
@@ -56,9 +56,12 @@ label age:
 
 label map_info:
     p "Now that we have every important information about you, let's head to the real fun."
-    #TODO: show map given
+    show bg map
     p "This is a map, an useful gadget that you will use a lot around here."
+    window hide
+    pause
     p "Using it is quite simple, I'll teach you!"
+    hide bg map
     #TODO: show picture of arcade button
     p "Just press the third button on the arcade machine, just like this one! That should open the map."
     p "With the map open, just hover around a place and click to go there. The paths aren't that long, so you should be able to arrive in a few seconds."

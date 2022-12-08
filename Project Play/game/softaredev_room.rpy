@@ -151,7 +151,9 @@ label jorrit:
                         show jorrit irritated
                         js "{i}finally...{/i}"
             show jorrit waving
+            window hide
             pause
+            hide jorrit
             jump sd_room
     show jorrit neutral
     jump talk_js
