@@ -54,6 +54,14 @@ label age:
             p "It's important that I know your age so that I can optimise the game to best fill your expectations and provide you a nice experience!"
             jump age
 
+label favFood:
+    menu Favorite_food:
+        "also, what is your favorite food?"
+        "hamburger":
+            $ favorite_food = "hamburger"
+    p "good choice!"
+        
+
 label map_info:
     p "Now that we have every important information about you, let's head to the real fun."
     show bg map

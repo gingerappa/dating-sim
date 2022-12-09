@@ -1,37 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00keymap.rpy", line 473, in script
-    python hide:
-  File "renpy/common/00keymap.rpy", line 473, in <module>
-    python hide:
-  File "renpy/common/00keymap.rpy", line 497, in _execute_python_hide
-    renpy.save("_reload-1", "reload save game")
-KeyError: '__getstate__'
+  File "game/softaredev_room.rpy", line 138, in script
+    if if characters["jorrit"]["hearts"] > 4:
+SyntaxError: invalid syntax (game/softaredev_room.rpy, line 138)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00keymap.rpy", line 473, in script
-    python hide:
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 1131, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 1061, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "renpy/common/00keymap.rpy", line 473, in <module>
-    python hide:
-  File "renpy/common/00keymap.rpy", line 497, in _execute_python_hide
-    renpy.save("_reload-1", "reload save game")
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\loadsave.py", line 403, in save
-    reraise(t, e, tb)
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\loadsave.py", line 389, in save
-    dump((roots, renpy.game.log), logf)
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\compat\pickle.py", line 103, in dump
-    pickle.dump(o, f, pickle.HIGHEST_PROTOCOL if highest else PROTOCOL)
-KeyError: '__getstate__'
+  File "game/softaredev_room.rpy", line 138, in script
+    if if characters["jorrit"]["hearts"] > 4:
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 2115, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 1090, in py_eval
+    code = py_compile(code, 'eval')
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 1027, in py_compile
+    raise e
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 979, in py_compile
+    raise orig_e
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 972, in py_compile
+    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
+SyntaxError: invalid syntax (game/softaredev_room.rpy, line 138)
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
-Project Play 1.0
-Thu Dec  8 13:37:04 2022
+Project Play 0.1
+Fri Dec  9 10:54:44 2022
