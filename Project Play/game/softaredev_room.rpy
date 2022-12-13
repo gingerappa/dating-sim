@@ -164,13 +164,14 @@ label jorrit:
                 "Thanks for talking to me!":
                     if "niceGoodbye" not in player["jorrit"]:
                         $ characters["jorrit"]["hearts"] += 1
+                    else:
+                        $ player["jorrit"].append("niceGoodbye")
                     if characters["jorrit"]["hearts"] >= 0:
                         show jorrit neutral
                         js "Anytime!"
                     else:
                         show jorrit angry
                         js "Wish I could say the same!"
-                    $ player["jorrit"].append("niceGoodbye")
                 "Talk to you later!":
                     if characters["jorrit"]["hearts"] > 3:
                         show jorrit blush
@@ -365,9 +366,81 @@ label thijs:
             menu flirt_ts:
                 "You single?":
                     if characters["thijs"]["hearts"] > 3:
+                        show thijs blush
                         ts "do you want me to be?"
-                "Choice 2":
-                    pass
+                    else:
+                        show thijs irritated
+                        ts "not for you..."
+                "You are really good looking, did you know that?" "GoodLooking_ts" not in player["thijs"]:
+                    if characters["thijs"]["hearts"] > 3:
+                        show thijs suprised
+                        ts "agree to disagree"
+                        $ characters["thijs"]["hearts"] += 1
+                    else:
+                        show thijs angry
+                        ts "disagree"
+                        $ characters["thijs"]["hearts"] -= 1
+                    $ player["thijs"].append("GoodLooking_ts")
+                "Are you a 90 degree angle because you look so right!" "angle_ts" not in player["thijs"]:
+                    if characters["thijs"]["hearts"] > 3:
+                        show thijs blush
+                        pause
+                        ts "really, with that. Damm your good."
+                        $ characters["thijs"]["hearts"] += 1
+                    else:
+                        show thijs irritated
+                        ts "aight, ime just turn a 180 degrees around and walk away"
+                        $ characters["thijs"]["hearts"] -= 1
+                    $ player["thijs"].append("angle_ts")
+                "Does school keep you busy? Or is love also a priority?" "busy_ts" not in player["thijs"]:
+                    if characters["thijs"]["hearts"] > 3:
+                        show thijs blush
+                        pause
+                        ts "for you it is..."
+                        $ characters["thijs"]["hearts"] += 1
+                    else:
+                        show thijs irritated
+                        ts "naa, im pretty busy making this game…"
+                        $ characters["thijs"]["hearts"] -= 1
+                    $ player["thijs"].append("busy_ts")
+                "nevermind...":
+                    show thijs neutral
+                    jump talk_ts
+        "say goodbye...":
+            menu goodbye_ts:
+                "Talk to you later!":
+                    if "niceGoodbye" not in player["thijs"]:
+                        $ characters["thijs"]["hearts"] += 1
+                    else:
+                        $ player["thijs"].append("niceGoodbye")
+                    if characters["thijs"]["hearts"] > 2:
+                        show thijs happy
+                        ts "adios amigos"
+                    elif characters["thijs"]["hearts"] >= 0:
+                        show thijs neutral
+                        ts "adios amigos"
+                    else:
+                        show thijs irritated
+                        ts "..."
+                "See you around!":
+                    if characters["thijs"]["hearts"] > 1:
+                        show thijs happy
+                        ts "bye bye"
+                    else:
+                        show thijs irritated
+                        ts "That != True"
+                "Bye.":
+                    if characters["thijs"]["hearts"] > 1:
+                        show thijs happy
+                        ts "aju paraplu"
+                    else:
+                        show thijs irritated
+                        ts "yep"
+            show thijs waving
+            jump sd_room
+            
+
+                
 
     show thijs neutral
     jump talk_ts
