@@ -2,9 +2,11 @@
 errors listed below, and try again.
 
 
-File "game/softaredev_room.rpy", line 367: reached end of line when expecting ':'.
-    if characters["thijs"]["hearts"] > 3
-                                        ^
+The label talk_js is defined twice, at File "game/ddm_room.rpy", line 52:
+    menu talk_js:
+and File "game/softaredev_room.rpy", line 60:
+    menu talk_js:
+
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Tue Dec 13 13:58:04 2022
+Tue Dec 13 16:52:26 2022

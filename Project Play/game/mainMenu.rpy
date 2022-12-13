@@ -14,7 +14,7 @@ screen MapUI:
         ypos 923
         idle "map/ddm.png"
         hover "map/ddm_hover.png"
-        action Jump("house1_pressed")
+        action Jump("ddm_room")
     imagebutton:
         xpos 1315
         ypos 974

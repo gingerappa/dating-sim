@@ -8,7 +8,7 @@ label tutorial:
 
     scene Placeholder
 
-    show eileen happy at left
+    show pauline happy at left
 
     p "Hi! Welcome to SintLucas!"
     p "I'm Pauline and I'll be your guide today"
@@ -37,14 +37,13 @@ label age:
 
         "I'm a minor":
             $ adult = False
-            show eileen happy    
+            show pauline happy    
             p "Thanks for your honesty!"
             jump map_info
             
         "I'm 18+":
             $ adult = True
             g "Disclaimer: we hope you've been honest, because now there is no coming back."
-            #TODO change logo and name, unlock 18+ features
             p "Thanks! The game is now addapted to your age."
             p "Welcome..."
             p "to the Sintlucas DATING simulator"
@@ -57,7 +56,7 @@ label age:
 label favFood:
     menu Favorite_food:
         "also, what is your favorite food?"
-        "hamburger":
+        "Hamburger":
             $ favorite_food = "hamburger"
         "Chicken wings":
             $ favorite_food = "Chicken wings"
@@ -67,7 +66,7 @@ label favFood:
 label map_info:
     p "Now that we have every important information about you, let's head to the real fun."
     show bg map
-    p "This is a map, an useful gadget that you will use a lot around here."
+    p "This is a map, a useful gadget that you will use a lot around here."
     window hide
     pause
     p "Using it is quite simple, I'll teach you!"

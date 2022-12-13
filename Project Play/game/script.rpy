@@ -3,6 +3,8 @@ define u = Character("You")
 define g = Character("Game devs")
 define js = Character("Jorrit Slaats")
 define ts = Character("Thijs Swinkels")
+define e = Character("Enzo Witteveen")
+
 """
 totalhearts (if food +1)
 jorrit     : 5 | 8
@@ -31,15 +33,15 @@ init python:
 label start:
     $ pronouns = ["the player, the player"]
     $ adult = True
-    $ characters = {"jorrit":{"hearts":0}, "thijs":{"hearts":0}}
-    $ player = {"jorrit":[], "thijs":[]}
+    $ characters = {"jorrit":{"hearts":0}, "thijs":{"hearts":0}, "enzo":{"hearts":0}, "pauline":{"hearts":0}}
+    $ player = {"jorrit":[], "thijs":[], "enzo":[], "pauline":[]}
     $ favorite_food = "hamburger"
     jump tutorial
 
 label house1_pressed:
     scene bg classroom
-    "welcome to a classroom!"
-    "hind, go to the sd room for the prototype ;)"
+    "Welcome to a classroom!"
+    "Hint, go to the SD room for the prototype ;)"
     jump main
 label end:
     jump main
