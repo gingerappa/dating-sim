@@ -2,9 +2,11 @@
 define u = Character("You")
 define g = Character("Game devs")
 define js = Character("Jorrit Slaats")
+define ts = Character("Thijs Swinkels")
 """
 totalhearts (if food +1)
 jorrit     : 5 | 8
+thijs      : 6 | 9
 """
 init python:
     def getDic(*args):
@@ -30,7 +32,7 @@ label start:
     $ pronouns = ["the player, the player"]
     $ adult = True
     $ characters = {"jorrit":{"hearts":0}, "thijs":{"hearts":0}}
-    $ player = {"jorrit":[]}
+    $ player = {"jorrit":[], "thijs":[]}
     $ favorite_food = "hamburger"
     jump tutorial
 

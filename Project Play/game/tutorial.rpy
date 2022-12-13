@@ -59,6 +59,8 @@ label favFood:
         "also, what is your favorite food?"
         "hamburger":
             $ favorite_food = "hamburger"
+        "Chicken wings":
+            $ favorite_food = "Chicken wings"
     p "good choice!"
         
 

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/softaredev_room.rpy", line 110: expected statement.
-    characters["jorrit"]["hearts"] += 1
-                                   ^
+File "game/softaredev_room.rpy", line 367: reached end of line when expecting ':'.
+    if characters["thijs"]["hearts"] > 3
+                                        ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Fri Dec  9 10:49:43 2022
+Tue Dec 13 13:58:04 2022

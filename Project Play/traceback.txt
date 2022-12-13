@@ -1,28 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/softaredev_room.rpy", line 138, in script
-    if if characters["jorrit"]["hearts"] > 4:
-SyntaxError: invalid syntax (game/softaredev_room.rpy, line 138)
+  File "game/softaredev_room.rpy", line 290, in script
+    U "well.. what games?"
+Exception: Sayer 'U' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/softaredev_room.rpy", line 138, in script
-    if if characters["jorrit"]["hearts"] > 4:
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 2115, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 1090, in py_eval
-    code = py_compile(code, 'eval')
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 1027, in py_compile
-    raise e
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 979, in py_compile
-    raise orig_e
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 972, in py_compile
-    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
-SyntaxError: invalid syntax (game/softaredev_room.rpy, line 138)
+  File "game/softaredev_room.rpy", line 290, in script
+    U "well.. what games?"
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 881, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 774, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer 'U' is not defined.
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
 Project Play 0.1
-Fri Dec  9 10:54:44 2022
+Sun Dec 11 16:46:24 2022
