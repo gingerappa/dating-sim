@@ -1,3 +1,4 @@
 *.save
 *.rpyb
 *.txt
+test/game/options.rpyc

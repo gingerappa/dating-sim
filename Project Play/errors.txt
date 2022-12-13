@@ -2,17 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/softaredev_room.rpy", line 23: menu statement expects a non-empty block.
-    menu questionswork_js: 
-        ^
-
-File "game/softaredev_room.rpy", line 26: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
-    "What do you teach the students?":
-    ^
-
-File "game/softaredev_room.rpy", line 44: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
-    menu talk_jr:
-    ^
+File "game/softaredev_room.rpy", line 367: reached end of line when expecting ':'.
+    if characters["thijs"]["hearts"] > 3
+                                        ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed Dec  7 12:30:54 2022
+Tue Dec 13 13:58:04 2022

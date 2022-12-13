@@ -1,22 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 64, in script
-    Game devs "Disclaimer: we hope you've been honest, because now there is no coming back."
-Exception: Sayer 'Game' is not defined.
+  File "game/softaredev_room.rpy", line 290, in script
+    U "well.. what games?"
+Exception: Sayer 'U' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 64, in script
-    Game devs "Disclaimer: we hope you've been honest, because now there is no coming back."
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 881, in execute
+  File "game/softaredev_room.rpy", line 290, in script
+    U "well.. what games?"
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 881, in execute
     who = eval_who(self.who, self.who_fast)
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 774, in eval_who
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 774, in eval_who
     raise Exception("Sayer '%s' is not defined." % who)
-Exception: Sayer 'Game' is not defined.
+Exception: Sayer 'U' is not defined.
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
-Project Play 1.0
-Wed Nov 30 12:46:17 2022
+Project Play 0.1
+Sun Dec 11 16:46:24 2022
