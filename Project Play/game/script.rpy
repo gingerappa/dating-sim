@@ -9,6 +9,17 @@ jorrit     : 5 | 8
 thijs      : 6 | 9
 """
 init python:
+    config.keymap['rollback'] = []
+    config.keymap['screenshot'] = []
+    config.keymap['toggle_fullscreen'] = []
+    config.keymap['game_menu'] = []
+    config.keymap['hide_windows'] = []
+    config.keymap['launch_editor'] = []
+    config.keymap['inspector'] = []
+    config.keymap['hide_windows'] = []
+    for x in ["K_r", "K_LSHIFT", "K_f", "K_SPACE", "K_LCTRL", "K_e",  "K_KP4", "K_KP5", "K_KP6", "K_KP7", "K_KP8", "K_KP9"]:
+        config.keymap['dismiss'].append(x)
+    
     def getDic(*args):
         if not args:
             dir = characters
