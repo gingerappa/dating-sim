@@ -1,5 +1,5 @@
 ﻿label ddm_room:
-    scene bg ddm
+    scene ddm placeholder
     "welcome to the DDM room"
     menu talkToDdm:
         #todo: show all npcs options, dissolve them after choosing
@@ -24,7 +24,7 @@ label enzo:
     menu questionsWork_e:
         "What would you like to ask Enzo about his job?"
         "What do you teach the students?":
-            e "Technically I don’t teach the students anything since I’m not a teacher, but I can definitely help them out with 3D and general concepting."
+            e "Technically I don't teach the students anything since I'm not a teacher, but I can definitely help them out with 3D and general concepting."
             if "questionsWork_e" not in player["enzo"]:
                 $ player["enzo"].append("questionsWork_e")
             jump questionsWork_e

@@ -2,3 +2,5 @@
 *.rpyb
 *.txt
 test/game/options.rpyc
+Project Play/game/saves/auto-1-LT1.save
+*.save

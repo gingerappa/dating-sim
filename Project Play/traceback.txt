@@ -1,11 +1,4 @@
-﻿I'm sorry, but an uncaught exception occurred.
-
-While running game code:
-  File "game/ddm_room.rpy", line 90, in script
-    if pronouns = ["she", "her"]:
-SyntaxError: invalid syntax (game/ddm_room.rpy, line 90)
-
--- Full Traceback ------------------------------------------------------------
+﻿-- Full Traceback ------------------------------------------------------------
 
 Full traceback:
   File "game/ddm_room.rpy", line 90, in script

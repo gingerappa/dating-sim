@@ -11,7 +11,7 @@
 
 
 label jorrit:
-    show jorrit neutral at left
+    show jorrit neutral at center
     with dissolve
     if "intro" not in player["jorrit"]:
         js "Hey, welcome!"

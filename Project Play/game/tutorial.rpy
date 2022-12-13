@@ -6,8 +6,7 @@ define g = Character("Game devs")
 
 label tutorial:
 
-    scene Placeholder
-
+    scene sintlucas bg
     show pauline happy at left
 
     p "Hi! Welcome to SintLucas!"
