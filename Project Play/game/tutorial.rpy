@@ -61,7 +61,10 @@ label favFood:
             $ favorite_food = "hamburger"
         "Chicken wings":
             $ favorite_food = "Chicken wings"
-    p "good choice!"
+        "Candy":
+            $ favorite_food = "Candy"
+            p "here you go, have some candy! and"
+    p "great choice!"
         
 
 label map_info:

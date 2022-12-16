@@ -1,37 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 11, in script
-    init python:
-  File "game/script.rpy", line 11, in script
-    init python:
-  File "game/script.rpy", line 20, in <module>
-    config.keymap['dismiss'].append("K_r", "K_LSHIFT", "K_f", "K_SPACE", "K_LCTRL", "K_e",  "K_KP4", "K_KP5", "K_KP6", "K_KP7", "K_KP8", "K_KP9")
-TypeError: list.append() takes exactly one argument (12 given)
+  File "game/softaredev_room.rpy", line 661, in script
+    if characters["lusi"]["heaarts"] > 1:
+  File "game/softaredev_room.rpy", line 661, in <module>
+    if characters["lusi"]["heaarts"] > 1:
+KeyError: 'heaarts'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\bootstrap.py", line 277, in bootstrap
-    renpy.main.main()
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\main.py", line 558, in main
-    renpy.game.context().run(node)
-  File "game/script.rpy", line 11, in script
-    init python:
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
-  File "game/script.rpy", line 11, in script
-    init python:
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 1131, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 1061, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/script.rpy", line 20, in <module>
-    config.keymap['dismiss'].append("K_r", "K_LSHIFT", "K_f", "K_SPACE", "K_LCTRL", "K_e",  "K_KP4", "K_KP5", "K_KP6", "K_KP7", "K_KP8", "K_KP9")
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\revertable.py", line 97, in do_mutation
-    return method(self, *args, **kwargs)
-TypeError: list.append() takes exactly one argument (12 given)
+  File "game/softaredev_room.rpy", line 661, in script
+    if characters["lusi"]["heaarts"] > 1:
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 2115, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 1092, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/softaredev_room.rpy", line 661, in <module>
+    if characters["lusi"]["heaarts"] > 1:
+KeyError: 'heaarts'
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
 Project Play 0.1
-Tue Dec 13 14:26:44 2022
+Wed Dec 14 10:58:43 2022
