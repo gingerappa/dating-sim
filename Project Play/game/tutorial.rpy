@@ -1,7 +1,7 @@
 ﻿label tutorial:
 
     scene sintlucas bg
-    show pauline happy at left
+    show pauline happy at f11
 
     p "Hi! Welcome to SintLucas!"
     p "I'm Pauline and I'll be your guide today"
