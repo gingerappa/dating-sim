@@ -45,7 +45,7 @@ label start:
     $ pronouns = ["the player, the player"]
     $ adult = True
     $ characters = {"jorrit":{"hearts":0}, "thijs":{"hearts":0}, "lusi":{"hearts":0}, "julia":{"hearts":0}}
-    $ player = {"jorrit":[], "thijs":[], "lusi":[]}
+    $ player = {"jorrit":[], "thijs":[], "lusi":[], "julia":[]}
     $ favorite_food = "Candy"
     jump tutorial
 

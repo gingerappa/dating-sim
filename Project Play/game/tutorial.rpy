@@ -29,6 +29,21 @@ label tutorial:
         
     p "Alright! I'll remember that!"
     p "It's amazing to meet you, can I know your age?"
+    jump favFood
+
+label favFood:
+    menu Favorite_food:
+        "also, what is your favorite food?"
+        "hamburger":
+            $ favorite_food = "hamburger"
+        "Chicken wings":
+            $ favorite_food = "Chicken wings"
+        "Candy":
+            $ favorite_food = "Candy"
+            p "here you go, have some candy! and"
+        "Strogannof":
+            $ favorite_food = "strogannof"
+    p "great choice!"
     jump age
 
 label age:
@@ -54,19 +69,7 @@ label age:
             p "It's important that I know your age so that I can optimise the game to best fill your expectations and provide you a nice experience!"
             jump age
 
-label favFood:
-    menu Favorite_food:
-        "also, what is your favorite food?"
-        "hamburger":
-            $ favorite_food = "hamburger"
-        "Chicken wings":
-            $ favorite_food = "Chicken wings"
-        "Candy":
-            $ favorite_food = "Candy"
-            p "here you go, have some candy! and"
-        "Strogannof":
-            $ favorite_food = "strogannof"
-    p "great choice!"
+
         
 
 label map_info:
