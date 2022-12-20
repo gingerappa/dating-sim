@@ -1,107 +1,59 @@
 ﻿define p = Character("Pauline")
 define u = Character("You")
 define g = Character("Game devs")
+define js = Character("Jorrit Slaats")
+define ts = Character("Thijs Swinkels")
+define ls = Character("Lusi Ryborz")
+define jl = Character("Julia Wiebbelling")
+"""
+totalhearts (if food +1)
+jorrit     : 5 | 8
+thijs      : 6 | 9
+"""
+init python:
+    config.keymap['rollback'] = []
+    config.keymap['screenshot'] = []
+    config.keymap['toggle_fullscreen'] = []
+    config.keymap['game_menu'] = ["K_ESCAPE"]
+    config.keymap['hide_windows'] = []
+    config.keymap['launch_editor'] = []
+    config.keymap['inspector'] = []
+    config.keymap['hide_windows'] = []
+    #TODO make wasd work on select
+    for x in ["K_r", "K_LSHIFT", "K_f", "K_SPACE", "K_LCTRL", "K_e",  "K_KP4", "K_KP5", "K_KP6", "K_KP7", "K_KP8", "K_KP9"]:
+        config.keymap['dismiss'].append(x)
+    
+    def getDic(*args):
+        if not args:
+            dir = characters
+            tabs = 0
+        else:
+            dir = args[0]
+            if len(args) >= 2:
+                tabs = args[1]
+            else:
+                tabs = 0
+        for key, value in dir.items():
+            if type(value) == type({}):
+                print(f"{'  ' * tabs}{key}:")
+                getDic(dir[key], tabs+1)
+            else:
+                print(f"{'  ' * tabs}{key}: {value}")
 
 # The game starts here.
-
 label start:
+    $ pronouns = ["the player, the player"]
+    $ adult = True
+    $ characters = {"jorrit":{"hearts":0}, "thijs":{"hearts":0}, "lusi":{"hearts":0}, "julia":{"hearts":0}}
+    $ player = {"jorrit":[], "thijs":[], "lusi":[], "julia":[]}
+    $ favorite_food = "Candy"
+    jump tutorial
 
-    scene Placeholder
-
-    show eileen happy at left
-    with move
-
-    p "Hi! Welcome to SintLucas!"
-    p "I'm Pauline and I'll be your guide today"
-    # TODO: put Pauline's function (the correct way)
-    p "Oficially, I'm a softskills teacher"
-    p "First of all, what are your pronouns?"
-
-    menu:
-
-        "What are your pronouns?"
-
-        "He/him":
-            $ pronouns = "he"
-            
-        "She/her":
-            $ pronouns = "she"
-            
-        "They/them":
-            $ pronouns = "neutral"
-        "None":            
-            $ pronouns = "none"
- 
-        
-    p "Alright! I'll remember that!"
-    p "It's amazing to meet you, can I know your age?"
-
-label age:
-
-    menu:
-    
-        "How old are you?"
-
-        "I'm a minor":
-            $ age = 1
-            jump minor
-            
-        "I'm 18+":
-            $ age = 18
-            jump dating_sim
-
-        "Why is that important?":
-            call explanation
-
-jump end  
-        
-label explanation:
-p "It's important that I know your age so that I can optimise the game to best fill your expectations and provide you a nice experience!"
-jump age
-
-
-label dating_sim:
-
-    g "Disclaimer: we hope you've been honest, because now there is no coming back."
-    #TODO change logo and name, unlock 18+ features
-    p "Thanks! The game is now addapted to your age."
-    p "Welcome..."
-    p "to the Sintlucas DATING simulator"
-jump map_info
-
-label minor:
-
-    show eileen vhappy    
-    p "Thanks for your honesty!"
-
-label map_info:
-
-    p "Now that we have every important information about you, let's head to the real fun."
-    #TODO: show map given
-    p "This is a map, an useful gadget that you will use a lot around here."
-    p "Using it is quite simple, I'll teach you!"
-    #TODO: show picture of arcade button
-    p "Just press the third button on the arcade machine, just like this one! That should open the map."
-    p "With the map open, just hover around a place and click to go there. The paths aren't that long, so you should be able to arrive in a few seconds."
-
-    menu understand_map:
-        "Did you understand everything?"
-
-        "Not really, can you repeat?":
-            jump understand_map_no
-
-        "Yes!":
-            p "Alright! Thanks for listening."
-            p "Feel free to explore all the classrooms. I'd specially recommend visiting the DDM place, there are some cool people in there."
-            u "Okay, thanks!."
-            jump end
-
-label understand_map_no:
-    p "Just press the third button on the arcade machine, just like this one! That should open the map."
-    p "With the map open, just hover around a place and click to go there. The paths aren't that long, so you should be able to arrive in a few seconds."            
-jump understand_map
-
+label house1_pressed:
+    scene bg classroom
+    "welcome to a classroom!"
+    "hind, go to the sd room for the prototype ;)"
+    jump main
 label end:
-
-    u "I love this game!"
+    jump main
 return

@@ -1,124 +1,62 @@
-# macOS-related files
-.DS_Store
-.AppleDouble
-.LSOverride
+# Created by https://www.toptal.com/developers/gitignore/api/renpy
+# Edit at https://www.toptal.com/developers/gitignore?templates=renpy
 
-# Windows-related files
-Thumbs.db
-Thumbs.db:encryptable
-ehthumbs.db
-ehthumbs_vista.db
-[Dd]esktop.ini
+### Renpy ###
+# Don't track content of these folders #
+########################################
+cache/
+saves/
 
-# Python related files.
-*.pyc
-*.pyo
-*.pyi
 
-# Editor files.
-*~
-*.bak
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
 
-# Compiled Ren'Py files.
 *.rpyc
-*.rpyb
 *.rpymc
 
-# Ren'Py log files.
+
+# The log file and other misc things #
+######################################
 log.txt
 errors.txt
 traceback.txt
-lint.txt
+files.txt
 
-# Created directories.
-saves/
-tmp/
-cache/
+# End of https://www.toptal.com/developers/gitignore/api/renpy
 
-# Executables.
-/renpy.exe
-/renpy2.exe
-/renpy3.exe
-/renpy-32.exe
+# macOS-related files
+.DS_Store 
+.AppleDouble 
+.LSOverride
+# Windows-related files 
+Thumbs.db 
+Thumbs.db:encryptable 
+ehthumbs.db 
+ehthumbs_vista.db 
+[Dd]esktop.ini
 
-/renpy.sh
-/renpy2.sh
-/renpy3.sh
+*.rpyc 
+*.rpyb 
+*.rpymc 
+*.pyc 
+*.pyo
 
-/renpy.app
-/renpy2.app
-/renpy3.app
+*~ 
+*.bak 
+*.odt#
 
-/7z.sfx
+saves 
+tmp 
+cache 
+env 
+_wfCache
 
-# Libraries.
-/lib
-
-# Platforms.
-/rapt
-/rapt2
-/rapt3
-
-/renios
-/renios2
-/renios3
-
-/web
-/web2
-/web3
-
-# Docs.
-/sphinx/source/inc
-/sphinx/source/thequestion.rst
-/doc
-/doc-web
-/LICENSE.txt
-
-# Gui template.
-/gui/game/gui
-
-# Editors.
-/jedit
-/atom
-/vscode
-
-# Generated source.
-/renpy/vc_version.py
-/module/gen/
-/module/gen3/
-/module/gen-static/
-/module/gen3-static/
-/tutorial/game/tutorial_director.rpy
-
-# Module build.
-/module/build
-/module/dist
-/module/emscripten-static
-
-# Download target.
-/dl
-
-# Pygame_sdl2.
-/pygame_sdl2
-
-# Steam.
-steam_appid.txt
-/steamapi.py
-
-# Type analysis.
-/typings
-
-# Live2D
-cubism
-CubismSdkForNative-4-*.zip
-
-# Created files.
-/screenshot*
-.android.json
-
-# Old files.
-/0old
-
-# Works in progress, throwaway scripts, etc.
-/scratch
-/*-dists
+log.txt 
+errors.txt 
+traceback.txt

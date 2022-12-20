@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 101: expected 'label_name' not found.
-    jump menu understand_map
-        ^
+File "game/softaredev_room.rpy", line 742: expected ':' not found.
+    menu See you around!_jl:
+             ^
+
+File "game/softaredev_room.rpy", line 748: expected menuitem
+    if character["julia"]["hearts"] >= 0:
+    ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed Nov 30 12:50:07 2022
+Thu Dec 15 16:28:49 2022
