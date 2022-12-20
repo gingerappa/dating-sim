@@ -8,7 +8,7 @@ screen MapUI:
         ypos 296
         idle "map/av.png"
         hover "map/av_hover.png"
-        action Jump("house1_pressed")
+        action Jump("av_room")
     imagebutton:
         xpos 1065
         ypos 923

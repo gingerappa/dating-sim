@@ -1,5 +1,5 @@
 ﻿label ddm_room:
-    scene ddm placeholder
+    scene bg ddm
     "welcome to the DDM room"
     menu talkToDdm:
         #todo: show all npcs options, dissolve them after choosing
@@ -9,6 +9,8 @@
         "Someone else":
             jump main
         
+        #todo: enzo says he's straight, tells you to stop trying 
+
 label enzo:
     show enzo neutral at left
     with dissolve
@@ -87,7 +89,7 @@ label enzo:
         "Flirt!" if adult:
             menu flirt_e:
                 "Are you single?" if "single" not in player["enzo"]:
-                    if characters["enzo"]["hearts"] > 1:
+                    if characters["enzo"]["hearts"] > 1 and pronouns == ["she", "her"]:
                         show enzo blush
                         e"Yes, I have a severe addiction to gaming and working out, so the touch of a female is something I do not come across very often." 
                         $ characters["enzo"]["hearts"] += 1

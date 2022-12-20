@@ -6,9 +6,7 @@
         "Jorrit":
             jump jorrit
         "Thijs":
-            jump thijs
-        
-
+            jump thijs  
 
 label jorrit:
     show jorrit neutral at center
@@ -36,17 +34,17 @@ label jorrit:
             js "The best part about working as a software development teacher is that I can combine my love for development with a ton of different working activities and tons of social interactions"
             u "Is it actually that hard to keep up with grading?"
             js "Depends on what you are grading and how you are grading!"
-            js "Just writing V, G, O, V, V, in Magister is a lot less effort than giving useful feedback."
+            js "Just writing V, G, O in Magister is a lot less effort than giving useful feedback."
             js "Also, downloading big Unity projects or Blender files and waiting for the slow programs to open and close can eat up a bunch of time. Work smart!"
             if "jobQuestions_js" not in player["jorrit"]:
                 menu jobQuestions_js:
-                    "wow that sounds really easy":
+                    "Wow, that sounds so easy":
                         show jorrit angry
                         pause
                         $ characters["jorrit"]["hearts"] -= 1
-                    "u seem like a great teacher":
+                    "U seem like a great teacher!":
                         show jorrit happy
-                        js "thank you"
+                        js "Thank you!"
                         $ characters["jorrit"]["hearts"] += 1
                 $ player["jorrit"].append("jobQuestions_js")
             show jorrit neutral
@@ -76,8 +74,8 @@ label jorrit:
                         "Jorrit hands you a drink"
                         $ characters["jorrit"]["hearts"] += 1
                     "No":
-                        js "Thats alright."
-                    "iew..":
+                        js "That's alright."
+                    "Ew...":
                         show jorrit irritated
                         pause
                         $ characters["jorrit"]["hearts"] -= 1
@@ -199,7 +197,7 @@ label jorrit:
 label thijs:
     show thijs neutral at left
     with dissolve
-    u "hey"
+    u "Hey"
     if characters["thijs"]["hearts"] > 1:
         ts "ola mi amo thijs como estas?"
         menu spanish_ts:

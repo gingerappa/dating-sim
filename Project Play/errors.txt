@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/ddm_room.rpy", line 33: if statement expects a non-empty block.
-    if "questionsWork_e" not in player["enzo"]:
-                                               ^
-
-File "game/ddm_room.rpy", line 35: expected menuitem
-    jump questionsWork_e
-    ^
+File "game/av_room.rpy", line 56: expected statement.
+    "What are they teaching you right now?":
+                                           ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Tue Dec 13 17:13:04 2022
+Tue Dec 20 14:58:05 2022

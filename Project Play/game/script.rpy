@@ -4,6 +4,7 @@ define g = Character("Game devs")
 define js = Character("Jorrit Slaats")
 define ts = Character("Thijs Swinkels")
 define e = Character("Enzo Witteveen")
+define m = Character("Max Marzano")
 
 """
 totalhearts (if food +1)
@@ -28,13 +29,11 @@ init python:
             else:
                 print(f"{'  ' * tabs}{key}: {value}")
 
-
-# The game starts here.
 label start:
     $ pronouns = ["the player, the player"]
     $ adult = True
-    $ characters = {"jorrit":{"hearts":0}, "thijs":{"hearts":0}, "enzo":{"hearts":0}, "pauline":{"hearts":0}}
-    $ player = {"jorrit":[], "thijs":[], "enzo":[], "pauline":[]}
+    $ characters = {"jorrit":{"hearts":0}, "thijs":{"hearts":0}, "enzo":{"hearts":0}, "pauline":{"hearts":0},"max":{"hearts":0},"grayson":{"hearts":0}}
+    $ player = {"jorrit":[], "thijs":[], "enzo":[], "pauline":[], "max":[], "grayson":[]}
     $ favorite_food = "hamburger"
     jump tutorial
 

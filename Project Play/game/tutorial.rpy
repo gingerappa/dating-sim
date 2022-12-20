@@ -1,10 +1,4 @@
-﻿define p = Character("Pauline")
-define u = Character("You")
-define g = Character("Game devs")
-
-# The game starts here.
-
-label tutorial:
+﻿label tutorial:
 
     scene sintlucas bg
     show pauline happy at left

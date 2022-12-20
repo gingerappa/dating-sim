@@ -1,21 +1,30 @@
-﻿-- Full Traceback ------------------------------------------------------------
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/ddm_room.rpy", line 2, in script
+    scene ddm placeholder
+Exception: Image 'ddm' does not accept attributes 'placeholder'.
+
+-- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/ddm_room.rpy", line 90, in script
-    if pronouns = ["she", "her"]:
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 2115, in execute
-    if renpy.python.py_eval(condition):
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 1090, in py_eval
-    code = py_compile(code, 'eval')
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 1027, in py_compile
-    raise e
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 979, in py_compile
-    raise orig_e
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 972, in py_compile
-    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
-SyntaxError: invalid syntax (game/ddm_room.rpy, line 90)
+  File "game/ddm_room.rpy", line 2, in script
+    scene ddm placeholder
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 1542, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 1371, in show_imspec
+    renpy.config.show(name,
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\exports.py", line 686, in show
+    if not base.find_target() and renpy.config.missing_show:
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\display\image.py", line 414, in find_target
+    self.target = target._duplicate(a)
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\display\core.py", line 397, in _duplicate
+    args.extraneous()
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\display\core.py", line 265, in extraneous
+    raise Exception("Image '{}' does not accept attributes '{}'.".format(
+Exception: Image 'ddm' does not accept attributes 'placeholder'.
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
 Project Play 0.1
-Tue Dec 13 16:56:51 2022
+Tue Dec 20 15:04:28 2022
