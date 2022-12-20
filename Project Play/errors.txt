@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/softaredev_room.rpy", line 742: expected ':' not found.
-    menu See you around!_jl:
-             ^
-
-File "game/softaredev_room.rpy", line 748: expected menuitem
-    if character["julia"]["hearts"] >= 0:
+File "game/tutorial.rpy", line 30: Line is indented, but the preceding say menuitem statement does not expect a block. Please check this line's indentation.
+    "What's your favorite food?"
     ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Thu Dec 15 16:28:49 2022
+Tue Dec 20 20:57:37 2022

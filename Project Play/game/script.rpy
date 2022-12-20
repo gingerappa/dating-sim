@@ -1,17 +1,26 @@
-﻿define p = Character("Pauline")
-define u = Character("You")
+﻿define e = Character("Enzo Witteveen")
 define g = Character("Game devs")
-define js = Character("Jorrit Slaats")
-define ts = Character("Thijs Swinkels")
-define ls = Character("Lusi Ryborz")
+define gm = Character("Grayson Middelink")
 define jl = Character("Julia Wiebbelling")
-define e = Character("Enzo Witteveen")
+define js = Character("Jorrit Slaats")
+define kd = Character("Kevin Driessen")
+define l = Character("Lex van den Bergh")
+define ls = Character("Lusi Ryborz")
 define m = Character("Max Marzano")
+define p = Character("Pauline")
+define rh = Character("Robin Hilt")
+define sk = Character("Sam Kaufman")
+define ts = Character("Thijs Swinkels")
+define u = Character("You")
+
 """
 totalhearts (if food +1)
 jorrit     : 5 | 8
 thijs      : 6 | 9
 """
+transform f11:
+    zoom 1.5
+
 init python:
     config.keymap['rollback'] = []
     config.keymap['screenshot'] = []

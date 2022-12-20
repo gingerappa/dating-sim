@@ -1,28 +1,32 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/ddm_room.rpy", line 18, in script
-    if "intro" not in player["enzo"]:
-  File "game/ddm_room.rpy", line 18, in <module>
-    if "intro" not in player["enzo"]:
-KeyError: 'enzo'
+  File "game/tutorial.rpy", line 4, in script
+    show pauline happy at f11
+  File "game/tutorial.rpy", line 4, in <module>
+    show pauline happy at f11
+NameError: name 'f11' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/ddm_room.rpy", line 18, in script
-    if "intro" not in player["enzo"]:
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 2115, in execute
-    if renpy.python.py_eval(condition):
+  File "game/tutorial.rpy", line 4, in script
+    show pauline happy at f11
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 1408, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 1367, in show_imspec
+    at_list = [ renpy.python.py_eval(i) for i in at_list ]
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 1367, in <listcomp>
+    at_list = [ renpy.python.py_eval(i) for i in at_list ]
   File "E:\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 1092, in py_eval
     return py_eval_bytecode(code, globals, locals)
   File "E:\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
     return eval(bytecode, globals, locals)
-  File "game/ddm_room.rpy", line 18, in <module>
-    if "intro" not in player["enzo"]:
-KeyError: 'enzo'
+  File "game/tutorial.rpy", line 4, in <module>
+    show pauline happy at f11
+NameError: name 'f11' is not defined
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
 Project Play 0.1
-Tue Dec 20 20:33:51 2022
+Tue Dec 20 20:48:41 2022
