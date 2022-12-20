@@ -81,7 +81,7 @@ label jorrit:
                     "No":
                         js "Thats alright."
                     "iew..":
-                        show jorrit irritated
+                        show jorrit angry
                         pause
                         $ characters["jorrit"]["hearts"] -= 1
                 $ player["jorrit"].append("wantDrink_js")
@@ -167,7 +167,6 @@ label jorrit:
                 "Thanks for talking to me!":
                     if "niceGoodbye" not in player["jorrit"]:
                         $ characters["jorrit"]["hearts"] += 1
-                    else:
                         $ player["jorrit"].append("niceGoodbye")
                     if characters["jorrit"]["hearts"] >= 0:
                         show jorrit neutral
@@ -183,14 +182,14 @@ label jorrit:
                         show jorrit neutral
                         js "Till next time"
                     else:
-                        show jorrit irritated
+                        show jorrit angry
                         js "Oh god..."
                 "bye":
                     if characters["jorrit"]["hearts"] >= 0:
                         show jorrit neutral
                         js "See you later."
                     else:
-                        show jorrit irritated
+                        show jorrit angry
                         js "{i}finally...{/i}"
             show jorrit waving
             window hide
@@ -237,7 +236,7 @@ label thijs:
                         show thijs happy
                         $ characters["thijs"]["hearts"] += 1
                     "Isn't that just typing on a computer?":
-                        show thijs irritated
+                        show thijs angry
                         ts "no!"
                         $ characters["thijs"]["hearts"] -= 1
                 $ player["thijs"].append("questionsStudying_ts")
@@ -380,7 +379,7 @@ label thijs:
                         show thijs blush
                         ts "do you want me to be?"
                     else:
-                        show thijs irritated
+                        show thijs angry
                         ts "not for you..."
                 "You are really good looking, did you know that?" if "GoodLooking_ts" not in player["thijs"]:
                     if characters["thijs"]["hearts"] > 3:
@@ -399,7 +398,7 @@ label thijs:
                         ts "really, with that. Damm your good."
                         $ characters["thijs"]["hearts"] += 1
                     else:
-                        show thijs irritated
+                        show thijs angry
                         ts "aight, ime just turn a 180 degrees around and walk away"
                         $ characters["thijs"]["hearts"] -= 1
                     $ player["thijs"].append("angle_ts")
@@ -410,7 +409,7 @@ label thijs:
                         ts "for you it is..."
                         $ characters["thijs"]["hearts"] += 1
                     else:
-                        show thijs irritated
+                        show thijs angry
                         ts "naa, im pretty busy making this game…"
                         $ characters["thijs"]["hearts"] -= 1
                     $ player["thijs"].append("busy_ts")
@@ -423,7 +422,6 @@ label thijs:
                 "Talk to you later!":
                     if "niceGoodbye" not in player["thijs"]:
                         $ characters["thijs"]["hearts"] += 1
-                    else:
                         $ player["thijs"].append("niceGoodbye")
                     if characters["thijs"]["hearts"] > 2:
                         show thijs happy
@@ -432,21 +430,21 @@ label thijs:
                         show thijs neutral
                         ts "adios"
                     else:
-                        show thijs irritated
+                        show thijs angry
                         ts "..."
                 "See you around!":
                     if characters["thijs"]["hearts"] > 1:
                         show thijs happy
                         ts "bye bye"
                     else:
-                        show thijs irritated
+                        show thijs angry
                         ts "That != True"
                 "Bye.":
                     if characters["thijs"]["hearts"] > 1:
                         show thijs happy
                         ts "aju paraplu"
                     else:
-                        show thijs irritated
+                        show thijs angry
                         ts "yep"
             show thijs waving
             pause
@@ -474,7 +472,7 @@ label lusi:
                         ls "Ok"
                         $ characters["lusi"]["hearts"] += 1
                     "what things?":
-                        show lusi irritated
+                        show lusi angry
                         ls "Nothing..."
                         "{i}clown noices...{/i}"
                 $ player["lusi"].append("otherThings")
@@ -527,7 +525,7 @@ label lusi:
             if "questionsStudent" not in player["lusi"]:
                 $ player["lusi"].append("questionsStudent")
             jump questionsStudent_ls
-        "notting..." if "questionsStudent" in player["lusi"]:
+        "nothing..." if "questionsStudent" in player["lusi"]:
             pass
     show lusi neutral
     ls "So, any other questions?"
@@ -607,7 +605,7 @@ label lusi:
                         ls "thank you so mutch"
                         $ characters["lusi"]["hearts"] += 1
                     "no":
-                        show lusi irritated
+                        show lusi angry
                         ls "you wont share..."
                         ls "thats very mean"
         "Flirt!" if adult:
@@ -635,7 +633,7 @@ label lusi:
                         ls "nahw that’s so sweet! I’ll make sure to keep my ion you! Get it? science jokes!"
                         $ characters["lusi"]["hearts"] += 1
                     else:
-                        show lusi irritated
+                        show lusi angry
                         ls "I guess you tried?..."
                         $ characters["lusi"]["hearts"] -= 1
                     $ player["lusi"].append("angle")
@@ -646,7 +644,7 @@ label lusi:
                         ls "Its mostly my jobs that keep my busy but I always make sure to have time left over!"
                         $ characters["lusi"]["hearts"] += 1
                     else:
-                        show lusi irritated
+                        show lusi angry
                         ls "uhm well I have two jobs, I guess those keep me busy."
                         ls "Weird question..."
                         $ characters["lusi"]["hearts"] -= 1
@@ -661,27 +659,26 @@ label lusi:
                 "Talk to you later!":
                     if "niceGoodbye" not in player["lusi"]:
                         $ characters["lusi"]["hearts"] += 1
-                    else:
                         $ player["lusi"].append("niceGoodbye")
                     if characters["lusi"]["hearts"] > 1:
                         show lusi happy
                         ls "Hope I’ll talk to you again! It was fun talking with you!"
                     else:
-                        show lusi irritated
+                        show lusi angry
                         ls "oh I guess we will talk again?"
                 "See you around!":
                     if characters["lusi"]["hearts"] > 1:
                         show lusi happy
                         ls "see you later feralgatr! That’s a pokemon pun!"
                     else:
-                        show lusi irritated
+                        show lusi angry
                         ls "I’ll be around."
                 "Bye.":
                     if characters["lusi"]["hearts"] > 1:
                         show lusi happy
                         ls "bye bye!"
                     else:
-                        show lusi irritated
+                        show lusi angry
                         ls "goodbye."
             show lusi waving
             pause
@@ -699,37 +696,175 @@ label julia:
         if character["julia"]["hearts"] >= 0:
             jl "Hello there! All good?"
         else:
-            show julia irritated
+            show julia angry
             jl "Ugh, you again?"
     menu questionsStudent_jl:
         "What would you like to ask julia as a student?"
         "What are you studying right now?":
             show julia happy
             jl "I'm currently studying Software Development! It’s the best subject EVER!"
-            #if "subject" not in player["julia"]:
-                #menu subject_jl: 
-                #   "uhm i dont know but i think Software Development sucks"
+            if "subject" not in player["julia"]:
+                menu subject_jl: 
+                    "i think Software Development SUCKS!":
+                        show julia angry
+                        jl "no, its THE BEST!"
+                        $ character["julia"]["hearts"] -= 1
+                    "i wanna study software development too!":
+                        show julia happy
+                        jl "o, thats awsome!"
+                        $ character["julia"]["hearts"] += 1
+                    "i guess its alright...":
+                        show julia angry
+                        jl "yea, it is THE BEST, i agree!"
+                $ player["julia"].append("subject")
+            if "questionsStudent" not in player["julia"]:
+                $ player["julia"].append("questionsStudent")
+            jump questionsStudent_jl
         "What’s your elective subject?":
-            jl "I chose Gameplay and Agile. Gameplay teaches us how to make good games and how to make the user enjoy them. Agile teaches us physical computing, we use Arduinos to make cool gadgets."
+            show julia happy
+            jl "I chose Gameplay and Agile"
+            jl "Gameplay teaches us how to make good games and how to make the user enjoy them."
+            jl "Agile teaches us physical computing, we use Arduinos to make cool gadgets."
+            if "questionsStudent" not in player["julia"]:
+                $ player["julia"].append("questionsStudent")
+            jump questionsStudent_jl
         "Do you have a favorite teacher?":
-            jl "Don't tell anyone, but Jorrit is my favorite one. He's the greatest! (if 18+ ->) Aaand I heard he's single, you should probably stop by room [number] to meet him. " 
+            jl "Don't tell anyone, but Jorrit is my favorite one. He's the greatest!"
+            jl "Aaand I heard he's single, you should probably meet him."
+            if "intro" in player["jorrit"]:
+                u "o yea i met him!"
+                jl "nice! he is great right"
+            if "questionsStudent" not in player["julia"]:
+                $ player["julia"].append("questionsStudent")
+            jump questionsStudent_jl
         "What are they teaching you right now?":
             jl "Right now I'm mainly learning to build games that are enjoyable, just like this one!"
-    menu talk_jl:  
+            if "dificultGame" not in player["julia"]:
+                menu dificultGame:
+                    "was it difficult to make this game?":
+                        jl "yea, there is a lot of text we had to make"
+                        jl "and thijs wanted to use this template"
+                        jl "which is nice but i now have to use python for this project..."
+                        show julia angry
+                        pause
+                    "game making sounds easy":
+                        show julia suprised
+                        jl "ITS NOT! trust me"
+                        $ character["julia"]["hearts"] -= 1
+                    "i want to make games too":
+                        show julia happy
+                        jl "thats awsome!"
+                        $ character["julia"]["hearts"] += 1
+                $ player["julia"].append("dificultGame")
+            if "questionsStudent" not in player["julia"]:
+                $ player["julia"].append("questionsStudent")
+            jump questionsStudent_jl
+        "nothing..." if "questionsStudent" in player["julia"]:
+            pass
+    show julia neutral
+    jl "So, any other questions?"
+    menu talk_jl:
+        "So, any other questions?"  
         "What are your hobbies?":
-            jl "Gaming, drawing, learning new languages... Sometimes even programming! Building games is really cool, you should give it a try!"
+            jl "Gaming, drawing, learning new languages... Sometimes even programming!"
+            jl "Building games is really cool, you should give it a try!"
+            if "makeAgame" not in player["julia"]:
+                menu makeAgame:
+                    "i want to!":
+                        show julia suprised
+                        jl "nice, id recommend using unity because it is easy to work with"
+                        $ character["julia"]["hearts"] += 1
+                    "i have!":
+                        show julia happy
+                        jl "really? Let me play it please!"
+                        $ character["julia"]["hearts"] += 1
+                    "no":
+                        show julia angry
+                        jl "than why are you in the sd room?"
+                        $ character["julia"]["hearts"] -= 1
+                $ player["julia"].append("makeAgame")
         "Do you play games?": 
+            show julia happy
             jl "I absolutely love playing games! My all-time favorites are Stardew Valley, The Sims, LoL and Forza."
         "Have any special interests?":
-            jl "I'm glad you asked! I have many special interests, but my number-one is travelling. One of my biggest passions is to explore different countries and learn new languages and cultures! Did you know I'm originally from Brazil? I came to The Netherlands in 2019 and it was love at first sight. I love it here!"
+            jl "I'm glad you asked! I have many special interests, but my number-one is travelling."
+            jl "One of my biggest passions is to explore different countries and learn new languages and cultures!"
+            jl "Did you know I'm originally from Brazil?"
+            u "no i did not, thats so cool"
+            jl "I came to The Netherlands in 2019 and it was love at first sight. I love it here!"
         "Favorite food?":
-            jl "Good question... I think it's actually strogannof, a famous Russian dish that I used to eat a lot as a kid. But without mushrooms!"
-    menu flirt_jl:
-        "You single?":
-            jl "I'm happily married."
-        "You are really good looking, did you know that?":
-            jl "Yeah, my fiancé tells me that everyday."
-        "Are you a 90 degree angle because you look so right!":
-            jl "You must be a tree, cause I see you and think: leave."
-        "Does school keep you busy? Or is love also a priority ;)":
-            jl "What kind of question is that? Go away."
+            jl "Good question... I think it's actually strogannof"
+            if favorite == "strogannof" and "strogannofKnow" not in player["julia"]:
+                u "no way i love that"
+                jl "o yea, what is it than"
+                menu strogannofKnow:
+                    "a famous russian dish!":
+                        show julia suprised
+                        jl "yea, wow u acualy know it"
+                        jl "i used to eat it a lot as a kid"
+                        show julia happy
+                        jl "but than without mushrooms"
+                        $ character["julia"]["hearts"] += 1
+                    "a famous brazilian dish!":
+                        show julia happy
+                        jl "youre paying close atention but no sorry"
+                        jl "its acually a famous Russian dish that I used to eat a lot as a kid. But without mushrooms!"
+                    "a dutch dish!":
+                        show jullia angry
+                        jl "u realy think the dutch have good cuisine?"
+                        $ character["julia"]["hearts"] -= 1
+                        u "yes..."
+                        jl "NO, its a famous Russian dish that I used to eat a lot as a kid. But without mushrooms!"
+                $ player["julia"].append("strogannofKnow")
+            else:
+                show julia happy
+                jl "a famous Russian dish that I used to eat a lot as a kid. But without mushrooms!"
+        "flirt!" if adult:
+            menu flirt_jl:
+                "You single?":
+                    jl "I'm happily married."
+                "You are really good looking, did you know that?" if "goodLooking" not in player["julia"]:
+                    jl "Yeah, my fiancé tells me that everyday."
+                    $ player["julia"].append("goodLooking")
+                "Are you a 90 degree angle because you look so right!" if "angle" not in player["julia"]:
+                    jl "You must be a tree, cause I see you and think leave."
+                    $ character["julia"]["hearts"] -= 1
+                    $ player["julia"].append("angle")
+                "Does school keep you busy? Or is love also a priority ;)" if "busy" not in player["julia"]:
+                    jl "What kind of question is that? Go away."
+                    $ character["julia"]["hearts"] -= 1
+                    $ player["julia"].append("angle")
+                "nevermind...":
+                    show julia neutral
+                    jump talk_jl
+        "say goodbye...":
+            menu goodbye_jl:
+                "Talk to you later!":
+                    if "niceGoodbye" not in player["julia"]:
+                        $ characters["julia"]["hearts"] += 1
+                        $ player["julia"].append("niceGoodbye")
+                    if characters["julia"]["hearts"] > 1:
+                        show julia happy
+                        jl "Sure, anytime!"
+                    else:
+                        show julia angry
+                        jl "{i}puts headphones on{/i}"
+                "See you around!":
+                    if characters["julia"]["hearts"] > 1:
+                        show julia happy
+                        jl "See ya! Make sure to check the DDM place as well!!"
+                    else:
+                        show julia angry
+                        jl "Ugh…"
+                "Bye.":
+                    if characters["julia"]["hearts"] > 1:
+                        show julia happy
+                        jl "Bye-bye, have fun!"
+                    else:
+                        show julia angry
+                        jl "Adiós, hasta nunca!"
+            show julia waving
+            pause
+            jump sd_room
+    show julia neutral
+    jump talk_jl

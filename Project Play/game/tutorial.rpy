@@ -64,6 +64,8 @@ label favFood:
         "Candy":
             $ favorite_food = "Candy"
             p "here you go, have some candy! and"
+        "Strogannof":
+            $ favorite_food = "strogannof"
     p "great choice!"
         
 
