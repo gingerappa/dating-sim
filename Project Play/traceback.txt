@@ -1,28 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/softaredev_room.rpy", line 810, in script
-    if favorite == "strogannof" and "strogannofKnow" not in player["julia"]:
-  File "game/softaredev_room.rpy", line 810, in <module>
-    if favorite == "strogannof" and "strogannofKnow" not in player["julia"]:
-NameError: name 'favorite' is not defined
+  File "game/ddm_room.rpy", line 18, in script
+    if "intro" not in player["enzo"]:
+  File "game/ddm_room.rpy", line 18, in <module>
+    if "intro" not in player["enzo"]:
+KeyError: 'enzo'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/softaredev_room.rpy", line 810, in script
-    if favorite == "strogannof" and "strogannofKnow" not in player["julia"]:
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 2115, in execute
+  File "game/ddm_room.rpy", line 18, in script
+    if "intro" not in player["enzo"]:
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 2115, in execute
     if renpy.python.py_eval(condition):
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 1092, in py_eval
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 1092, in py_eval
     return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
     return eval(bytecode, globals, locals)
-  File "game/softaredev_room.rpy", line 810, in <module>
-    if favorite == "strogannof" and "strogannofKnow" not in player["julia"]:
-NameError: name 'favorite' is not defined
+  File "game/ddm_room.rpy", line 18, in <module>
+    if "intro" not in player["enzo"]:
+KeyError: 'enzo'
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
 Project Play 0.1
-Tue Dec 20 14:50:04 2022
+Tue Dec 20 20:33:51 2022

@@ -1,12 +1,13 @@
 ﻿label ddm_room:
     scene bg ddm
-    "welcome to the DDM room"
+    play music "music/class (2).mp3" fadein 1.0 volume 1
+    "Welcome to the DDM room!"
     menu talkToDdm:
         #todo: show all npcs options, dissolve them after choosing
         "Who would you like to talk to?"
         "Enzo":
             jump enzo
-        "Someone else":
+        "Leave the room":
             jump main
         
         #todo: enzo says he's straight, tells you to stop trying 

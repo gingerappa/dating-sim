@@ -1,8 +1,9 @@
 ﻿label sd_room:
     scene bg sd
-    "welcome to SD room"
+    play music "music/class (3).mp3" fadein 1.0 volume 1
+    "Welcome to the SD room!"
     menu talkToSd:
-        "who would you like to talk to?"
+        "Who would you like to talk to?"
         "Jorrit":
             jump jorrit
         "Thijs":
@@ -11,7 +12,7 @@
             jump lusi
         "Julia":
             jump julia
-        "go away":
+        "Go away":
             jump main
         
 
