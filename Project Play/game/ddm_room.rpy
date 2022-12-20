@@ -71,7 +71,7 @@ label enzo:
                         $ characters["enzo"]["hearts"] -= 1
                 $ player["enzo"].append("gym_e")
         "Do you play games?":
-                e"Yes, for a while I'vve been playing a lot of CoD MW2, Rocket League, Noita and the binding of Isaac." 
+                e"Yes, for a while I've been playing a lot of CoD MW2, Rocket League, Noita and the binding of Isaac." 
         "Any special interests?":
             show enzo special_interest
             e"I have a special interest in computer hardware and anything that has to do with loud fast cars."

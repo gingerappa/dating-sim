@@ -15,8 +15,8 @@
     #$ characters["grayson"]["hearts"] += 1
 
 label max:
-    show max neutral at left
-    with dissolve
+    show max neutral at f11
+
     if "intro" not in player["max"]:
         m "Well, hi!"
         m "I'm Max, nice to meet you."
@@ -59,7 +59,7 @@ label max:
             if "questionsStudy_max" not in player["max"]:
                 $ player["max"].append("questionsStudy_max")
             jump questionsStudy_max
-        "I want to ask something elsm" if "questionsStudy_max" in player["max"]:
+        "I want to ask something else" if "questionsStudy_max" in player["max"]:
             pass
     show max neutral
     m"Sure, ask me."
@@ -144,7 +144,7 @@ label max:
                 "Bye":
                     if characters["max"]["hearts"] >= 0:
                         show max happy
-                        m"Ciao ciao! "
+                        m"Ciao ciao!"
                     else:
                         show max irritated
                         m"Finally."

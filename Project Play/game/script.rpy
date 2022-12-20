@@ -6,6 +6,9 @@ define ts = Character("Thijs Swinkels")
 define e = Character("Enzo Witteveen")
 define m = Character("Max Marzano")
 
+transform f11:
+    zoom 1.5
+
 """
 totalhearts (if food +1)
 jorrit     : 5 | 8
