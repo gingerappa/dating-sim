@@ -1,1 +1,10 @@
-﻿
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/ddm_room.rpy", line 6: expected menuitem
+    show enzo at f11, left
+    ^
+
+Ren'Py Version: Ren'Py 8.0.3.22090809
+Wed Dec 21 12:00:20 2022
