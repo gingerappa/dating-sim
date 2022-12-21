@@ -193,6 +193,7 @@ label pauline:
             jump questionsWork_p
         "Is it actually that hard to keep up with grading?":
             p "no"
+            #TODO: ask to awnser this question
             if "questionsWork_p" not in player["pauline"]:
                 $ player["pauline"].append("questionsWork_p")
             show pauline neutral
@@ -202,8 +203,39 @@ label pauline:
     show pauline neutral
     p "So, any other questions?"
     menu talk_p:
-        "test":
-            "test"
+        "What are your hobbies?":
+            p "I really like to go out for dinner and talk with my friends."
+            p "I also love walking in nature."
+            if "walkingForrest" not in player["pauline"]:
+                menu walkingForrest:
+                    "o lusi likes that too!" if "collectingBugs" in player["lusi"]:
+                        show pauline surprised
+                        p "o, thats great!"
+                        u "maby we can all go on a walk together?"
+                        show pauline happy
+                        p "sure!"
+                        $ characters["pauline"]["hearts"] += 1
+                    "i dont like walking":
+                        show pauline angry
+                        p "well that too bad, i was going to ask you to join me..."
+                        u "o..."
+                        $ characters["pauline"]["hearts"] -= 1
+                    "maby we can go on a walk together!":
+                        show pauline blush
+                        p "yes, i would love that..."
+                        $ characters["pauline"]["hearts"] += 1
+                $ player["pauline"].append("walkingForrest")
+        "Do you play games?":
+            p "Yes I love games. Board games for sure!"
+            #TODO: ask fav board medium and least and add it to a menu
+        "Have any special interests?":
+            p "no"
+            #TODO: ask to awnser this question
+        "Favorite food?":
+            p "Mmm I love Indonesian food."
+
+
+            
 
 
     

@@ -41,8 +41,12 @@ label favFood:
             $ favorite_food = "italian"
         "Strogannof":
             $ favorite_food = "strogannof"
+        "Indonesian food":
+            $ favorite_food = "Indonesian"
         "I have no favorites":
             $ favorite_food = "none"
+            p "ok..."
+            jump map_info
     p "Great choice!"
     jump map_info
 

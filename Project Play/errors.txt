@@ -2,9 +2,21 @@
 errors listed below, and try again.
 
 
-File "game/softaredev_room.rpy", line 725: multiple at clauses are prohibited.
-    show julia neutral at f11 at left
-                                ^
+File "game/av_room.rpy", line 217: expected statement.
+    characters["pauline"]["hearts"] += 1
+                                    ^
+
+File "game/av_room.rpy", line 222: expected statement.
+    characters["pauline"]["hearts"] -= 1
+                                     ^
+
+File "game/av_room.rpy", line 226: expected statement.
+    characters["pauline"]["hearts"] += 1
+                                    ^
+
+File "game/av_room.rpy", line 227: expected menuitem
+    $ player["pauline"].append("walkingForrest")
+    ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed Dec 21 11:54:58 2022
+Wed Dec 21 12:53:25 2022
