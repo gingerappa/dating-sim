@@ -48,7 +48,7 @@ label grayson:
                         gm "Hmpf."
                         $ characters["grayson"]["hearts"] += 1
                 $ player["grayson"].append("jobQuestions_g")
-            show grayson neutral
+                show grayson neutral
                 $ player["grayson"].append("questionsWork_g")
             jump questionsWork_g
         "Do you have a favorite teacher?":
@@ -61,110 +61,108 @@ label grayson:
     show grayson neutral
     gm "Get on with it then."
     menu talk_g:
-        "Ask Enzo something"
+        "Ask Grayson something"
         "What are your hobbies?":
-            e"I love going to the gym, playing games, watching anime, hanging out with friends and going to techno parties."
-            show enzo happy
-            if "gym_e" not in player["enzo"]:
-                e"Do you also hit the gym sometimes?"
-                menu gym_e:
-                    "Yes!":
-                        show enzo blush
-                        e"That's really cool!"
-                        $ characters["enzo"]["hearts"] += 1
-                    "Not really.":
-                        e"That's fine, the gym is not for everyone."
-                    "No, ew...":
-                        show enzo angry
-                        pause
-                        $ characters["enzo"]["hearts"] -= 1
-                $ player["enzo"].append("gym_e")
+            gm "I do a loooot."
+            show grayson happy
+            gm "I play DnD, gaming, drawing but I also enjoy creative writing! These are just the main things I like to do with the little free time I get."
+            if "dnd" not in player["grayson"]:
+                menu dnd:
+                    "What a nerd!":
+                        show grayson neutral
+                        gm "Takes one to notice one."
+                    "DnD is super cool!":
+                        show grayson happy
+                        gm "Damn right it is baby."
+                        $ characters["grayson"]["hearts"] += 1
+                    "Ew...":
+                        show grayson angry
+                        gm "That's the same response I gave when I smelled your breath."
+                        $ characters["grayson"]["hearts"] -= 1
+                $ player["grayson"].append("dnd")
         "Do you play games?":
-                e"Yes, for a while I've been playing a lot of CoD MW2, Rocket League, Noita and the binding of Isaac." 
+                gm "Of course I do!"
+                gm "Matter of fact, I used to play Overwatch professionally. For 2 years in a row I managed to generally stay in top 200 Europe support role! I played with a team for 2,5 years."
+                gm "Don't tell anyone btw, I used to suck absolute ass at the game. I was an adopt a bronze. Ah, the good ol' days."
+                gm "Nowadays I carry Lex from photography. This man plays rein on shift cooldown…"
         "Any special interests?":
-            show enzo happy
-            e"I have a special interest in computer hardware and anything that has to do with loud fast cars."
-            e"And, of course, the gym."
-            $ characters["enzo"]["hearts"] -= 1
+            show grayson happy
+            gm"Larping! Once I month I do Vampire Larp."
+            show grayson special interest
+            e"Max from AV dragged me along and now I love it! I play this character Shiva Lentile. The “adoptive” son of Marcus."
+            $ characters["grayson"]["hearts"] += 1
+            if "shiva" not in player["grayson"]:
+                gm "If you see Max? Tell him that Shiva said {i}hiya old hag{/i}" 
+                u "Okay! Will do!"
+                show grayson blushing
+                gm "So obedient, I like that."
+                $ player["grayson"].append("shiva")
         "Favorite food?":
-            show enzo happy
-            e "My moms Nasi Goreng will forever be the most delicious meal I have ever had!"
-            e "But I'm also a big fan of sushi or anything else rice related. "
+            show grayson surprised
+            gm "Fuuuuck, I wouldn't say I have a favourite food."
+            gm "Mainly because eating just about anything while being high? Everything fucking slaps."
+            gm "But if you really must know? Sushi has a special place in my heart."
             if favorite_food == "sushi":
-                u "OMG same I love sushi"
-                show enzo surprised
-                e"Haha nice!"
-                $ characters["enzo"]["hearts"] += 1
+                u "Oh wow! I love sushi"
+                show grayson happy
+                gm "Let's be real. If you don't, you're crazy."
+                $ characters["grayson"]["hearts"] += 1
         "Flirt!" if adult:
-            menu flirt_e:
-                "Are you single?" if "single" not in player["enzo"]:
-                    if characters["enzo"]["hearts"] > 1 and pronouns == ["she", "her"]:
-                        show enzo blush
-                        e"Yes, I have a severe addiction to gaming and working out, so the touch of a female is something I do not come across very often." 
-                        $ characters["enzo"]["hearts"] += 1
-                        $ player["enzo"].append("single")
-                    if characters["enzo"]["hearts"] < 0:
-                        show enzo angry
-                        e"I'm taken!"
-                    if pronouns != ["she", "her"]:
-                        show enzo neutral
-                        e"Better stop trying, I'm straight" 
-                    
-                "Any plans for after your'e done working??" if "plans" not in player["enzo"]:
-                    if characters["enzo"]["hearts"] > 2:
-                        show enzo happy
-                        e"No, I'm totally free" 
-                        $ characters["enzo"]["hearts"] += 1
+            menu flirt_g:
+                "Are you single?" if "single" not in player["grayson"]:
+                    if characters["grayson"]["hearts"] > 1:
+                        show grayson blushing
+                        gm "I am. Why, asking for a friend?" 
+                        $ characters["grayson"]["hearts"] += 1
+                        $ player["grayson"].append("single")
+                    if characters["grayson"]["hearts"] < 0:
+                        show grayson angry
+                        gm "Not for you, try again."
+                "You are really good looking, did you know that?" if "plans" not in player["grayson"]:
+                    if characters["grayson"]["hearts"] > 2:
+                        show grayson blushing
+                        gm "Why thank you, big compliment coming from a shining star like you. " 
+                        $ characters["grayson"]["hearts"] += 1
                     else:
-                        show enzo angry
-                        e" Gonna hit the gym, its time for a juicy chest pump." 
-                        $ characters["enzo"]["hearts"] -= 1
-                    $ player["enzo"].append("plans")
+                        show grayson angry
+                        gm "Thanks? Anyways… *visible cringe* " 
+                        $ characters["grayson"]["hearts"] -= 1
+                    $ player["grayson"].append("plans")
 
-                "If you were my teacher I would be a teachers pet!" if "teachersPet" not in player["enzo"]:
-                    if characters["enzo"]["hearts"] > 2:
-                        show enzo blush
-                        e"I've always wanted a pet that's obedient and listens to me." 
-                        $ characters["enzo"]["hearts"] += 1
+                "Are you a 90 degree angle because you look so right!" if "teachersPet" not in player["grayson"]:
+                    if characters["grayson"]["hearts"] > 2:
+                        show grayson blushing
+                        gm "I might be! Does that mean I'm also very hot?" 
+                        $ characters["grayson"]["hearts"] += 1
                     else:
-                        show enzo angry
-                        "Enzo cringes so hard that everyone around notices... That's not a good thing." 
-                        $ characters["enzo"]["hearts"] -= 1
-                    $ player["enzo"].append("teachersPet")
+                        show grayson angry
+                        gm "Do I look like I'm the type to enjoy science jokes? {i}*scoff*{/i}" 
+                        $ characters["grayson"]["hearts"] -= 1
+                    $ player["grayson"].append("teachersPet")
                 "No more questions, nevermind!":
-                    show enzo neutral
-                    jump talk_e
-            jump flirt_e
+                    show grayson neutral
+                    jump talk_g
+            jump flirt_g
         "Time to say goodbye":
-            menu goodbye_e:
-                "Thanks for talking to me!":
-                    if "niceGoodbye" not in player["enzo"]:
-                        $ characters["enzo"]["hearts"] += 1
-                    if characters["enzo"]["hearts"] >= 0:
-                        show enzo neutral
-                        e"No problem!"
-                    else:
-                        show enzo angry
-                        e"Bye, kid."
-                    $ player["enzo"].append("niceGoodbye")
+            menu goodbye_g:
                 "Talk to you later!":
-                    if characters["enzo"]["hearts"] > 3:
-                        show enzo blush
-                        e"Hope to see you at the gym!"
+                    if characters["grayson"]["hearts"] > 3:
+                        show grayson blushing
+                        e"I'll be around!"
                     else:
-                        show enzo neutral
-                        e"Alright."
+                        show grayson angry
+                        e"For the love of god? Fuck off."
                 "Bye":
-                    if characters["enzo"]["hearts"] >= 0:
-                        show enzo happy
-                        e"See you!"
+                    if characters["grayson"]["hearts"] >= 0:
+                        show grayson happy
+                        e"Seeya!"
                     else:
-                        show enzo angry
-                        e"Goodbye."
-            show enzo neutral
+                        show grayson angry
+                        e"Bye."
+            show grayson neutral
             window hide
             pause
-            hide enzo
-            jump ddm_room
-    show enzo neutral
-    jump talk_e
+            hide grayson
+            jump foto_room
+    show grayson neutral
+    jump talk_g

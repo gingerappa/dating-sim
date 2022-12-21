@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/ddm_room.rpy", line 6: expected menuitem
-    show enzo at f11, left
+File "game/foto_room.rpy", line 52: Line is indented, but the preceding show statement statement does not expect a block. Please check this line's indentation.
+    $ player["grayson"].append("questionsWork_g")
     ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed Dec 21 12:00:20 2022
+Wed Dec 21 13:37:38 2022
