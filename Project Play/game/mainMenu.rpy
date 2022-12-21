@@ -10,21 +10,22 @@ screen MapUI:
         hover "map/av_hover.png"
         action Jump("av_room")
     imagebutton:
-        xpos 1065
-        ypos 923
-        idle "map/ddm.png"
-        hover "map/ddm_hover.png"
-        action Jump("ddm_room")
-    imagebutton:
-        xpos 1315
-        ypos 974
-        idle "map/sd.png"
-        hover "map/sd_hover.png"
-        action Jump("sd_room")
-    imagebutton:
         xpos 821
         ypos 579
         idle "map/fg.png"
         hover "map/fg_hover.png"
         action Jump("house1_pressed")
+    imagebutton:
+        xpos 1065
+        ypos 973
+        idle "map/ddm.png"
+        hover "map/ddm_hover.png"
+        action Jump("ddm_room")
+    imagebutton:
+        xpos 1215
+        ypos 974
+        idle "map/sd.png"
+        hover "map/sd_hover.png"
+        action Jump("sd_room")
+    
 

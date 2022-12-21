@@ -1,5 +1,6 @@
 ﻿label av_room:
     scene bg av
+    play music "music/class (1).mp3" fadein 1.0 volume 1
     "Welcome to the AV room"
     menu talkToav:
         "Talk to Max":

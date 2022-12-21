@@ -1,18 +1,19 @@
 ﻿label ddm_room:
     scene bg ddm
-    "welcome to the DDM room"
+    play music "music/class (2).mp3" fadein 1.0 volume 1
+    "Welcome to the DDM room!"
     menu talkToDdm:
         #todo: show all npcs options, dissolve them after choosing
         "Who would you like to talk to?"
         "Enzo":
             jump enzo
-        "Someone else":
+        "Leave the room":
             jump main
         
         #todo: enzo says he's straight, tells you to stop trying 
 
 label enzo:
-    show enzo neutral at left
+    show enzo neutral at f11
     with dissolve
     if "intro" not in player["enzo"]:
         e "Hello, student!"
@@ -94,9 +95,12 @@ label enzo:
                         e"Yes, I have a severe addiction to gaming and working out, so the touch of a female is something I do not come across very often." 
                         $ characters["enzo"]["hearts"] += 1
                         $ player["enzo"].append("single")
-                    else:
+                    if characters["enzo"]["hearts"] < 0:
                         show enzo angry
-                        e"I'm taken!" 
+                        e"I'm taken!"
+                    if pronouns != ["she", "her"]:
+                        show enzo neutral
+                        e"Better stop trying, I'm straight" 
                     
                 "Any plans for after your'e done working??" if "plans" not in player["enzo"]:
                     if characters["enzo"]["hearts"] > 2:
@@ -147,9 +151,9 @@ label enzo:
                         show enzo happy
                         e"See you!"
                     else:
-                        show enzo irritated
+                        show enzo angry
                         e"Goodbye."
-            show enzo waving
+            show enzo neutral
             window hide
             pause
             hide enzo
