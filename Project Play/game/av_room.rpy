@@ -5,8 +5,8 @@
     menu talkToav:
         "Talk to Max":
             jump max
-        #"Talk to Pauline":
-            #jump pauline
+        "Talk to Pauline":
+            jump pauline
         "Go away":
             jump main
 
@@ -154,3 +154,57 @@ label max:
             hide max
             jump av_room
     jump talk_m
+
+label pauline:
+    show pauline neutral at f11
+    with dissolve
+    p "hey, its you again!"
+    if characters["pauline"]["hearts"] > 0:
+        p "its nice to see you again"
+    else:
+        p "..."
+    if "intro" not in player["pauline"]:
+        $ player["max"].append("intro")
+    menu questionsWork_p:
+        "What would you like to ask pauline about her job?"
+        "What do you teach the Students?":
+            p "I teach them softskills and helping students with creating overview."
+            menu helpfull_p:
+                "o so you basicly do nothing?":
+                    show pauline angry
+                    p "thats just plain rude!"
+                    $ characters["pauline"]["hearts"] -= 1
+                "o thats really helpfull!":
+                    show pauline happy
+                    p "o thank you!"
+                    $ characters["pauline"]["hearts"] += 1
+            if "questionsWork_p" not in player["pauline"]:
+                $ player["pauline"].append("questionsWork_p")
+            show pauline neutral
+            jump questionsWork_p
+        "Favourite part of your job?":
+            p "The best thing is to inspire the student to find their inner motivation!"
+            u "thats very noble of you"
+            show pauline happy
+            p "thanks its the reson i got into teaching in the first place!"
+            if "questionsWork_p" not in player["pauline"]:
+                $ player["pauline"].append("questionsWork_p")
+            show pauline neutral
+            jump questionsWork_p
+        "Is it actually that hard to keep up with grading?":
+            p "no"
+            if "questionsWork_p" not in player["pauline"]:
+                $ player["pauline"].append("questionsWork_p")
+            show pauline neutral
+            jump questionsWork_p
+        "nothing...":
+            pass
+    show pauline neutral
+    p "So, any other questions?"
+    menu talk_p:
+        "test":
+            "test"
+
+
+    
+

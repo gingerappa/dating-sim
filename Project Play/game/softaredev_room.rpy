@@ -1,24 +1,9 @@
 ﻿label sd_room:
     scene bg sd
-    call screen sd_screen
-    play music "music/class (3).mp3" fadein 1.0 volume 1
     "Welcome to the SD room!"
-    menu talkToSd:
-        "Who would you like to talk to?"
-        "Jorrit":
-            jump jorrit
-        "Thijs":
-            jump thijs
-        "Lusi":
-            jump lusi
-        "Julia":
-            jump julia
-        "Go away":
-            jump main
+    play music "music/class (3).mp3" fadein 1.0 volume 1
+    call screen sd_screen
 
-init:
-    transform customzoom:
-        zoom 1.2
 screen sd_screen:
     imagebutton:
         xpos 0
@@ -313,7 +298,7 @@ label thijs:
                         $ characters["thijs"]["hearts"] -= 1
                     "I hate Jorrit!":
                         show thijs angry
-                        show jorrit angry at right
+                        show jorrit angry at f11, right
                         with dissolve
                         $ characters["thijs"]["hearts"] -= 1
                         $ characters["jorrit"]["hearts"] -= 1
@@ -562,7 +547,7 @@ label lusi:
                         $ characters["lusi"]["hearts"] += 1
                     "I dont, I hate Jorrit!":
                         show lusi angry
-                        show jorrit angry at right
+                        show jorrit angry at f11, right
                         with dissolve
                         js "Well, that's just rude!"
                         ls "Yeah, why would you say that?"
