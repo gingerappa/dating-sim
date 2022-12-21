@@ -107,6 +107,28 @@ label grayson:
                 show grayson happy
                 gm "Let's be real. If you don't, you're crazy."
                 $ characters["grayson"]["hearts"] += 1
+        "I spoke to Max!" if "marcushi" in player["max"]:
+            show grayson surprised
+            gm "What did the cumwipe have to say for himself"
+            u "You're so mean!"
+            show grayson happy
+            gm "Hahah, I knew he was going to say that. But in all seriousness? Being mean is my love language, take it as a compliment kay?" 
+            u "No, wait... Nevermind"
+            u "Marcus told me to say {i}hi kiddo{/i}"
+            show grayson special interest
+            if "shiva" not in player["grayson"]:
+                gm "Well, tell Max that Shiva said {i}hiya old hag{/i}"
+                u "Okay! Will do!"
+                show grayson blushing
+                gm "So obedient, I like that."
+                $ player["grayson"].append("shiva")
+            if "shiva" in player["grayson"] and "marcushi" in player["max"] :
+                show grayson blushing
+                gm "What a nice errand runner you are, you could be a fit for the Sciarpa Rossa, consider it."
+            if "marcushi" not in player["max"]:
+                m "If you see him again, tell him Marcus said {i}hi kiddo{/i}"
+                show max neutral
+                $ player["max"].append("marcushi")
         "Flirt!" if adult:
             menu flirt_g:
                 "Are you single?" if "single" not in player["grayson"]:
@@ -148,17 +170,17 @@ label grayson:
                 "Talk to you later!":
                     if characters["grayson"]["hearts"] > 3:
                         show grayson blushing
-                        e"I'll be around!"
+                        gm"I'll be around!"
                     else:
                         show grayson angry
-                        e"For the love of god? Fuck off."
+                        gm"For the love of god? Fuck off."
                 "Bye":
                     if characters["grayson"]["hearts"] >= 0:
                         show grayson happy
-                        e"Seeya!"
+                        gm"Seeya!"
                     else:
                         show grayson angry
-                        e"Bye."
+                        gm"Bye."
             show grayson neutral
             window hide
             pause

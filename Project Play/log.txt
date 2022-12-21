@@ -1,41 +1,105 @@
-Wed Dec 21 13:39:50 2022
+Wed Dec 21 16:13:30 2022
 Windows-10-10.0.19044
 Ren'Py 8.0.3.22090809
  
 
 Bootstrap to the start of init.init took 0.14s
-Early init took 0.00s
+Early init took 0.01s
 Loader init took 0.13s
-Loading error handling took 0.08s
-Loading script took 0.71s
-Loading save slot metadata. took 0.08s
+Loading error handling took 0.06s
+Loading script took 0.34s
+Loading save slot metadata. took 0.09s
 Loading persistent took 0.00s
 Faled to initialize steam: FileNotFoundError("Could not find module 'E:\\RenPy\\renpy-8.0.3-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
-Running init code took 0.17s
-Loading analysis data took 0.04s
+Running init code took 0.16s
+Loading analysis data took 0.03s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
-Backing up script files to 'C:\\Users\\julia\\AppData\\Roaming/RenPy/backups\\Project Play':
-Dump and make backups. took 0.17s
+Dump and make backups. took 0.16s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.04s
+Initial gc. took 0.03s
 DPI scale factor: 1.250000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
 Creating interface object took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.10s
+Init translation took 0.06s
+Build styles took 0.01s
+Load screen analysis took 0.05s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.13s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.18s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'ATI Technologies Inc.'"
+Renderer: b'AMD Radeon(TM) Vega 8 Graphics'
+Version: b'4.6.13560 Compatibility Profile Context 26.20.11030.22001'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1724, 970) drawable=(1724, 970)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/foto_room.rpy", line 125, in script
+    if "shiva" in player["grayson"] & "marcushi" in player["max"] :
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 2115, in execute
+    if renpy.python.py_eval(condition):
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 1092, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/foto_room.rpy", line 125, in <module>
+    if "shiva" in player["grayson"] & "marcushi" in player["max"] :
+TypeError: unsupported operand type(s) for &: 'RevertableList' and 'str'
+
+While running game code:
+  File "game/foto_room.rpy", line 125, in script
+    if "shiva" in player["grayson"] & "marcushi" in player["max"] :
+  File "game/foto_room.rpy", line 125, in <module>
+    if "shiva" in player["grayson"] & "marcushi" in player["max"] :
+TypeError: unsupported operand type(s) for &: 'RevertableList' and 'str'
+Resetting cache.
+Bootstrap to the start of init.init took 132.79s
+Early init took 0.00s
+Loader init took 0.13s
+Loading error handling took 0.05s
+Loading script took 0.41s
+Loading save slot metadata. took 0.07s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'E:\\RenPy\\renpy-8.0.3-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.07s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.01s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\julia\\AppData\\Roaming/RenPy/backups\\Project Play':
+Dump and make backups. took 0.14s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.07s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.07s
 Build styles took 0.01s
 Load screen analysis took 0.00s
 Analyze screens took 0.02s
-Save screen analysis took 0.03s
-Prepare screens took 0.10s
-Save pyanalysis. took 0.02s
-Save bytecode. took 0.06s
+Save screen analysis took 0.06s
+Prepare screens took 0.11s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.19s
+Interface start took 0.09s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)

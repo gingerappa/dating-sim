@@ -1,1 +1,28 @@
-﻿
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/foto_room.rpy", line 125, in script
+    if "shiva" in player["grayson"] & "marcushi" in player["max"] :
+  File "game/foto_room.rpy", line 125, in <module>
+    if "shiva" in player["grayson"] & "marcushi" in player["max"] :
+TypeError: unsupported operand type(s) for &: 'RevertableList' and 'str'
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/foto_room.rpy", line 125, in script
+    if "shiva" in player["grayson"] & "marcushi" in player["max"] :
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 2115, in execute
+    if renpy.python.py_eval(condition):
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 1092, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/foto_room.rpy", line 125, in <module>
+    if "shiva" in player["grayson"] & "marcushi" in player["max"] :
+TypeError: unsupported operand type(s) for &: 'RevertableList' and 'str'
+
+Windows-10-10.0.19044 AMD64
+Ren'Py 8.0.3.22090809
+Project Play 0.2
+Wed Dec 21 16:14:58 2022
