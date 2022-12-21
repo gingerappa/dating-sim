@@ -1,28 +1,80 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/softaredev_room.rpy", line 810, in script
-    if favorite == "strogannof" and "strogannofKnow" not in player["julia"]:
-  File "game/softaredev_room.rpy", line 810, in <module>
-    if favorite == "strogannof" and "strogannofKnow" not in player["julia"]:
-NameError: name 'favorite' is not defined
+  File "game/mainMenu.rpy", line 3, in script
+    call screen MapUI
+  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+Exception: Could not find font 'pixel.ttf'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/softaredev_room.rpy", line 810, in script
-    if favorite == "strogannof" and "strogannofKnow" not in player["julia"]:
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 2115, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 1092, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/softaredev_room.rpy", line 810, in <module>
-    if favorite == "strogannof" and "strogannofKnow" not in player["julia"]:
-NameError: name 'favorite' is not defined
+  File "game/mainMenu.rpy", line 3, in script
+    call screen MapUI
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 2232, in execute
+    self.call("execute")
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 2220, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\statements.py", line 281, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\exports.py", line 3181, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\core.py", line 3377, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\core.py", line 3912, in interact_core
+    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\core.py", line 2602, in draw_screen
+    surftree = renpy.display.render.render_screen(
+  File "render.pyx", line 495, in renpy.display.render.render_screen
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\screen.py", line 704, in render
+    child = renpy.display.render.render(self.child, w, h, st, at)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\layout.py", line 1060, in render
+    surf = render(d, rw, height - y, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\behavior.py", line 885, in render
+    rv = super(Button, self).render(width, height, st, at)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\layout.py", line 1334, in render
+    surf = render(child,
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\text\text.py", line 2109, in render
+    virtual_layout = Layout(self, width, height, renders, drawable_res=False, size_only=True)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\text\text.py", line 656, in __init__
+    glyphs = ts.glyphs(s, self)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\text\text.py", line 255, in glyphs
+    fo = font.get_font(self.font, self.size, self.bold, self.italic, 0, self.antialias, self.vertical, self.hinting, layout.oversample)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\text\font.py", line 717, in get_font
+    face = load_face(fn)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\text\font.py", line 658, in load_face
+    raise Exception("Could not find font {0!r}.".format(orig_fn))
+Exception: Could not find font 'pixel.ttf'.
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
 Project Play 0.1
-Tue Dec 20 14:50:04 2022
+Tue Dec 20 16:02:28 2022

@@ -259,7 +259,7 @@ label thijs:
             if "questionsStudent_ts" not in player["thijs"]:
                 $ player["thijs"].append("questionsStudent_ts")
             jump questionsStudent_ts
-        "What’s your elective subject?":
+        "What's your elective subject?":
             show thijs happy
             ts "Gameplay which is basically just game design but a cooler name"
             ts "It has notting to do with programming more with how to create a game"
@@ -486,15 +486,16 @@ label lusi:
                         ls "Ok"
                         $ characters["lusi"]["hearts"] += 1
                     "what things?":
-                        show lusi angry
+                        show lusi neutral
                         ls "Nothing..."
+                        show lusi blushing
                         "{i}clown noices...{/i}"
                 $ player["lusi"].append("otherThings")
             if "questionsStudent" not in player["lusi"]:
                 $ player["lusi"].append("questionsStudent")
             show lusi neutral
             jump questionsStudent_ls
-        "What’s your elective subject?":
+        "What's your elective subject?":
             show lusi happy
             ls "My elective subjects are Game design and agile game development."
             ls "I really really really like game design! It’s helping me a lot with my own game projects"
@@ -535,6 +536,7 @@ label lusi:
                         show jorrit angry at right
                         with dissolve
                         js "well thats just rude!"
+                        hide jorrit
                         ls "yea, why would you say that?"
                         $ characters["lusi"]["hearts"] -= 1
                         $ characters["jorrit"]["hearts"] -= 1
@@ -740,7 +742,7 @@ label julia:
                 $ player["julia"].append("questionsStudent")
             show julia neutral
             jump questionsStudent_jl
-        "What’s your elective subject?":
+        "What's your elective subject?":
             show julia happy
             jl "I chose Gameplay and Agile"
             jl "Gameplay teaches us how to make good games and how to make the user enjoy them."
