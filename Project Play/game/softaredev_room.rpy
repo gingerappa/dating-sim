@@ -1,5 +1,6 @@
 ﻿label sd_room:
     scene bg sd
+    call screen sd_screen
     play music "music/class (3).mp3" fadein 1.0 volume 1
     "Welcome to the SD room!"
     menu talkToSd:
@@ -14,7 +15,35 @@
             jump julia
         "Go away":
             jump main
-        
+
+init:
+    transform customzoom:
+        zoom 1.2
+screen sd_screen:
+    imagebutton:
+        xpos 0
+        ypos 360
+        idle "characters/jorrit/jorrit neutral.png"
+        hover "characters/jorrit/jorrit happy.png"
+        action Jump("jorrit")
+    imagebutton:
+        xpos 473
+        ypos 360
+        idle "characters/thijs/thijs neutral.png"
+        hover "characters/thijs/thijs happy.png"
+        action Jump("thijs")
+    imagebutton:
+        xpos 946
+        ypos 360
+        idle "characters/lusi/lusi neutral.png"
+        hover "characters/lusi/lusi happy.png"
+        action Jump("lusi")
+    imagebutton:
+        xpos 1419
+        ypos 360
+        idle "characters/julia/julia neutral.png"
+        hover "characters/julia/julia happy.png"
+        action Jump("julia")
 
 label jorrit:
     show jorrit neutral at f11
@@ -22,7 +51,7 @@ label jorrit:
     if "intro" not in player["jorrit"]:
         js "Hey, welcome!"
         js "I assume you're the future student Pauline told me about"
-        js "Let me introduce myself…"
+        js "Let me introduce myself..."
         js "I'm Jorrit, nice to meet you."
         u "Hi Jorrit! Nice to meet you too!"
         $ player["jorrit"].append("intro")
@@ -424,7 +453,7 @@ label thijs:
                         $ characters["thijs"]["hearts"] += 1
                     else:
                         show thijs angry
-                        ts "Nah, I'm pretty busy making this game…"
+                        ts "Nah, I'm pretty busy making this game..."
                         $ characters["thijs"]["hearts"] -= 1
                     $ player["thijs"].append("busy_ts")
                 "Nevermind...":
@@ -891,7 +920,7 @@ label julia:
                         jl "See ya! Make sure to check the DDM place as well!!"
                     else:
                         show julia angry
-                        jl "Ugh…"
+                        jl "Ugh..."
                 "Bye.":
                     if characters["julia"]["hearts"] > 1:
                         show julia happy

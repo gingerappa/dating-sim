@@ -1,1 +1,10 @@
-﻿
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/softaredev_room.rpy", line 19: Line is indented, but the preceding screen statement does not expect a block. Please check this line's indentation.
+    imagebutton:
+    ^
+
+Ren'Py Version: Ren'Py 8.0.3.22090809
+Wed Dec 21 11:03:32 2022

@@ -5,7 +5,7 @@
     menu talkToav:
         "Talk to Max":
             jump max
-        #"Talk to Paulinm":
+        #"Talk to Pauline":
             #jump pauline
         "Go away":
             jump main
@@ -107,11 +107,11 @@ label max:
                 "You are really good looking, did you know that?" if "mwa" not in player["max"]:
                     if characters["max"]["hearts"] > 1:
                         show max blush
-                        m "Oh… you think so? Thank you!" 
+                        m "Oh... you think so? Thank you!" 
                         $ characters["max"]["hearts"] += 1
                     else:
                         show max surprised
-                        m "I mean.. thanks, I think? This is weird… " 
+                        m "I mean.. thanks, I think? This is weird... " 
                         $ characters["max"]["hearts"] -= 1
                     $ player["max"].append("mwa")
 

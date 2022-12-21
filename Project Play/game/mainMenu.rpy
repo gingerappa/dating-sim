@@ -2,7 +2,6 @@ label main:
     scene bg map
     call screen MapUI
 screen MapUI:
-    #add "map/bg map.png"
     imagebutton:
         xpos 681
         ypos 296
