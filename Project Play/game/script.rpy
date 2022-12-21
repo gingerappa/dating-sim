@@ -55,8 +55,8 @@ init python:
 label start:
     $ pronouns = ["the player, the player"]
     $ adult = True
-    $ characters = {"jorrit":{"hearts":0}, "thijs":{"hearts":0}, "lusi":{"hearts":0}, "julia":{"hearts":0}, "enzo":{"hearts":0}, "pauline":{"hearts":0},"max":{"hearts":0},"grayson":{"hearts":0}}
-    $ player = {"jorrit":[], "thijs":[], "lusi":[], "julia":[], "enzo":[], "pauline":[], "max":[], "grayson":[]}
+    $ characters = {"jorrit":{"hearts":0}, "thijs":{"hearts":0}, "lusi":{"hearts":0}, "julia":{"hearts":0}, "enzo":{"hearts":0}, "pauline":{"hearts":0},"max":{"hearts":0},"grayson":{"hearts":0}, "kevin":{"hearts":0}, "lex":{"hearts":0},"robin":{"hearts":0},"sam":{"hearts":0}}
+    $ player = {"jorrit":[], "thijs":[], "lusi":[], "julia":[], "enzo":[], "pauline":[], "max":[], "grayson":[], "kevin":[], "lex":[], "robin":[], "sam":[]}
     $ favorite_food = "Candy"
     jump tutorial
 

@@ -1,10 +1,1 @@
-﻿I'm sorry, but errors were detected in your script. Please correct the
-errors listed below, and try again.
-
-
-File "game/tutorial.rpy", line 30: Line is indented, but the preceding say menuitem statement does not expect a block. Please check this line's indentation.
-    "What's your favorite food?"
-    ^
-
-Ren'Py Version: Ren'Py 8.0.3.22090809
-Tue Dec 20 20:57:37 2022
+﻿
