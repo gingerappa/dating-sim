@@ -7,6 +7,8 @@
         "Who would you like to talk to?"
         "Enzo":
             jump enzo
+        "Kevin":
+            jump kevin
         "Leave the room":
             jump main
         
@@ -160,3 +162,139 @@ label enzo:
             jump ddm_room
     show enzo neutral
     jump talk_e
+    
+label kevin:
+    show kevin neutral at f11
+    with dissolve
+    if "intro" not in player["kevin"]:
+        kd "Hi!"
+        kd "I'm Kevin, you probably heard about me already."
+        u "Hey Kevin! OMG I was so excited to see you here!"
+        kd "Everyone is playing this just to talk to me, tsc tsc"
+        $ player["kevin"].append("intro")
+        $ characters["kevin"]["hearts"] += 1
+    else:
+        kd "Hello! Anything new?"
+    menu questionsWork_k:
+        "What would you like to ask Kevin about his job?"
+        "What do you teach the students?":
+            kd "I teach my students 3D modelling and Texturing."
+            if "questionsWork_e" not in player["kevin"]:
+                $ player["kevin"].append("questionsWork_k")
+            jump questionsWork_k
+        "Favorite part of your job?":
+            kd "My favorite part is joking around with students and colleagues."
+            if "jobQuestions_k" not in player["kevin"]:
+                menu jobQuestions_k:
+                    "Really? You seem so serious tho":
+                        show kevin angry
+                        kd "Is that a bad thing?"
+                        $ characters["kevin"]["hearts"] -= 1
+                    "So that's why everyone loves you!":
+                        show kevin happy
+                        kd"I guess so? Haha"
+                        $ characters["kevin"]["hearts"] += 1
+                $ player["kevin"].append("jobQuestions_k")
+            show kevin neutral
+            if "questionsWork_k" not in player["kevin"]:
+                $ player["kevin"].append("questionsWork_k")
+            jump questionsWork_k
+        "I want to ask something else" if "questionsWork_k" in player["kevin"]:
+            pass
+    show kevin neutral
+    kd "Go on then."
+    menu talk_k:
+        "Ask Kevin something"
+        "What are your hobbies?":
+            kd "My hobbies are playing guitar and bass as well as playing baseball."
+            show kevin happy
+            if "dream_k" not in player["kevin"]:
+                show kevin neutral
+                kd "What do you think of that, huh?"
+                menu dream_k:
+                    "It's just like a dream":
+                        show kevin blush
+                        kd "Staawp!"
+                        $ characters["kevin"]["hearts"] += 1
+                    "It's nice":
+                        kd"Thanks, thanks"
+                    "Veeery boring":
+                        show kevin angry
+                        pause
+                        $ characters["kevin"]["hearts"] -= 1
+                $ player["kevin"].append("dream_k")
+        "Do you play games?":
+                kd "I have very little spare time, but when I do I usually play Gears of War competitive." 
+        "Any special interests?":
+            show kevin happy
+            kd "I am in love with the work made by ILM and movie scores by Hans Zimmer."
+            $ characters["kevin"]["hearts"] += 1
+        "Favorite food?":
+            show kevin happy
+            kd "My favorite food is a good warm bowl of udon noodles with teriyaki sauce and vegetables!"
+            if favorite_food == "noodles":
+                u "Slay! Same!"
+                show enzo suprised
+                kd "Haha nice!"
+                $ characters["kevin"]["hearts"] += 1
+        "Flirt!" if adult:
+            menu flirt_k:
+                "Are you single?" if "single" not in player["kevin"]:
+                    if characters["kevin"]["hearts"] > 1:
+                        show kevin blush
+                        kd "For you I am!" 
+                        $ characters["kevin"]["hearts"] += 1
+                        $ player["kevin"].append("single")
+                    if characters["kevin"]["hearts"] < 0:
+                        show kevin angry
+                        e"You're too short for me."                   
+                "Any plans for after your'e done working??" if "plans" not in player["kevin"]:
+                    if characters["kevin"]["hearts"] > 1:
+                        show kevin happy
+                        kd"Well… I'm planning on taking you home with me." 
+                        $ characters["kevin"]["hearts"] += 2
+                    else:
+                        show kevin neutral
+                        kd"Ohhh sorry I'm not looking for a relationship right now." 
+                    $ player["kevin"].append("plans")
+
+                "If you were my teacher I would be a teachers pet!" if "teachersPet" not in player["kevin"]:
+                    if characters["kevin"]["hearts"] > 1:
+                        show kevin happy
+                        kd "Would you be willing to wear a leash and sit by my side all day?"
+                        u "Woof woof!" 
+                        show kevin blush
+                        kd "Good."
+                        show kevin happy
+                        $ characters["kevin"]["hearts"] += 2
+                    else:
+                        show kevin angry
+                        "Go kiss some other ass. You are not getting a better grade." 
+                        $ characters["kevin"]["hearts"] -= 1
+                    $ player["kevin"].append("teachersPet")
+                "Nevermind!":
+                    show kevin neutral
+                    jump talk_k
+            jump flirt_k
+        "Time to say goodbye":
+            menu goodbye_k:
+                "Thanks for talking to me!":
+                    if "niceGoodbye" not in player["kevin"]:
+                        $ characters["kevin"]["hearts"] += 1
+                    if characters["kevin"]["hearts"] >= 0:
+                        show kevin happy
+                        kd"My pleasure!"
+                    else:
+                        show kevin angry
+                        kd"Just go, bye."
+                    $ player["kevin"].append("niceGoodbye")
+                "Bye":
+                    show kevin neutral
+                    e "Bye!"
+            show kevin neutral
+            window hide
+            pause
+            hide kevin
+            jump ddm_room
+    show kevin neutral
+    jump talk_k
