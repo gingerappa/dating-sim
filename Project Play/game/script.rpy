@@ -21,6 +21,14 @@ thijs      : 6 | 9
 transform f11:
     zoom 1.5
 
+transform midleft:
+    zoom 1.5
+    xpos 300
+
+transform midright:
+    zoom 1.5
+    xpos 900
+
 init python:
     config.keymap['rollback'] = []
     config.keymap['screenshot'] = []

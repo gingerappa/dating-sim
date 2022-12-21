@@ -1,24 +1,39 @@
 ﻿label sd_room:
     scene bg sd
-    play music "music/class (3).mp3" fadein 1.0 volume 1
+    play music "music/class (1).mp3" fadein 1.0 volume 1
+    show jorrit neutral at f11, left
+    show thijs neutral at midright
+    show lusi neutral at f11, right
+    show julia neutral at midleft
     "Welcome to the SD room!"
     menu talkToSd:
         "Who would you like to talk to?"
         "Jorrit":
+            hide thijs
+            hide julia
+            hide lusi
             jump jorrit
         "Thijs":
+            hide jorrit
+            hide julia
+            hide lusi
             jump thijs
         "Lusi":
+            hide thijs
+            hide julia
+            hide jorrit
             jump lusi
         "Julia":
+            hide thijs
+            hide jorrit
+            hide lusi
             jump julia
         "Go away":
             jump main
         
-
 label jorrit:
-    show jorrit neutral at f11
-    with dissolve
+    show jorrit neutral at f11, left
+    with move
     if "intro" not in player["jorrit"]:
         js "Hey, welcome!"
         js "I assume you're the future student Pauline told me about"
@@ -213,8 +228,8 @@ label jorrit:
     jump talk_js
 
 label thijs:
-    show thijs neutral at f11
-    with dissolve
+    show thijs neutral at left
+    with move
     u "Hey!"
     if characters["thijs"]["hearts"] > 1:
         ts "Ola, mi llamo thijs como estas?"
@@ -468,8 +483,8 @@ label thijs:
     jump talk_ts
             
 label lusi:
-    show lusi neutral at f11
-    with dissolve
+    show lusi neutral at f11, left
+    with move
     ls "Heya!"
     if "intro" not in player["lusi"]:
         ls "I'm Lusi!"
@@ -708,8 +723,8 @@ label lusi:
     jump talk_ls
     
 label julia:
-    show julia neutral at f11
-    with dissolve
+    show julia neutral at left
+    with move
     if "intro" not in player["julia"]:
         jl "Hello there! Im Julia, all good?"
         $ player["julia"].append("intro")

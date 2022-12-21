@@ -3,9 +3,9 @@
     play music "music/class (2).mp3" fadein 1.0 volume 1
     show enzo neutral at f11, left
     show kevin neutral at f11, right
+    show robin neutral at midleft
     "Welcome to the DDM room!"
     menu talkToDdm:
-        #todo: show all npcs options, dissolve them after choosing
         "Who would you like to talk to?"
         "Enzo":
             hide kevin
@@ -171,7 +171,7 @@ label enzo:
     
 label kevin:
     show kevin neutral at f11
-    with dissolve
+    with move
     if "intro" not in player["kevin"]:
         kd "Hi!"
         kd "I'm Kevin, you probably heard about me already."
@@ -306,8 +306,8 @@ label kevin:
     jump talk_k
 
 label robin:
-    show robin neutral at f11
-    with dissolve
+    show robin neutral at left
+    with move
     if "intro" not in player["robin"]:
         rh "Hello hello!"
         rh "Welcome, I'm Robin!"
@@ -426,4 +426,4 @@ label robin:
             hide robin
             jump ddm_room
     show robin neutral
-jump talk_r
+    jump talk_r

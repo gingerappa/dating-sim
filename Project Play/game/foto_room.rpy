@@ -1,6 +1,6 @@
 ﻿label foto_room:
     scene bg foto
-    play music "music/class (4).mp3" fadein 1.0 volume 1
+    play music "music/class (3).mp3" fadein 1.0 volume 1
     show grayson neutral at f11, left
     #show other npc neutral at f11, right
     "Welcome to the Fotografie room!"
@@ -38,10 +38,10 @@ label grayson:
                     "Wait, what are you doing in the Fotografie room then?":
                         show grayson angry
                         gm "Oh, I was bored, so now I'm visiting this loser Lex"
-                        show lex angry
+                        show lex angry at midright
                         l "Hey! I'm listening!"
-                        pause
                         hide lex
+                        show grayson neutral
                     "What are you doing in the Fotografie room then? Got lost? Haha":
                         show grayson happy
                         gm "So you're not all bark no bite then"
@@ -52,7 +52,7 @@ label grayson:
                 $ player["grayson"].append("questionsWork_g")
             jump questionsWork_g
         "Do you have a favorite teacher?":
-            gm " have many teachers that I vibe with, but I'd say Kevin Driessen, Enzo Witteveen and Robin Hilt are the teachers I get along with most."
+            gm "I have many teachers that I vibe with, but I'd say Kevin Driessen, Enzo Witteveen and Robin Hilt are the teachers I get along with most."
             if "questionsWork_g" not in player["grayson"]:
                 $ player["grayson"].append("questionsWork_g")
             jump questionsWork_g
@@ -63,7 +63,7 @@ label grayson:
     menu talk_g:
         "Ask Grayson something"
         "What are your hobbies?":
-            gm "I do a loooot."
+            gm "I do a loooot"
             show grayson happy
             gm "I play DnD, gaming, drawing but I also enjoy creative writing! These are just the main things I like to do with the little free time I get."
             if "dnd" not in player["grayson"]:
@@ -89,7 +89,7 @@ label grayson:
             show grayson happy
             gm"Larping! Once I month I do Vampire Larp."
             show grayson special interest
-            e"Max from AV dragged me along and now I love it! I play this character Shiva Lentile. The “adoptive” son of Marcus."
+            gm"Max from AV dragged me along and now I love it! I play this character Shiva Lentile. The “adoptive” son of Marcus."
             $ characters["grayson"]["hearts"] += 1
             if "shiva" not in player["grayson"]:
                 gm "If you see Max? Tell him that Shiva said {i}hiya old hag{/i}" 
@@ -125,10 +125,6 @@ label grayson:
             if "shiva" in player["grayson"] and "marcushi" in player["max"] :
                 show grayson blushing
                 gm "What a nice errand runner you are, you could be a fit for the Sciarpa Rossa, consider it."
-            if "marcushi" not in player["max"]:
-                m "If you see him again, tell him Marcus said {i}hi kiddo{/i}"
-                show max neutral
-                $ player["max"].append("marcushi")
         "Flirt!" if adult:
             menu flirt_g:
                 "Are you single?" if "single" not in player["grayson"]:

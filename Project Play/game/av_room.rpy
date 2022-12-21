@@ -1,11 +1,12 @@
 ﻿label av_room:
     scene bg av
-    play music "music/class (1).mp3" fadein 1.0 volume 1
+    play music "music/class (4).mp3" fadein 1.0 volume 1
+    show max neutral at f11, left
     "Welcome to the AV room"
     menu talkToav:
         "Talk to Max":
             jump max
-        #"Talk to Paulinm":
+        #"Talk to Pauline":
             #jump pauline
         "Go away":
             jump main
