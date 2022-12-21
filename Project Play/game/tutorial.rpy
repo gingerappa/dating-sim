@@ -1,14 +1,7 @@
-﻿define p = Character("Pauline")
-define u = Character("You")
-define g = Character("Game devs")
+﻿label tutorial:
 
-# The game starts here.
-
-label tutorial:
-
-    scene Placeholder
-
-    show eileen happy at left
+    scene sintlucas bg
+    show pauline happy at f11
 
     p "Hi! Welcome to SintLucas!"
     p "I'm Pauline and I'll be your guide today"
@@ -29,22 +22,29 @@ label tutorial:
         
     p "Alright! I'll remember that!"
     p "It's amazing to meet you, can I know your age?"
-    jump favFood
+    jump age
 
 label favFood:
+    p "Also, what is your favorite food?"
     menu Favorite_food:
-        "also, what is your favorite food?"
-        "hamburger":
+        "What is your favorite food?"
+        "Hamburger":
             $ favorite_food = "hamburger"
         "Chicken wings":
             $ favorite_food = "Chicken wings"
         "Candy":
             $ favorite_food = "Candy"
-            p "here you go, have some candy! and"
+            p "Here you go, have some candy!"
+        "Sushi":
+            $ favorite_food = "sushi"
+        "Italian food":
+            $ favorite_food = "italian"
         "Strogannof":
             $ favorite_food = "strogannof"
-    p "great choice!"
-    jump age
+        "I have no favorites":
+            $ favorite_food = "none"
+    p "Great choice!"
+    jump map_info
 
 label age:
     menu:
@@ -52,9 +52,9 @@ label age:
 
         "I'm a minor":
             $ adult = False
-            show eileen happy    
+            show pauline happy    
             p "Thanks for your honesty!"
-            jump map_info
+            jump Favorite_food
             
         "I'm 18+":
             $ adult = True
@@ -63,14 +63,11 @@ label age:
             p "Thanks! The game is now addapted to your age."
             p "Welcome..."
             p "to the Sintlucas DATING simulator"
-            jump map_info
+            jump Favorite_food
 
         "Why is that important?":
             p "It's important that I know your age so that I can optimise the game to best fill your expectations and provide you a nice experience!"
-            jump age
-
-
-        
+            jump age      
 
 label map_info:
     p "Now that we have every important information about you, let's head to the real fun."
@@ -81,20 +78,18 @@ label map_info:
     p "Using it is quite simple, I'll teach you!"
     hide bg map
     #TODO: show picture of arcade button
-    p "Just press the third button on the arcade machine, just like this one! That should open the map."
-    p "With the map open, just hover around a place and click to go there. The paths aren't that long, so you should be able to arrive in a few seconds."
+    p "With the map open, just hover around a place and click to go there."
+    p "The paths aren't that long, so you should be able to arrive in a few seconds."
 
     menu understand_map:
         "Did you understand everything?"
 
         "Not really, can you repeat?":
-            p "Just press the third button on the arcade machine, just like this one! That should open the map."
-            p "With the map open, just hover around a place and click to go there. The paths aren't that long, so you should be able to arrive in a few seconds." 
+            p "Just use the mouse the click where you'd like to go!"
             jump understand_map
 
         "Yes!":
             p "Alright! Thanks for listening."
             p "Feel free to explore all the classrooms. I'd specially recommend visiting the DDM place, there are some cool people in there."
             u "Okay, thanks!"
-            play music "music/main.mp3" fadein 1.0 volume 0.1
             jump end

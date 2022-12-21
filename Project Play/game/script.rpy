@@ -1,15 +1,26 @@
-﻿define p = Character("Pauline")
-define u = Character("You")
+﻿define e = Character("Enzo Witteveen")
 define g = Character("Game devs")
-define js = Character("Jorrit Slaats")
-define ts = Character("Thijs Swinkels")
-define ls = Character("Lusi Ryborz")
+define gm = Character("Grayson Middelink")
 define jl = Character("Julia Wiebbelling")
+define js = Character("Jorrit Slaats")
+define kd = Character("Kevin Driessen")
+define l = Character("Lex van den Bergh")
+define ls = Character("Lusi Ryborz")
+define m = Character("Max Marzano")
+define p = Character("Pauline")
+define rh = Character("Robin Hilt")
+define sk = Character("Sam Kaufman")
+define ts = Character("Thijs Swinkels")
+define u = Character("You")
+
 """
 totalhearts (if food +1)
 jorrit     : 5 | 8
 thijs      : 6 | 9
 """
+transform f11:
+    zoom 1.5
+
 init python:
     config.keymap['rollback'] = []
     config.keymap['screenshot'] = []
@@ -44,15 +55,15 @@ init python:
 label start:
     $ pronouns = ["the player, the player"]
     $ adult = True
-    $ characters = {"jorrit":{"hearts":0}, "thijs":{"hearts":0}, "lusi":{"hearts":0}, "julia":{"hearts":0}}
-    $ player = {"jorrit":[], "thijs":[], "lusi":[], "julia":[]}
+    $ characters = {"jorrit":{"hearts":0}, "thijs":{"hearts":0}, "lusi":{"hearts":0}, "julia":{"hearts":0}, "enzo":{"hearts":0}, "pauline":{"hearts":0},"max":{"hearts":0},"grayson":{"hearts":0}, "kevin":{"hearts":0}, "lex":{"hearts":0},"robin":{"hearts":0},"sam":{"hearts":0}}
+    $ player = {"jorrit":[], "thijs":[], "lusi":[], "julia":[], "enzo":[], "pauline":[], "max":[], "grayson":[], "kevin":[], "lex":[], "robin":[], "sam":[]}
     $ favorite_food = "Candy"
     jump tutorial
 
 label house1_pressed:
     scene bg classroom
-    "welcome to a classroom!"
-    "hind, go to the sd room for the prototype ;)"
+    "Welcome to a classroom!"
+    "This will be updated soon, for now please explore the other classrooms!"
     jump main
 label end:
     jump main
