@@ -133,7 +133,7 @@ label grayson:
                         gm "I am. Why, asking for a friend?" 
                         $ characters["grayson"]["hearts"] += 1
                         $ player["grayson"].append("single")
-                    if characters["grayson"]["hearts"] < 0:
+                    if characters["grayson"]["hearts"] < 1:
                         show grayson angry
                         gm "Not for you, try again."
                 "You are really good looking, did you know that?" if "plans" not in player["grayson"]:

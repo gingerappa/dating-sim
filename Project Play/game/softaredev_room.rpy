@@ -422,18 +422,18 @@ label thijs:
                     $ player["thijs"].append("GoodLooking_ts")
                 "Are you a 90 degree angle because you look so right!" if "angle_ts" not in player["thijs"]:
                     if characters["thijs"]["hearts"] > 3:
-                        show thijs blush
+                        show thijs blushing
                         pause
                         ts "Really, with that. Damn, you're good."
                         $ characters["thijs"]["hearts"] += 1
                     else:
                         show thijs angry
-                        ts "Iight, Imma just turn a 180 degrees around and walk away"
+                        ts "Aight, Imma just turn a 180 degrees around and walk away"
                         $ characters["thijs"]["hearts"] -= 1
                     $ player["thijs"].append("angle_ts")
                 "Does school keep you busy? Or is love also a priority?" if "busy_ts" not in player["thijs"]:
                     if characters["thijs"]["hearts"] > 3:
-                        show thijs blush
+                        show thijs blushing
                         pause
                         ts "For you, it is..."
                         $ characters["thijs"]["hearts"] += 1
