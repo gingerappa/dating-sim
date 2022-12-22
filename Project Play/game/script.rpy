@@ -9,7 +9,7 @@ define ls = Character("Lusi Ryborz")
 define m = Character("Max Marzano")
 define p = Character("Pauline")
 define rh = Character("Robin Hilt")
-define sk = Character("Sam Kaufman")
+define s = Character("Sam Kaufman")
 define ts = Character("Thijs Swinkels")
 define u = Character("You")
 

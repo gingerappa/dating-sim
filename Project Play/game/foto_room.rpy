@@ -278,7 +278,7 @@ label lex:
                 "You are really good looking, did you know that?" if "plans" not in player["lex"] and pronouns == ["she", "her"]:
                     if characters["lex"]["hearts"] > 1:
                         show lex blushing
-                        l "h thank you, you don't look too bad yourself you know?" 
+                        l "Ah thank you, you don't look too bad yourself you know?" 
                         $ characters["lex"]["hearts"] += 1
                     else:
                         show lex angry

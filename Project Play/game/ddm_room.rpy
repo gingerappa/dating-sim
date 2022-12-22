@@ -2,23 +2,32 @@
     scene bg ddm
     play music "music/class (2).mp3" fadein 1.0 volume 1
     show enzo neutral at f11, left
-    show kevin neutral at f11, right
-    show robin neutral at midleft
+    show kevin neutral at midleft
+    show robin neutral at midright
+    show sam neutral at f11, right
     "Welcome to the DDM room!"
     menu talkToDdm:
         "Who would you like to talk to?"
         "Enzo":
             hide kevin
             hide robin
+            hide sam
             jump enzo
         "Kevin":
             hide enzo
             hide robin
+            hide sam
             jump kevin
         "Robin":
             hide enzo
             hide kevin
+            hide sam
             jump robin
+        "Sam":
+            hide enzo
+            hide kevin
+            hide robin
+            jump sam
         "Leave the room":
             jump main
         
@@ -429,3 +438,134 @@ label robin:
             jump ddm_room
     show robin neutral
     jump talk_r
+
+label sam:
+    show sam neutral at f11, left
+    with move
+    if "intro" not in player["sam"]:
+        s "Hello!"
+        s "I'm Sam Kaufmann, welcome!"
+        u "Hey Sam! Nice to see you here."
+        $ player["sam"].append("intro")
+    else:
+        s "Welcome back!"
+    menu questionsWork_s:
+        "What would you like to ask Sam about work?"
+        "What do you teach the Students?":
+            s "IIllustration!"
+            s "In my class the students get to discover the different sides of what illustration can be, with a focus on exploring all kinds ofways to create interesting and engaging images. Developing a strong concept is half the work sometimes."
+            if "questionsWork_s" not in player["sam"]:
+                $ player["sam"].append("questionsWork_s")
+                menu grading:
+                    "Is it actually that hard to keep up with grading?":
+                        show sam surprised
+                        s "I'm kind of a newbie to the whole teaching thing, so it's definitely taking me a while to get to everyone."
+                        s "And our class has about {i}65 students{/i}... which is a LOT."
+                        $ characters["sam"]["hearts"] += 1
+                    "Oh, cool!":
+                        show sam happy
+                        s "Yeah, right?"
+            show sam neutral
+            jump questionsWork_s
+        "Why did you pick teaching":
+            s "I kinda rolled into it after giving some workshops, those werereally fun to do! And it’s great to do next to freelancing jobs andconventions, which are the others sides of my job as an illustrator!"
+            show sam happy
+            if "jobQuestions_s" not in player["sam"]:
+                menu jobQuestions_s:
+                    "Favourite part of your job?":
+                        show sam happy
+                        $ characters["sam"]["hearts"] += 1
+                        s "Seeing all the different kinds of ideas the students come up with, and brainstorming together about how we can elevate those ideas to the next level."
+                    "Nice.":
+                        show sam neutral
+                $ player["sam"].append("jobQuestions_s")
+            if "questionsWork_s" not in player["sam"]:
+                $ player["sam"].append("questionsWork_s")
+            show sam neutral
+            jump questionsWork_s
+        "Something else" if "questionsWork_s" in player["sam"]:
+            pass
+    show sam neutral
+    s "Sure, go on."
+    menu talk_s:
+        "Any other questions?"
+        "What are your hobbies?":
+            s "I guess you could say storytelling is the core of any of my hobbies!"
+            s "Whether that's getting lost in a goodbook, playing videogames or D&D, or simply just creating stories and worlds with my friends.Love some good escapeism."
+            $ player["sam"].append("hobbies")
+        "Do you play games?":
+            show sam special interest
+            s "Heck yes!"
+            s "Specially if they involve me getting to hack and smash my way through a horde of monsters. Give me a big sword and I'm happy."
+        "Any special interests?":
+            show sam happy
+            s "Does doing nothing and just napping in the sun count as an interest?"
+        "Favorite food?":
+            s "What a good question! I'm a very food motivated person!"
+            s "Mexican cuisine is definitely number one in my books!"
+            if favorite_food == "mexican":
+                u "Hey! Same!"
+                show sam surprised
+                s "Haha yess! High-five!"
+                $ characters["sam"]["hearts"] += 1
+        "Flirt!" if adult:
+            menu flirt_s:
+                "Are you single?" if "single" not in player["sam"]:
+                    if characters["sam"]["hearts"] > 1:
+                        show sam blushing
+                        s "Depends on who's asking.." 
+                        $ characters["sam"]["hearts"] += 1
+                    else:
+                        show sam angry
+                        s "Depends on who's asking.." 
+                        $ characters["sam"]["hearts"] -= 1
+                    $ player["sam"].append("single")
+                "Any plans for after you're done working" if "plans" not in player["sam"]:
+                    if characters["sam"]["hearts"] > 1:
+                        show sam blushing
+                        $ characters["sam"]["hearts"] += 1
+                        s "Taking a shot at this huge boss battle I've been struggling with." 
+                        s "It's multiplayer and i could definitely use some help... if you're interested...?"
+                        menu respond:
+                            "Bring it on!":
+                                show sam special interest
+                                $ characters["sam"]["hearts"] += 1
+                                s "That's how I like it!"
+                            "Maybe another time, I'm busy now.":
+                                show sam neutral
+                                s "Oh, okay..."
+                                s "You're missing out tho!"
+                    else:
+                        show sam special interest
+                        s "My D&D group is picking up where we last left off, there's a sword with my name on itand a dragon that needs slaying." 
+                    $ player["sam"].append("plans")
+                "If you were my teacher? I'd be a teachers pet" if "pet" not in player["sam"]:
+                    if characters["sam"]["hearts"] > 1:
+                        show sam blushing
+                        "I don't do favorites, but if you bring me coffee every day I might reconsider." 
+                        $ characters["sam"]["hearts"] += 2
+                    else:
+                        show sam angry
+                        s "Yikes, I suddenly feel my pet allergies starting to act up." 
+                        $ characters["sam"]["hearts"] -= 1
+                    $ player["sam"].append("pet")
+                "Return":
+                    show sam neutral
+                    jump talk_s
+            jump flirt_s
+        "Say goodbye":
+            menu goodbye_s:
+                "Thanks for talking to me!" if characters["sam"]["hearts"] > 1:
+                    show sam blushing
+                    s "Thank you for the lovely chat!"
+                "Talk to you later!":
+                    show sam neutral
+                    s "See you around!"
+                "Bye":
+                    show sam neutral
+                    s "See ya!"
+            hide sam
+            jump ddm_room
+    show sam neutral
+    jump talk_s
+    
