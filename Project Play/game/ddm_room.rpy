@@ -264,7 +264,7 @@ label kevin:
                         $ player["kevin"].append("single")
                     if characters["kevin"]["hearts"] < 0:
                         show kevin angry
-                        e"You're too short for me."                   
+                        kd"You're too short for me."                   
                 "Any plans for after your'e done working??" if "plans" not in player["kevin"]:
                     if characters["kevin"]["hearts"] > 1:
                         show kevin happy
@@ -307,7 +307,7 @@ label kevin:
                     $ player["kevin"].append("niceGoodbye")
                 "Bye":
                     show kevin neutral
-                    e "Bye!"
+                    kd "Bye!"
             show kevin neutral
             window hide
             pause
@@ -422,19 +422,16 @@ label robin:
                     if "niceGoodbye" not in player["robin"]:
                         $ characters["robin"]["hearts"] += 1
                     if characters["robin"]["hearts"] >= 0:
-                        show robin happy
+                        show robin goodbye
                         rh"My pleasure!"
                     else:
-                        show robin angry
+                        show robin goodbye
                         rh"THANK GOD that's over"
                     $ player["robin"].append("niceGoodbye")
                 "Bye":
-                    show robin neutral
-                    e "Bye!"
-            show robin neutral
-            window hide
-            pause
-            hide robin
+                    show robin goodbye
+                    r "Bye!"
+            show robin goodbye
             jump ddm_room
     show robin neutral
     jump talk_r
@@ -564,7 +561,6 @@ label sam:
                 "Bye":
                     show sam neutral
                     s "See ya!"
-            hide sam
             jump ddm_room
     show sam neutral
     jump talk_s

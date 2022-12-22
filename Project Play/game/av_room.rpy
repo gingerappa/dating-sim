@@ -21,7 +21,7 @@ label max:
         $ player["max"].append("intro")
         $ characters["max"]["hearts"] += 1
     else:
-        e "Hi again! Need anything?"
+        m "Hi again! Need anything?"
     menu questionsStudy_max:
         "What would you like to ask Max about his study?"
         "What are you studying right now?":

@@ -223,7 +223,6 @@ label jorrit:
                     else:
                         show jorrit angry
                         js "{i}Finally...{/i}"
-            hide jorrit
             jump sd_room
     show jorrit neutral
     jump talk_js
@@ -477,8 +476,6 @@ label thijs:
                         show thijs angry
                         ts "Yep"
             show thijs waving
-            pause
-            hide thijs
             jump sd_room
     show thijs neutral
     jump talk_ts
@@ -717,8 +714,6 @@ label lusi:
                         show lusi angry
                         ls "Goodbye."
             show lusi goodbye
-            pause
-            hide lusi
             jump sd_room
     show lusi neutral
     jump talk_ls
@@ -916,8 +911,6 @@ label julia:
                         show julia angry
                         jl "Adiós, hasta nunca!"
             show julia waving
-            pause
-            hide julia
             jump sd_room
     show julia neutral
     jump talk_jl

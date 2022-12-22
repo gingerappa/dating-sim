@@ -180,9 +180,6 @@ label grayson:
                         show grayson angry
                         gm"Bye."
             show grayson neutral
-            window hide
-            pause
-            hide grayson
             jump foto_room
     show grayson neutral
     jump talk_g
@@ -312,23 +309,22 @@ label lex:
                         show lex goodbye
                         l "MEOW! See you later alligator!"
                     else:
-                        show lex angry
+                        show lex goodbye
                         l "Mmhm sure yeah whatever"
                 "Talk to you later!":
                     if characters["lex"]["hearts"] > 1:
                         show lex goodbye
                         l "MEOW! You know where to find me!"
                     else:
-                        show lex angry
+                        show lex goodbye
                         l "Please don't"
                 "Bye":
                     if characters["lex"]["hearts"] >= 0:
                         show lex goodbye
                         l "MEOW!"
                     else:
-                        show lex angry
+                        show lex goodbye
                         l "Goodbye forever, {i}weirdo.{/i}"
-            hide lex
             jump foto_room
     show lex neutral
     jump talk_l
