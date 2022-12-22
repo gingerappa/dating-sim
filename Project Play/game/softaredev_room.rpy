@@ -1,20 +1,36 @@
 ﻿label sd_room:
     scene bg sd
-    play music "music/class (3).mp3" fadein 1.0 volume 1
+    play music "music/class (1).mp3" fadein 1.0 volume 1
+    show jorrit neutral at f11, left
+    show thijs neutral at midright
+    show lusi neutral at f11, right
+    show julia neutral at midleft
     "Welcome to the SD room!"
+
     menu talkToSd:
         "Who would you like to talk to?"
         "Jorrit":
+            hide thijs
+            hide julia
+            hide lusi
             jump jorrit
         "Thijs":
+            hide jorrit
+            hide julia
+            hide lusi
             jump thijs
         "Lusi":
+            hide thijs
+            hide julia
+            hide jorrit
             jump lusi
         "Julia":
+            hide thijs
+            hide jorrit
+            hide lusi
             jump julia
         "Go away":
             jump main
-        
 
 label jorrit:
     show jorrit neutral at f11

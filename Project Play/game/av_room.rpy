@@ -1,19 +1,15 @@
 ﻿label av_room:
     scene bg av
-    play music "music/class (1).mp3" fadein 1.0 volume 1
+    play music "music/class (4).mp3" fadein 1.0 volume 1
+    show max neutral at f11, left
     "Welcome to the AV room"
     menu talkToav:
         "Talk to Max":
             jump max
-        #"Talk to Paulinm":
+        #"Talk to Pauline":
             #jump pauline
         "Go away":
             jump main
-
-#Add options  
-#if "shivaDialogum" in player["grayson"]:
-    #u "Oh, and Shiva told me to say {i}hiya old hag{/i}"
-    #$ characters["grayson"]["hearts"] += 1
 
 label max:
     show max neutral at f11
@@ -79,19 +75,29 @@ label max:
             m "Vampire: the Masquerade is my biggest special interest at the moment!"
             m "It's a roleplaying game about political intrigue and character drama, once a month I go to a club in Haarlem where we LARP this game."
             m "I play an Italian gangster. It's very fun. I do this with Grayson from DDM actually! He kinda plays my son."
-                #if "marcusHi" not in player["max"]
-                #m "If you see him tell him Marcus said {i}hi kiddo{/i}"
+            if "marcushi" not in player["max"]:
+                m "If you see him tell him Marcus said {i}hi kiddo{/i}"
             $ characters["max"]["hearts"] += 1
             $ player["max"].append("games")
         "Favorite food?":
             show max happy
             m "Anything Italian really."
-            if favorite_food == "pasta":
+            if favorite_food == "italian":
                 u "Wait, so pasta and such?"
                 show max happy
                 m "Yes! I love it!"
                 u "Same!"
                 $ characters["max"]["hearts"] += 1
+        "I spoke to Grayson!" if "shiva" in player["grayson"]:
+            show max surprised
+            m "Oh, you did?"
+            u "Yes! Oh, and he told me to tell you that Shiva said {i}hiya old hag{/i}"
+            show max special interest
+            m "Ahaha, that's my boy."
+            if "marcushi" not in player["max"]:
+                m "If you see him again, tell him Marcus said {i}hi kiddo{/i}"
+                show max neutral
+                $ player["max"].append("marcushi")
         "Flirt!" if adult:
             menu flirt_m:
                 "Are you single?" if "singlm" not in player["max"]:
@@ -99,7 +105,7 @@ label max:
                         show max blush
                         m "Uhmm, yes why?"
                         $ characters["max"]["hearts"] += 1
-                        #Needed? $ player["max"].append("singlm")
+                        $ player["max"].append("singlm")
                     else:
                         show max angry
                         m "Uhmm, not really." 

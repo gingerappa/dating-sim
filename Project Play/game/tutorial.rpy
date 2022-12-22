@@ -11,7 +11,6 @@
         "What are your pronouns?"
         "He/him":
             $ pronouns = ["he", "him"]
-            
         "She/her":
             $ pronouns = ["she", "her"]
         "They/them":
@@ -19,7 +18,6 @@
         "None":
             $ pronouns = ["the player, the player"]
  
-        
     p "Alright! I'll remember that!"
     p "It's amazing to meet you, can I know your age?"
     jump age
@@ -74,11 +72,9 @@ label map_info:
     show bg map
     p "This is a map, an useful gadget that you will use a lot around here."
     window hide
-    pause
     p "Using it is quite simple, I'll teach you!"
-    hide bg map
-    #TODO: show picture of arcade button
     p "With the map open, just hover around a place and click to go there."
+    hide bg map
     p "The paths aren't that long, so you should be able to arrive in a few seconds."
 
     menu understand_map:
