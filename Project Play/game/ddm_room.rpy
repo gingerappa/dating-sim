@@ -568,4 +568,3 @@ label sam:
             jump ddm_room
     show sam neutral
     jump talk_s
-    

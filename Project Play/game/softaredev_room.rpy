@@ -6,6 +6,7 @@
     show lusi neutral at f11, right
     show julia neutral at midleft
     "Welcome to the SD room!"
+
     menu talkToSd:
         "Who would you like to talk to?"
         "Jorrit":
@@ -30,10 +31,10 @@
             jump julia
         "Go away":
             jump main
-        
+
 label jorrit:
-    show jorrit neutral at f11, left
-    with move
+    show jorrit neutral at f11
+    with dissolve
     if "intro" not in player["jorrit"]:
         js "Hey, welcome!"
         js "I assume you're the future student Pauline told me about"
@@ -228,8 +229,8 @@ label jorrit:
     jump talk_js
 
 label thijs:
-    show thijs neutral at left
-    with move
+    show thijs neutral at f11
+    with dissolve
     u "Hey!"
     if characters["thijs"]["hearts"] > 1:
         ts "Ola, mi llamo thijs como estas?"
@@ -422,18 +423,18 @@ label thijs:
                     $ player["thijs"].append("GoodLooking_ts")
                 "Are you a 90 degree angle because you look so right!" if "angle_ts" not in player["thijs"]:
                     if characters["thijs"]["hearts"] > 3:
-                        show thijs blushing
+                        show thijs blush
                         pause
                         ts "Really, with that. Damn, you're good."
                         $ characters["thijs"]["hearts"] += 1
                     else:
                         show thijs angry
-                        ts "Aight, Imma just turn a 180 degrees around and walk away"
+                        ts "Iight, Imma just turn a 180 degrees around and walk away"
                         $ characters["thijs"]["hearts"] -= 1
                     $ player["thijs"].append("angle_ts")
                 "Does school keep you busy? Or is love also a priority?" if "busy_ts" not in player["thijs"]:
                     if characters["thijs"]["hearts"] > 3:
-                        show thijs blushing
+                        show thijs blush
                         pause
                         ts "For you, it is..."
                         $ characters["thijs"]["hearts"] += 1
@@ -475,7 +476,7 @@ label thijs:
                     else:
                         show thijs angry
                         ts "Yep"
-            show thijs neutral
+            show thijs waving
             pause
             hide thijs
             jump sd_room
@@ -483,8 +484,8 @@ label thijs:
     jump talk_ts
             
 label lusi:
-    show lusi neutral at f11, left
-    with move
+    show lusi neutral at f11
+    with dissolve
     ls "Heya!"
     if "intro" not in player["lusi"]:
         ls "I'm Lusi!"
@@ -723,8 +724,8 @@ label lusi:
     jump talk_ls
     
 label julia:
-    show julia neutral at left
-    with move
+    show julia neutral at f11
+    with dissolve
     if "intro" not in player["julia"]:
         jl "Hello there! Im Julia, all good?"
         $ player["julia"].append("intro")

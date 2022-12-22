@@ -11,11 +11,6 @@
         "Go away":
             jump main
 
-#Add options  
-#if "shivaDialogum" in player["grayson"]:
-    #u "Oh, and Shiva told me to say {i}hiya old hag{/i}"
-    #$ characters["grayson"]["hearts"] += 1
-
 label max:
     show max neutral at f11
 

@@ -20,7 +20,7 @@ thijs      : 6 | 9
 """
 transform f11:
     zoom 1.5
-
+    
 transform midleft:
     zoom 1.5
     xpos 300
@@ -28,6 +28,7 @@ transform midleft:
 transform midright:
     zoom 1.5
     xpos 900
+
 
 init python:
     config.keymap['rollback'] = []
@@ -59,7 +60,6 @@ init python:
             else:
                 print(f"{'  ' * tabs}{key}: {value}")
 
-# The game starts here.
 label start:
     $ pronouns = ["the player, the player"]
     $ adult = True
@@ -68,11 +68,6 @@ label start:
     $ favorite_food = "Candy"
     jump tutorial
 
-label house1_pressed:
-    scene bg classroom
-    "Welcome to a classroom!"
-    "This will be updated soon, for now please explore the other classrooms!"
-    jump main
 label end:
     jump main
 return
