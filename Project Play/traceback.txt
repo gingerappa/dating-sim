@@ -1,38 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-Compiling ATL code at game/script.rpy:22
-  File "game/tutorial.rpy", line 4, in script
-    show pauline happy at f11
-Exception: Could not evaluate expression 't' when compiling ATL.
+While running game code:
+  File "game/foto_room.rpy", line 266, in script
+    menu flirt_l:
+SyntaxError: invalid syntax (game/foto_room.rpy, line 289)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/tutorial.rpy", line 4, in script
-    show pauline happy at f11
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 1408, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 1371, in show_imspec
-    renpy.config.show(name,
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\exports.py", line 712, in show
-    sls.add(layer, img, key, zorder, behind, at_list=at_list, name=name, atl=atl, default_transform=default_transform, transient=transient)
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\display\core.py", line 1165, in add
-    thing.visit_all(lambda d : None)
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\display\core.py", line 572, in visit_all
-    for d in self.visit():
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\atl.py", line 614, in visit
-    block = self.compile()
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\atl.py", line 521, in compile
-    block = self.atl.compile(self.context)
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\atl.py", line 721, in compile
-    statements = [ i.compile(ctx) for i in self.statements ]
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\atl.py", line 721, in <listcomp>
-    statements = [ i.compile(ctx) for i in self.statements ]
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\atl.py", line 1021, in compile
-    raise Exception("Could not evaluate expression %r when compiling ATL." % expr)
-Exception: Could not evaluate expression 't' when compiling ATL.
+  File "game/foto_room.rpy", line 266, in script
+    menu flirt_l:
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 1903, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\exports.py", line 976, in menu
+    condition = renpy.python.py_eval(condition)
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 1090, in py_eval
+    code = py_compile(code, 'eval')
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 1027, in py_compile
+    raise e
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 979, in py_compile
+    raise orig_e
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 972, in py_compile
+    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
+SyntaxError: invalid syntax (game/foto_room.rpy, line 289)
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
 Project Play 0.2
-Wed Dec 21 21:29:45 2022
+Thu Dec 22 12:02:04 2022

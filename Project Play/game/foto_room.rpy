@@ -2,20 +2,22 @@
     scene bg foto
     play music "music/class (3).mp3" fadein 1.0 volume 1
     show grayson neutral at f11, left
-    #show other npc neutral at f11, right
+    show lex neutral at f11, right
     "Welcome to the Fotografie room!"
     menu talkToFoto:
-        #todo: show all npcs options, dissolve them after choosing
         "Who would you like to talk to?"
         "Grayson":
-            #hide other npc
+            hide lex
             jump grayson
+        "Lex":
+            hide grayson
+            jump lex
         "Leave the room":
             jump main
         
 label grayson:
-    show grayson neutral at f11
-    with dissolve
+    show grayson neutral at f11, left
+    with move
     if "intro" not in player["grayson"]:
         gm "What? Need something from me?"
         u "Hi?"
@@ -184,3 +186,149 @@ label grayson:
             jump foto_room
     show grayson neutral
     jump talk_g
+
+label lex:
+    show lex happy at f11, left
+    with move
+    if "intro" not in player["lex"]:
+        l "Hiiii"
+        l "I'm Lex, nice to meet you!"
+        u "Hey Lex!"
+        $ player["lex"].append("intro")
+    else:
+        l "Hello hello!"
+    menu questionsWork_l:
+        "What would you like to ask Lex as a student?"
+        "What are you studying right now?":
+            l "I'm studying Photography right now and I am a second year student."
+            if "questionsWork_l" not in player["lex"]:
+                $ player["lex"].append("questionsWork_l")
+                menu elective:
+                    "Cool! What's your elective subject?":
+                        l "At photography they don't really do elective subjects unlike the other studies here. But we do have Photography focused subjects!"
+                        l "Right now, we're focusing on {i}Software Verdieping{/i}"
+                    "Nice!":
+                        l "Yeah, right?"
+            show lex neutral
+            jump questionsWork_l
+        "Do you have a favorite teacher?":
+            l "Well, I have two main teachers in photography so I would say they're both my favorite."
+            show lex happy
+            if "jobQuestions_l" not in player["lex"]:
+                menu jobQuestions_l:
+                    "What are they teaching you right now?":
+                        show lex happy
+                        $ characters["lex"]["hearts"] += 1
+                        l "Oh, my favorite teachers? They're my mentors but they also just teach me photography stuff."
+                    "...":
+                        show lex neutral
+                        l "..."
+                $ player["lex"].append("jobQuestions_l")
+            if "questionsWork_l" not in player["lex"]:
+                $ player["lex"].append("questionsWork_l")
+            show lex neutral
+            jump questionsWork_l
+        "Something else" if "questionsWork_l" in player["lex"]:
+            pass
+    show lex neutral
+    l "So, any other questions?"
+    menu talk_l:
+        "So, any other questions?"
+        "What are your hobbies?":
+            l "I like gaming a lot, but when I'm not gaming I like to read."
+            l "Of course, I also like taking pictures of friends and fumbling with my analog cameras."
+            $ player["lex"].append("hobbies")
+        "Do you play games?":
+            if "hobbies" in player["lex"]:
+                l "As I said before..." 
+            l "Yes, absolutely!"
+            l "I mostly play Sea of Thieves, Fortnite… yeah, I know its cringe. Valorant and hades are also up there."
+            l "But once every now and then I fuck around in Overwatch with Grayson from DDM"
+            if "intro" in player["grayson"]:
+                u "Oh, Grayson..."
+                show lex surprised
+                l "Wait, I saw you talking to him before!"
+                l "Dont mind him being rude, thats just.. {i}his thing.{/i}"
+        "Any special interests?":
+            show lex happy
+            l "My analog cameras! I really love them, it's fun to just fuck around and find out what the next picture is gonna look like. It's a gamble but the vibe makes up for it."
+            l "My favorite camera right now Is my rolleicord, it makes absolutely stunning pictures every single time."
+            show lex blushing
+            l "But hot buff fantasy woman also pique my interest. Like, have you seen Lexa from the hundred??? {b}MY GOD.{/b}"
+        "Favorite food?":
+            l "I really like sushi, but just any dish from Asia is also very good."
+            if favorite_food == "sushi":
+                u "Yeah, me too."
+                show lex surprised
+                l "Meow! That's amazing"
+        "Flirt!" if adult:
+            l "Try your best!"
+            menu flirt_l:
+                "Are you single?" if "single" not in player["lex"]:
+                    if characters["lex"]["hearts"] > 1 and pronouns == ["she", "her"]:
+                        show lex blushing
+                        l "Yes, I am!" 
+                        $ characters["lex"]["hearts"] += 1
+                    elif characters["lex"]["hearts"] < 1 and pronouns == ["she", "her"]:
+                        show lex neutral
+                        l "I'm talking to someone right now, why are you asking exactly?"
+                    if pronouns != ["she", "her"]:
+                        l "I only do women, don't get your hopes up."
+                    $ player["lex"].append("single")
+                "You are really good looking, did you know that?" if "plans" not in player["lex"] and pronouns == ["she", "her"]:
+                    if characters["lex"]["hearts"] > 1:
+                        show lex blushing
+                        l "h thank you, you don't look too bad yourself you know?" 
+                        $ characters["lex"]["hearts"] += 1
+                    else:
+                        show lex angry
+                        l "Uhm.. right sure, thanks?" 
+                        $ characters["lex"]["hearts"] -= 1
+                    $ player["lex"].append("plans")
+                "If I could rearrange the alphabet? I'd put ‘u’ and ‘I’ together." if "alphabet" not in player["lex"] and pronouns == ["she", "her"]:
+                    if characters["lex"]["hearts"] > 1:
+                        show lex blushing
+                        "Lex blushes really hard. That was very effective!" 
+                        $ characters["lex"]["hearts"] += 2
+                    else:
+                        show lex angry
+                        l "I like the alphabet the way it is" 
+                        $ characters["lex"]["hearts"] -= 1
+                    $ player["lex"].append("alphabet")
+                "Why can't I flirt with you..?" if pronouns != ["she", "her"]:
+                    show lex neutral
+                    l "I'm not attracted to you, don't take it personally."
+                "Return":
+                    show lex neutral
+                    jump talk_l
+            jump flirt_l
+        "Say goodbye":
+            menu goodbye_l:
+                "See you around!":
+                    if "niceGoodbye" not in player["lex"]:
+                        $ characters["lex"]["hearts"] += 1
+                        $ player["lex"].append("niceGoodbye")
+                    if characters["lex"]["hearts"] >= 0:
+                        show lex goodbye
+                        l "MEOW! See you later alligator!"
+                    else:
+                        show lex angry
+                        l "Mmhm sure yeah whatever"
+                "Talk to you later!":
+                    if characters["lex"]["hearts"] > 1:
+                        show lex goodbye
+                        l "MEOW! You know where to find me!"
+                    else:
+                        show lex angry
+                        l "Please don't"
+                "Bye":
+                    if characters["lex"]["hearts"] >= 0:
+                        show lex goodbye
+                        l "MEOW!"
+                    else:
+                        show lex angry
+                        l "Goodbye forever, {i}weirdo.{/i}"
+            hide lex
+            jump foto_room
+    show lex neutral
+    jump talk_l

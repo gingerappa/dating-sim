@@ -9,9 +9,11 @@
         "Who would you like to talk to?"
         "Enzo":
             hide kevin
+            hide robin
             jump enzo
         "Kevin":
             hide enzo
+            hide robin
             jump kevin
         "Robin":
             hide enzo
