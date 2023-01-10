@@ -156,6 +156,13 @@ label jorrit:
                         js "I would love that!"
                         $ characters["jorrit"]["hearts"] +=  1
                     $ player["jorrit"].append("foodFlirt")
+        "How many hearts do I have with you?":
+            show jorrit neutral
+            $ hjor = characters["jorrit"]["hearts"]
+            if characters["jorrit"]["hearts"] > 1:
+                js "Exactly [hjor] hearts."
+            elif characters["jorrit"]["hearts"] <= 1:
+                js "Only [jor] heart."
                 
         "Flirt!" if adult:
             menu flirt_js:
@@ -401,6 +408,13 @@ label thijs:
                                     $ characters["thijs"]["hearts"] -= 1
                                     ts "Oh, ok..."
                     $ player["thijs"].append("favoriteFood_ts")
+        "How many hearts do I have with you?":
+            show thijs neutral
+            $ hthijs = characters["thijs"]["hearts"]
+            if characters["thijs"]["hearts"] > 1:
+                ts "Right now, you have... [hthijs] hearts."
+            elif characters["thijs"]["hearts"] <= 1:
+                ts "Right now, you have... [hthijs] heart."
         "Flirt!" if adult:
             menu flirt_ts:
                 "You single?":
@@ -641,6 +655,13 @@ label lusi:
                         show lusi angry
                         ls "You won't share..."
                         ls "That's very mean"
+        "How many hearts do I have with you?":
+            show lusi neutral
+            $ hlusi = characters["lusi"]["hearts"]
+            if characters["lusi"]["hearts"] > 1:
+                ls "Right now, you have [hlusi] hearts."
+            elif characters["lusi"]["hearts"] <= 1:
+                ls "Right now, you have [hlusi] heart."
         "Flirt!" if adult:
             menu flirt_ls:
                 "You single?" if "single" not in player["lusi"]:
@@ -860,7 +881,14 @@ label julia:
             else:
                 show julia happy
                 jl "The Russian dish that I used to eat a lot as a kid. But without mushrooms!"
-        "flirt!" if adult:
+        "How many hearts do I have with you?":
+            show julia neutral
+            $ hju = characters["julia"]["hearts"]
+            if characters["julia"]["hearts"] > 1:
+                jl "Lucky you, you have [hju] hearts."
+            elif characters["max"]["hearts"] <= 1:
+                jl "You might want to try harder, you have [hju] heart."
+        "Flirt!" if adult:
             menu flirt_jl:
                 "You single?":
                     show julia blushing

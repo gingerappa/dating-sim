@@ -1,32 +1,37 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/ddm_room.rpy", line 5, in script
-    show kevin neutral at midleft
-  File "game/ddm_room.rpy", line 5, in <module>
-    show kevin neutral at midleft
-NameError: name 'midleft' is not defined
+  File "game/av_room.rpy", line 103, in script
+    define hmax = characters["max"]["hearts"]
+  File "game/av_room.rpy", line 103, in script
+    define hmax = characters["max"]["hearts"]
+  File "game/av_room.rpy", line 103, in <module>
+    define hmax = characters["max"]["hearts"]
+NameError: name 'characters' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/ddm_room.rpy", line 5, in script
-    show kevin neutral at midleft
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 1408, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 1367, in show_imspec
-    at_list = [ renpy.python.py_eval(i) for i in at_list ]
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 1367, in <listcomp>
-    at_list = [ renpy.python.py_eval(i) for i in at_list ]
-  File "E:\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 1092, in py_eval
-    return py_eval_bytecode(code, globals, locals)
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\bootstrap.py", line 277, in bootstrap
+    renpy.main.main()
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\main.py", line 558, in main
+    renpy.game.context().run(node)
+  File "game/av_room.rpy", line 103, in script
+    define hmax = characters["max"]["hearts"]
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
+  File "game/av_room.rpy", line 103, in script
+    define hmax = characters["max"]["hearts"]
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 2441, in execute
+    self.set()
+  File "E:\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 2455, in set
+    value = renpy.python.py_eval_bytecode(self.code.bytecode)
   File "E:\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
     return eval(bytecode, globals, locals)
-  File "game/ddm_room.rpy", line 5, in <module>
-    show kevin neutral at midleft
-NameError: name 'midleft' is not defined
+  File "game/av_room.rpy", line 103, in <module>
+    define hmax = characters["max"]["hearts"]
+NameError: name 'characters' is not defined
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
 Project Play 0.1
-Thu Dec 22 12:54:10 2022
+Tue Jan 10 14:01:55 2023

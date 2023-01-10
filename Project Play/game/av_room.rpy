@@ -98,6 +98,13 @@ label max:
                 m "If you see him again, tell him Marcus said {i}hi kiddo{/i}"
                 show max neutral
                 $ player["max"].append("marcushi")
+        "How many hearts do I have with you?":
+            show max neutral
+            $ hmax = characters["max"]["hearts"]
+            if characters["max"]["hearts"] > 1:
+                m "Right now, you have... [hmax] hearts."
+            elif characters["max"]["hearts"] <= 1:
+                m "Right now, you have... [hmax] heart."
         "Flirt!" if adult:
             menu flirt_m:
                 "Are you single?" if "singlm" not in player["max"]:

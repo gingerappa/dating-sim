@@ -106,6 +106,13 @@ label enzo:
                 show enzo surprised
                 e"Haha nice!"
                 $ characters["enzo"]["hearts"] += 1
+        "How many hearts do I have with you?":
+            show enzo neutral
+            $ henzo = characters["enzo"]["hearts"]
+            if characters["enzo"]["hearts"] > 1:
+                e "Right now, you have... [henzo] hearts."
+            elif characters["enzo"]["hearts"] <= 1:
+                e "Right now, you have... [henzo] heart."
         "Flirt!" if adult:
             menu flirt_e:
                 "Are you single?" if "single" not in player["enzo"]:
@@ -251,9 +258,16 @@ label kevin:
             kd "My favorite food is a good warm bowl of udon noodles with teriyaki sauce and vegetables!"
             if favorite_food == "noodles":
                 u "Slay! Same!"
-                show enzo suprised
+                show kevin suprised
                 kd "Haha nice!"
                 $ characters["kevin"]["hearts"] += 1
+        "How many hearts do I have with you?":
+            show kevin neutral
+            $ hkevin = characters["kevin"]["hearts"]
+            if characters["kevin"]["hearts"] > 1:
+                kd "You have [hkevin] hearts, good job."
+            elif characters["kevin"]["hearts"] <= 1:
+                kd "You have... [hkevin]. How disappointing."
         "Flirt!" if adult:
             menu flirt_k:
                 "Are you single?" if "single" not in player["kevin"]:
@@ -381,6 +395,13 @@ label robin:
                 show robin suprised
                 rh "Come on, let's head to the city and get us a burger!"
                 $ characters["robin"]["hearts"] += 1
+        "How many hearts do I have with you?":
+            show robin neutral
+            $ hrobin = characters["robin"]["hearts"]
+            if characters["robin"]["hearts"] > 1:
+                rh "You have [hrobin] hearts!"
+            elif characters["robin"]["hearts"] <= 1:
+                rh "Would you believe if I said [hrobin]?"
         "Flirt!" if adult:
             menu flirt_r:
                 "Are you single?" if "single" not in player["robin"]:
@@ -505,6 +526,13 @@ label sam:
                 show sam surprised
                 s "Haha yess! High-five!"
                 $ characters["sam"]["hearts"] += 1
+        "How many hearts do I have with you?":
+            show sam neutral
+            $ hsam = characters["sam"]["hearts"]
+            if characters["sam"]["hearts"] > 1:
+                rh "You have [hsam] hearts!"
+            elif characters["sam"]["hearts"] <= 1:
+                rh "Oh, the answer is [hsam]."
         "Flirt!" if adult:
             menu flirt_s:
                 "Are you single?" if "single" not in player["sam"]:

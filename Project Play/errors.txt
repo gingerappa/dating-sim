@@ -1,1 +1,10 @@
-﻿
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/av_room.rpy", line 103: invalid syntax
+    = characters["max"]["hearts"]
+     ^
+
+Ren'Py Version: Ren'Py 8.0.3.22090809
+Tue Jan 10 14:01:41 2023

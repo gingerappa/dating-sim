@@ -127,6 +127,13 @@ label grayson:
             if "shiva" in player["grayson"] and "marcushi" in player["max"] :
                 show grayson blushing
                 gm "What a nice errand runner you are, you could be a fit for the Sciarpa Rossa, consider it."
+        "How many hearts do I have with you?":
+            show grayson neutral
+            $ hgrayson = characters["grayson"]["hearts"]
+            if characters["grayson"]["hearts"] > 1:
+                gm "You have [hgrayson] hearts, but don't get too excited about it."
+            elif characters["grayson"]["hearts"] <= 1:
+                gm "[hgrayson]. You suck."
         "Flirt!" if adult:
             menu flirt_g:
                 "Are you single?" if "single" not in player["grayson"]:
@@ -258,6 +265,13 @@ label lex:
                 u "Yeah, me too."
                 show lex surprised
                 l "Meow! That's amazing"
+        "How many hearts do I have with you?":
+            show lex neutral
+            $ hlex = characters["lex"]["hearts"]
+            if characters["lex"]["hearts"] > 1:
+                l "You have [hlex] hearts."
+            elif characters["lex"]["hearts"] <= 1:
+                l "I think you have [hlex], actually."
         "Flirt!" if adult:
             l "Try your best!"
             menu flirt_l:
