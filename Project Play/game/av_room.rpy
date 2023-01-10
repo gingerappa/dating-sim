@@ -6,8 +6,8 @@
     menu talkToav:
         "Talk to Max":
             jump max
-        #"Talk to Pauline":
-            #jump pauline
+        "Talk to Pauline":
+            jump pauline
         "Go away":
             jump main
 
@@ -167,3 +167,145 @@ label max:
             hide max
             jump av_room
     jump talk_m
+
+label pauline:
+    show pauline neutral at f11
+    with dissolve
+    p "Hey, its you again!"
+    if characters["pauline"]["hearts"] > 0:
+        p "It's nice to see you again."
+    else:
+        p "..."
+    if "intro" not in player["pauline"]:
+        $ player["pauline"].append("intro")
+    menu questionsWork_p:
+        "What would you like to ask Pauline about her job?"
+        "What do you teach the students?":
+            p "I teach them softskills and help students with creating overview."
+            menu helpfull_p:
+                "Oh, so you basicly do nothing?":
+                    show pauline angry
+                    p "That's just plain rude!"
+                    $ characters["pauline"]["hearts"] -= 1
+                "Oh, thats really helpful!":
+                    show pauline happy
+                    p "Thank you!"
+                    $ characters["pauline"]["hearts"] += 1
+            if "questionsWork_p" not in player["pauline"]:
+                $ player["pauline"].append("questionsWork_p")
+            show pauline neutral
+            jump questionsWork_p
+        "Favourite part of your job?":
+            p "The best thing is to inspire the student to find their inner motivation!"
+            u "Thats very noble of you"
+            show pauline happy
+            p "Thanks, it's the reason I got into teaching in the first place!"
+            if "questionsWork_p" not in player["pauline"]:
+                $ player["pauline"].append("questionsWork_p")
+            show pauline neutral
+            jump questionsWork_p
+        "Nothing.":
+            pass
+    show pauline neutral
+    p "So, any other questions?"
+    menu talk_p:
+        "What are your hobbies?":
+            p "I really like to go out for dinner and chat with my friends."
+            p "I also love walking in nature."
+            if "walkingForrest" not in player["pauline"]:
+                menu walkingForrest:
+                    "Lusi likes that too!" if "collectingBugs" in player["lusi"]:
+                        show pauline surprised
+                        p "Haha, thats great!"
+                        u "Maybe we can all go on a walk together?"
+                        show pauline happy
+                        p "Sure!"
+                        $ characters["pauline"]["hearts"] += 1
+                    "I dont like walking":
+                        show pauline angry
+                        p "Well,t too bad... I was going to ask you to join me..."
+                        u "Ah..."
+                        $ characters["pauline"]["hearts"] -= 1
+                    "Maybe we can go on a walk together!":
+                        show pauline blush
+                        p "Yes, I would love that!"
+                        $ characters["pauline"]["hearts"] += 1
+                $ player["pauline"].append("walkingForrest")
+        "Do you play games?":
+            p "Yes I love games. Board games for sure!"
+            $ characters["pauline"]["hearts"] += 1
+        "Favorite food?":
+            p "Mmm I love Indonesian food."
+            if "foodnice" not in player["pauline"]:
+                menu food_p:
+                    "Oh, I think it's too spicy":
+                        show pauline surprised
+                        p "Just get some milk!"
+                        $ player["pauline"].append("foodnice")
+                    "It's alright...":
+                        show pauline happy
+                        p "Yea right!"
+                        $ characters["pauline"]["hearts"] += 1
+                        $ player["pauline"].append("foodnice")
+                    "I LOVE IT" if favorite_food == "Indonesian":
+                        show pauline blush
+                        p "Me too!"
+                        $ characters["pauline"]["hearts"] += 1
+                        $ player["pauline"].append("foodnice")
+        "Flirt!" if adult:
+            menu flirt_p:
+                "Are you single?" if "single" not in player["pauline"]:
+                    if characters["pauline"]["hearts"] > 1:
+                        show pauline blushing
+                        p "Yes, my love." 
+                        $ characters["pauline"]["hearts"] += 1
+                        $ player["pauline"].append("single")
+                    if characters["pauline"]["hearts"] < 1:
+                        show pauline angry
+                        p "Uh… Nope."     
+                        $ player["pauline"].append("single")               
+                "Any plans for after your'e done working??" if "plans" not in player["pauline"]:
+                    if characters["pauline"]["hearts"] > 2:
+                        show pauline blushing
+                        p "I have no plans, my love" 
+                        $ characters["pauline"]["hearts"] += 1
+                    else:
+                        show pauline angry
+                        p "Sleeping! Alone!!" 
+                        $ characters["pauline"]["hearts"] -= 1
+                    $ player["pauline"].append("plans")
+
+                "If you were my teacher I would be a teachers pet!" if "teachersPet" not in player["pauline"]:
+                    if characters["pauline"]["hearts"] > 2:
+                        show pauline blushing
+                        p "Tell me more!" 
+                        u "Oh!"
+                        $ characters["pauline"]["hearts"] += 1
+                    else:
+                        show pauline angry
+                        p "I don't like pets." 
+                        $ characters["pauline"]["hearts"] -= 1
+                    $ player["pauline"].append("teachersPet")
+                "Are you a loan, because you are gaining my interest." if "loan" not in player["pauline"]:
+                    if characters["pauline"]["hearts"] > 2:
+                        show pauline blushing
+                        p "You read my mind. I'm also into you!" 
+                        $ characters["pauline"]["hearts"] += 1
+                    else:
+                        show pauline angry
+                        p "Ugh. Try harder." 
+                        $ characters["pauline"]["hearts"] -= 1
+                    $ player["pauline"].append("teachersPet")
+                "No more questions, nevermind!":
+                    show pauline neutral
+                    jump talk_p
+            jump flirt_p
+        "Goodbye!":
+            show pauline neutral
+            p "Bye!"
+            window hide
+            pause
+            hide pauline
+            jump av_room
+    show pauline neutral
+    jump talk_p
