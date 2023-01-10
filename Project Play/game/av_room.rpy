@@ -158,9 +158,9 @@ label max:
 label pauline:
     show pauline neutral at f11
     with dissolve
-    p "hey, its you again!"
+    p "Hey, its you again!"
     if characters["pauline"]["hearts"] > 0:
-        p "its nice to see you again"
+        p "Its nice to see you again"
     else:
         p "..."
     if "intro" not in player["pauline"]:
@@ -172,11 +172,11 @@ label pauline:
             menu helpfull_p:
                 "o so you basicly do nothing?":
                     show pauline angry
-                    p "thats just plain rude!"
+                    p "Thats just plain rude!"
                     $ characters["pauline"]["hearts"] -= 1
                 "o thats really helpfull!":
                     show pauline happy
-                    p "o thank you!"
+                    p "O thank you!"
                     $ characters["pauline"]["hearts"] += 1
             if "questionsWork_p" not in player["pauline"]:
                 $ player["pauline"].append("questionsWork_p")
@@ -184,16 +184,9 @@ label pauline:
             jump questionsWork_p
         "Favourite part of your job?":
             p "The best thing is to inspire the student to find their inner motivation!"
-            u "thats very noble of you"
+            u "Thats very noble of you"
             show pauline happy
-            p "thanks its the reson i got into teaching in the first place!"
-            if "questionsWork_p" not in player["pauline"]:
-                $ player["pauline"].append("questionsWork_p")
-            show pauline neutral
-            jump questionsWork_p
-        "Is it actually that hard to keep up with grading?":
-            p "no"
-            #TODO: ask to awnser this question
+            p "Thanks its the reson i got into teaching in the first place!"
             if "questionsWork_p" not in player["pauline"]:
                 $ player["pauline"].append("questionsWork_p")
             show pauline neutral
@@ -210,29 +203,39 @@ label pauline:
                 menu walkingForrest:
                     "o lusi likes that too!" if "collectingBugs" in player["lusi"]:
                         show pauline surprised
-                        p "o, thats great!"
-                        u "maby we can all go on a walk together?"
+                        p "O, thats great!"
+                        u "Maby we can all go on a walk together?"
                         show pauline happy
-                        p "sure!"
+                        p "Sure!"
                         $ characters["pauline"]["hearts"] += 1
                     "i dont like walking":
                         show pauline angry
-                        p "well that too bad, i was going to ask you to join me..."
-                        u "o..."
+                        p "Well that too bad, i was going to ask you to join me..."
+                        u "O..."
                         $ characters["pauline"]["hearts"] -= 1
                     "maby we can go on a walk together!":
                         show pauline blush
-                        p "yes, i would love that..."
+                        p "Yes, i would love that..."
                         $ characters["pauline"]["hearts"] += 1
                 $ player["pauline"].append("walkingForrest")
         "Do you play games?":
             p "Yes I love games. Board games for sure!"
-            #TODO: ask fav board medium and least and add it to a menu
-        "Have any special interests?":
-            p "no"
-            #TODO: ask to awnser this question
         "Favorite food?":
             p "Mmm I love Indonesian food."
+            menu food_p:
+                "O, i think its to spicy":
+                    show pauline surprised
+                    p "Just get some milk!"
+                "Its alright...":
+                    show pauline happy
+                    p "Yea right!"
+                    $ characters["pauline"]["hearts"] += 1
+                    #block of code to run
+                "I LOVE IT" if favorite_food == "Indonesian":
+                    show pauline blush
+                    p "Me too!"
+                    $ characters["pauline"]["hearts"] += 1
+                
 
 
             

@@ -1,32 +1,70 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/softaredev_room.rpy", line 301, in script
-    show jorrit angry at f2
-  File "game/softaredev_room.rpy", line 301, in <module>
-    show jorrit angry at f2
-NameError: name 'f2' is not defined
+  File "game/softaredev_room.rpy", line 5, in script
+    call screen sd_screen
+  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "game/softaredev_room.rpy", line 7, in execute
+    screen sd_screen:
+  File "game/softaredev_room.rpy", line 7, in execute
+    screen sd_screen:
+  File "game/softaredev_room.rpy", line 32, in execute
+    imagebutton:
+  File "game/softaredev_room.rpy", line 32, in keywords
+    imagebutton:
+  File "game/softaredev_room.rpy", line 33, in <module>
+    xpos o
+NameError: name 'o' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/softaredev_room.rpy", line 301, in script
-    show jorrit angry at f2
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 1408, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 1367, in show_imspec
-    at_list = [ renpy.python.py_eval(i) for i in at_list ]
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 1367, in <listcomp>
-    at_list = [ renpy.python.py_eval(i) for i in at_list ]
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 1092, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/softaredev_room.rpy", line 301, in <module>
-    show jorrit angry at f2
-NameError: name 'f2' is not defined
+  File "game/softaredev_room.rpy", line 5, in script
+    call screen sd_screen
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 2232, in execute
+    self.call("execute")
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 2220, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\statements.py", line 281, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\exports.py", line 3181, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\core.py", line 3377, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\core.py", line 3810, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\screen.py", line 451, in visit_all
+    callback(self)
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\core.py", line 3810, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\screen.py", line 462, in per_interact
+    self.update()
+  File "C:\Users\31622\Downloads\renpy-8.0.3-sdk\renpy\display\screen.py", line 653, in update
+    self.screen.function(**self.scope)
+  File "game/softaredev_room.rpy", line 7, in execute
+    screen sd_screen:
+  File "game/softaredev_room.rpy", line 7, in execute
+    screen sd_screen:
+  File "game/softaredev_room.rpy", line 32, in execute
+    imagebutton:
+  File "game/softaredev_room.rpy", line 32, in keywords
+    imagebutton:
+  File "game/softaredev_room.rpy", line 33, in <module>
+    xpos o
+NameError: name 'o' is not defined
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
 Project Play 0.1
-Wed Dec 21 11:58:10 2022
+Tue Jan 10 14:11:22 2023
