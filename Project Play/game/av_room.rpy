@@ -2,11 +2,14 @@
     scene bg av
     play music "music/class (4).mp3" fadein 1.0 volume 1
     show max neutral at f11, left
+    show pauline neutral at f11, right
     "Welcome to the AV room"
     menu talkToav:
         "Talk to Max":
+            hide pauline
             jump max
         "Talk to Pauline":
+            hide max
             jump pauline
         "Go away":
             jump main
@@ -169,7 +172,7 @@ label max:
     jump talk_m
 
 label pauline:
-    show pauline neutral at f11
+    show pauline neutral at f11, left
     with dissolve
     p "Hey, its you again!"
     if characters["pauline"]["hearts"] > 0:
@@ -304,7 +307,6 @@ label pauline:
             show pauline neutral
             p "Bye!"
             window hide
-            pause
             hide pauline
             jump av_room
     show pauline neutral
