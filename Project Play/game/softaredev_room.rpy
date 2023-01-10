@@ -38,7 +38,7 @@ label jorrit:
     if "intro" not in player["jorrit"]:
         js "Hey, welcome!"
         js "I assume you're the future student Pauline told me about"
-        js "Let me introduce myself…"
+        js "Let me introduce myself."
         js "I'm Jorrit, nice to meet you."
         u "Hi Jorrit! Nice to meet you too!"
         $ player["jorrit"].append("intro")
@@ -162,7 +162,7 @@ label jorrit:
             if characters["jorrit"]["hearts"] > 1:
                 js "Exactly [hjor] hearts."
             elif characters["jorrit"]["hearts"] <= 1:
-                js "Only [jor] heart."
+                js "Only [hjor] heart."
                 
         "Flirt!" if adult:
             menu flirt_js:
@@ -306,7 +306,7 @@ label thijs:
                         $ characters["thijs"]["hearts"] -= 1
                     "I hate Jorrit!":
                         show thijs angry
-                        show jorrit angry at right
+                        show jorrit angry at f11, left
                         with dissolve
                         $ characters["thijs"]["hearts"] -= 1
                         $ characters["jorrit"]["hearts"] -= 1
@@ -489,7 +489,6 @@ label thijs:
                     else:
                         show thijs angry
                         ts "Yep"
-            show thijs waving
             jump sd_room
     show thijs neutral
     jump talk_ts
@@ -560,7 +559,7 @@ label lusi:
                         $ characters["lusi"]["hearts"] += 1
                     "I dont, I hate Jorrit!":
                         show lusi angry
-                        show jorrit angry at right
+                        show jorrit angry at f11, left
                         with dissolve
                         js "Well, that's just rude!"
                         ls "Yeah, why would you say that?"
@@ -803,7 +802,7 @@ label julia:
                         jl "Which is nice! But i now have to use python for this project..."
                         show julia surprised
                         pause
-                    "Fame making sounds sooo easy":
+                    "Game making sounds sooo easy":
                         show julia surprised
                         jl "IT'S NOT! Trust me!"
                         $ characters["julia"]["hearts"] -= 1

@@ -255,6 +255,13 @@ label pauline:
                         p "Me too!"
                         $ characters["pauline"]["hearts"] += 1
                         $ player["pauline"].append("foodnice")
+        "How many hearts do I have with you?":
+            show pauline neutral
+            $ hp = characters["pauline"]["hearts"]
+            if characters["pauline"]["hearts"] > 1:
+                p "You [hp] hearts, love"
+            elif characters["pauline"]["hearts"] <= 1:
+                p "Your score is [hp]."
         "Flirt!" if adult:
             menu flirt_p:
                 "Are you single?" if "single" not in player["pauline"]:
