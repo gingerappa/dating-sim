@@ -41,6 +41,7 @@ label max:
                             $ characters["max"]["hearts"] -= 1
                 player["max"].append("studyQuestions")
             if "studyQuestions_max" not in player["max"]:
+                $ characters["max"]["hearts"] += 1
                 $ player["max"].append("studyQuestions_max")
             jump questionsStudy_max
         "Do you have a favorite teacher?":
@@ -53,12 +54,14 @@ label max:
             show max surprised
             m "Sadly not..."
             if "questionsStudy_max" not in player["max"]:
+                $ characters["max"]["hearts"] += 1
                 $ player["max"].append("questionsStudy_max")
             jump questionsStudy_max
         "What are they teaching you right now?":
             show max happy
             m "I'm learning {i}vormgeving&Beeldgebruik{/i} which is all about the storytelling aspect of AV."
             if "questionsStudy_max" not in player["max"]:
+                $ characters["max"]["hearts"] += 1
                 $ player["max"].append("questionsStudy_max")
             jump questionsStudy_max
         "I want to ask something else" if "questionsStudy_max" in player["max"]:
@@ -74,6 +77,7 @@ label max:
             if "games" not in player["max"]:
                 u "Do you also play games sometimes?"
                 m "Yeah, mostly single player story games."
+                $ characters["max"]["hearts"] += 1
                 $ player["max"].append("games")
         "Any special interests?":
             show max special interest
@@ -82,9 +86,9 @@ label max:
             m "I play an Italian gangster. It's very fun. I do this with Grayson from DDM actually! He kinda plays my son."
             if "marcushi" not in player["max"]:
                 m "If you see him tell him Marcus said {i}hi kiddo{/i}"
-            if "games" not in player["max"]:
+            if "interest" not in player["max"]:
                 $ characters["max"]["hearts"] += 1
-                $ player["max"].append("games")
+                $ player["max"].append("interest")
         "Favorite food?":
             show max happy
             m "Anything Italian really."
@@ -93,6 +97,7 @@ label max:
                 show max happy
                 m "Yes! I love it!"
                 u "Same!"
+                show max blush
                 $ characters["max"]["hearts"] += 1
                 $ player["max"].append("food")
         "I spoke to Grayson!" if "shiva" in player["grayson"]:
@@ -199,6 +204,7 @@ label pauline:
                     p "Thank you!"
                     $ characters["pauline"]["hearts"] += 1
             if "questionsWork_p" not in player["pauline"]:
+                $ characters["pauline"]["hearts"] += 1
                 $ player["pauline"].append("questionsWork_p")
             show pauline neutral
             jump questionsWork_p
@@ -208,6 +214,7 @@ label pauline:
             show pauline happy
             p "Thanks, it's the reason I got into teaching in the first place!"
             if "questionsWork_p" not in player["pauline"]:
+                $ characters["pauline"]["hearts"] += 1
                 $ player["pauline"].append("questionsWork_p")
             show pauline neutral
             jump questionsWork_p
@@ -240,7 +247,9 @@ label pauline:
                 $ player["pauline"].append("walkingForrest")
         "Do you play games?":
             p "Yes I love games. Board games for sure!"
-            $ characters["pauline"]["hearts"] += 1
+            if "games" not in player["pauline"]:
+                $ characters["pauline"]["hearts"] += 1
+                $ player["pauline"].append("games")
         "Favorite food?":
             p "Mmm I love Indonesian food."
             if "foodnice" not in player["pauline"]:
@@ -279,7 +288,7 @@ label pauline:
                         p "Uh… Nope."     
                         $ player["pauline"].append("single")               
                 "Any plans for after your'e done working??" if "plans" not in player["pauline"]:
-                    if characters["pauline"]["hearts"] > 2:
+                    if characters["pauline"]["hearts"] > 1:
                         show pauline blushing
                         p "I have no plans, my love" 
                         $ characters["pauline"]["hearts"] += 1
@@ -290,7 +299,7 @@ label pauline:
                     $ player["pauline"].append("plans")
 
                 "If you were my teacher I would be a teachers pet!" if "teachersPet" not in player["pauline"]:
-                    if characters["pauline"]["hearts"] > 2:
+                    if characters["pauline"]["hearts"] > 1:
                         show pauline blushing
                         p "Tell me more!" 
                         u "Oh!"
@@ -301,7 +310,7 @@ label pauline:
                         $ characters["pauline"]["hearts"] -= 1
                     $ player["pauline"].append("teachersPet")
                 "Are you a loan, because you are gaining my interest." if "loan" not in player["pauline"]:
-                    if characters["pauline"]["hearts"] > 2:
+                    if characters["pauline"]["hearts"] > 1:
                         show pauline blushing
                         p "You read my mind. I'm also into you!" 
                         $ characters["pauline"]["hearts"] += 1

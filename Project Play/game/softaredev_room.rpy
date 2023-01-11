@@ -353,7 +353,7 @@ label thijs:
             ts "Yes."
             u "Well... what games?"
             ts "What I play varies from time to time but I always seem to come back to League of Legends and Brawlhalla somehow"
-            if "hobbies" not in player["thijs"]:
+            if "games" not in player["thijs"]:
                 $ characters["thijs"]["hearts"] += 1
                 $ player["thijs"].append("games")
         "Have any special interests?" if "specialInterstGood_ts" not in player["thijs"]:
@@ -440,7 +440,7 @@ label thijs:
                         show thijs angry
                         ts "Not for you..."
                 "You are really good looking, did you know that?" if "GoodLooking_ts" not in player["thijs"]:
-                    if characters["thijs"]["hearts"] > 1:
+                    if characters["thijs"]["hearts"] > 2:
                         show thijs surprised
                         ts "Agree to disagree"
                         $ characters["thijs"]["hearts"] += 1
@@ -461,7 +461,7 @@ label thijs:
                         $ characters["thijs"]["hearts"] -= 1
                     $ player["thijs"].append("angle_ts")
                 "Does school keep you busy? Or is love also a priority?" if "busy_ts" not in player["thijs"]:
-                    if characters["thijs"]["hearts"] > 1:
+                    if characters["thijs"]["hearts"] > 2:
                         show thijs blush
                         pause
                         ts "For you, it is..."
@@ -533,6 +533,7 @@ label lusi:
                         "{i}clown noises...{/i}"
                 $ player["lusi"].append("otherThings")
             if "questionsStudent" not in player["lusi"]:
+                $ characters["lusi"]["hearts"] += 1
                 $ player["lusi"].append("questionsStudent")
             show lusi neutral
             jump questionsStudent_ls
@@ -541,6 +542,7 @@ label lusi:
             ls "My elective subjects are Game design and agile game development."
             ls "I really really really like game design! It's helping me a lot with my own game projects"
             if "questionsStudent" not in player["lusi"]:
+                $ characters["lusi"]["hearts"] += 1
                 $ player["lusi"].append("questionsStudent")
             show lusi neutral
             jump questionsStudent_ls
@@ -559,6 +561,7 @@ label lusi:
                 $ player["lusi"].append("teacherPieter_ls")
             ls "and Jorrit is also one of them!"
             if "questionsStudent" not in player["lusi"]:
+                $ characters["lusi"]["hearts"] += 1
                 $ player["lusi"].append("questionsStudent")
             show lusi neutral
             jump questionsStudent_ls
@@ -583,6 +586,7 @@ label lusi:
                         hide jorrit
                 $ player["lusi"].append("jorritAgile")
             if "questionsStudent" not in player["lusi"]:
+                $ characters["lusi"]["hearts"] += 1
                 $ player["lusi"].append("questionsStudent")
             show lusi neutral
             jump questionsStudent_ls
@@ -634,7 +638,9 @@ label lusi:
             show lusi happy
             ls "The design and aesthetic has inspired me a lot to create my own projects!"
             ls "I like playing collecting games and platformers as well."
-            u "I like dating simulators"
+            if "games" not in player["lusi"]:
+                $ characters["lusi"]["hearts"] += 1
+                $ player["lusi"].append("games")
         "Have any special interests?":
             show lusi happy
             ls "I have loads of special interests! They usually swap around a lot but"
@@ -679,7 +685,7 @@ label lusi:
         "Flirt!" if adult:
             menu flirt_ls:
                 "You single?" if "single" not in player["lusi"]:
-                    if characters["lusi"]["hearts"] > 2:
+                    if characters["lusi"]["hearts"] > 1:
                         show lusi blushing
                         ls "Well no, but I am in an open relationship, that was a fun totally random question tho!"
                         $ characters["lusi"]["hearts"] += 1
@@ -696,7 +702,7 @@ label lusi:
                         $ characters["lusi"]["hearts"] -= 1
                     $ player["lusi"].append("goodLooking")
                 "Are you a 90 degree angle because you look so right!" if "angle" not in player["lusi"]:
-                    if characters["lusi"]["hearts"] > 2:
+                    if characters["lusi"]["hearts"] > 1:
                         show lusi blushing
                         ls "Nahw that's so sweet! I'll make sure to keep my ion you! Get it? Science jokes!"
                         $ characters["lusi"]["hearts"] += 1
@@ -785,6 +791,7 @@ label julia:
                         jl "I mean, it's pretty cool."
                 $ player["julia"].append("subject")
             if "questionsStudent" not in player["julia"]:
+                $ characters["julia"]["hearts"] += 1
                 $ player["julia"].append("questionsStudent")
             show julia neutral
             jump questionsStudent_jl
@@ -794,6 +801,7 @@ label julia:
             jl "Gameplay teaches us how to make good games and how to make the user enjoy them."
             jl "Agile teaches us physical computing, we use Arduinos to make cool gadgets."
             if "questionsStudent" not in player["julia"]:
+                $ characters["julia"]["hearts"] += 1
                 $ player["julia"].append("questionsStudent")
             show julia neutral
             jump questionsStudent_jl
@@ -804,6 +812,7 @@ label julia:
                 u "Oh yeah, I met him!"
                 jl "Nice! So I guess his fanclub has one more member? Haha jk"
             if "questionsStudent" not in player["julia"]:
+                $ characters["julia"]["hearts"] += 1
                 $ player["julia"].append("questionsStudent")
             show julia neutral
             jump questionsStudent_jl
@@ -827,6 +836,7 @@ label julia:
                         $ characters["julia"]["hearts"] += 1
                 $ player["julia"].append("dificultGame")
             if "questionsStudent" not in player["julia"]:
+                $ characters["julia"]["hearts"] += 1
                 $ player["julia"].append("questionsStudent")
             show julia neutral
             jump questionsStudent_jl
@@ -866,6 +876,9 @@ label julia:
             u "No I did not, that's so cool"
             show julia happy
             jl "I came to The Netherlands in 2019 and it was love at first sight. I love it here!"
+            if "interest" not in player["julia"]:
+                $ characters["julia"]["hearts"] += 1
+                $ player["julia"].append("interest")
         "Favorite food?":
             jl "Good question... I think it's actually strogannof"
             if favorite_food == "strogannof" and "strogannofKnow" not in player["julia"]:
@@ -908,8 +921,9 @@ label julia:
                     show julia blushing
                     jl "I'm happily married."
                 "You are really good looking, did you know that?" if "goodLooking" not in player["julia"]:
-                    show julia blushing
                     jl "Yeah, my fiancé tells me that everyday."
+                    show julia blushing
+                    pause
                     $ player["julia"].append("goodLooking")
                 "Are you a 90 degree angle because you look so right!" if "angle" not in player["julia"]:
                     show julia angry

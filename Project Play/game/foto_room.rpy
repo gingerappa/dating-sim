@@ -51,11 +51,14 @@ label grayson:
                         $ characters["grayson"]["hearts"] += 1
                 $ player["grayson"].append("jobQuestions_g")
                 show grayson neutral
+            if "questionsWork_g" not in player["grayson"]:
+                $ characters["grayson"]["hearts"] += 1
                 $ player["grayson"].append("questionsWork_g")
             jump questionsWork_g
         "Do you have a favorite teacher?":
             gm "I have many teachers that I vibe with, but I'd say Kevin Driessen, Enzo Witteveen and Robin Hilt are the teachers I get along with most."
             if "questionsWork_g" not in player["grayson"]:
+                $ characters["grayson"]["hearts"] += 1
                 $ player["grayson"].append("questionsWork_g")
             jump questionsWork_g
         "I want to ask something else" if "questionsWork_g" in player["grayson"]:
@@ -87,6 +90,9 @@ label grayson:
                 gm "Matter of fact, I used to play Overwatch professionally. For 2 years in a row I managed to generally stay in top 200 Europe support role! I played with a team for 2,5 years."
                 gm "Don't tell anyone btw, I used to suck absolute ass at the game. I was an adopt a bronze. Ah, the good ol' days."
                 gm "Nowadays I carry Lex from photography. This man plays rein on shift cooldown…"
+                if "games" not in player["grayson"]:
+                    $ characters["grayson"]["hearts"] += 1
+                    $ player["grayson"].append("games")
         "Any special interests?":
             show grayson happy
             gm"Larping! Once I month I do Vampire Larp."
@@ -206,14 +212,15 @@ label lex: #add more hearts
         "What would you like to ask Lex as a student?"
         "What are you studying right now?":
             l "I'm studying Photography right now and I am a second year student."
-            if "questionsWork_l" not in player["lex"]:
-                $ player["lex"].append("questionsWork_l")
                 menu elective:
                     "Cool! What's your elective subject?":
                         l "At photography they don't really do elective subjects unlike the other studies here. But we do have Photography focused subjects!"
                         l "Right now, we're focusing on {i}Software Verdieping{/i}"
                     "Nice!":
                         l "Yeah, right?"
+            if "questionsWork_l" not in player["lex"]:
+                $ characters["lex"]["hearts"] += 1
+                $ player["lex"].append("questionsWork_l")
             show lex neutral
             jump questionsWork_l
         "Do you have a favorite teacher?":
@@ -230,6 +237,7 @@ label lex: #add more hearts
                         l "..."
                 $ player["lex"].append("jobQuestions_l")
             if "questionsWork_l" not in player["lex"]:
+                $ characters["lex"]["hearts"] += 1
                 $ player["lex"].append("questionsWork_l")
             show lex neutral
             jump questionsWork_l
@@ -242,7 +250,9 @@ label lex: #add more hearts
         "What are your hobbies?":
             l "I like gaming a lot, but when I'm not gaming I like to read."
             l "Of course, I also like taking pictures of friends and fumbling with my analog cameras."
-            $ player["lex"].append("hobbies")
+            if "hobbies" not in player["lex"]:
+                $ characters["lex"]["hearts"] += 1
+                $ player["lex"].append("hobbies")
         "Do you play games?":
             if "hobbies" in player["lex"]:
                 l "As I said before..." 
@@ -254,12 +264,18 @@ label lex: #add more hearts
                 show lex surprised
                 l "Wait, I saw you talking to him before!"
                 l "Dont mind him being rude, thats just.. {i}his thing.{/i}"
+            if "games" not in player["lex"]:
+                $ characters["lex"]["hearts"] += 1
+                $ player["lex"].append("games")
         "Any special interests?":
             show lex happy
             l "My analog cameras! I really love them, it's fun to just fuck around and find out what the next picture is gonna look like. It's a gamble but the vibe makes up for it."
             l "My favorite camera right now Is my rolleicord, it makes absolutely stunning pictures every single time."
             show lex blushing
             l "But hot buff fantasy woman also pique my interest. Like, have you seen Lexa from the hundred??? {b}MY GOD.{/b}"
+            if "interests" not in player["lex"]:
+                $ characters["lex"]["hearts"] += 1
+                $ player["lex"].append("interests")
         "Favorite food?":
             l "I really like sushi, but just any dish from Asia is also very good."
             if favorite_food == "sushi" and "food" not in player["lex"]:
