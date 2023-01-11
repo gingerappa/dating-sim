@@ -101,11 +101,12 @@ label enzo:
             show enzo happy
             e "My moms Nasi Goreng will forever be the most delicious meal I have ever had!"
             e "But I'm also a big fan of sushi or anything else rice related. "
-            if favorite_food == "sushi": #add memory
+            if favorite_food == "sushi" and "favoritefood" not in player["enzo"]:
                 u "OMG same I love sushi"
                 show enzo surprised
                 e"Haha nice!"
                 $ characters["enzo"]["hearts"] += 1
+                $ player["enzo"].append("favoritefood")
         "How many hearts do I have with you?":
             show enzo neutral
             $ henzo = characters["enzo"]["hearts"]
@@ -252,16 +253,18 @@ label kevin:
         "Any special interests?": 
             show kevin happy
             kd "I am in love with the work made by ILM and movie scores by Hans Zimmer."
-            #add memory
-            $ characters["kevin"]["hearts"] += 1
+            if "special" not in player["kevin"]:
+                $ characters["kevin"]["hearts"] += 1
+                $ player["kevin"].append("special")
         "Favorite food?":
             show kevin happy
             kd "My favorite food is a good warm bowl of udon noodles with teriyaki sauce and vegetables!"
-            if favorite_food == "noodles": #add memory
+            if favorite_food == "noodles" and "food" not in player["kevin"]:
                 u "Slay! Same!"
                 show kevin suprised
                 kd "Haha nice!"
                 $ characters["kevin"]["hearts"] += 1
+                $ player["kevin"].append("food")
         "How many hearts do I have with you?":
             show kevin neutral
             $ hkevin = characters["kevin"]["hearts"]
@@ -387,17 +390,18 @@ label robin:
         "Any special interests?":
             show robin happy
             rh "Hot moms!"
-            #add memory
-            $ characters["robin"]["hearts"] += 1
+            if "hotMoms" not in player["robin"]:
+                $ characters["robin"]["hearts"] += 1
+                $ player["robin"].append("hotMoms")
         "Favorite food?":
             show robin happy
             rh "Double Quarterpounder, I could go for one right now..."
-            if favorite_food == "hamburger":
+            if favorite_food == "hamburger" and "food" not in player["robin"]:
                 u "Saaaame!"
                 show robin suprised
                 rh "Come on, let's head to the city and get us a burger!"
-                #add memory
                 $ characters["robin"]["hearts"] += 1
+                $ player["robin"].append("food")
         "How many hearts do I have with you?":
             show robin neutral
             $ hrobin = characters["robin"]["hearts"]
@@ -524,11 +528,12 @@ label sam:
         "Favorite food?":
             s "What a good question! I'm a very food motivated person!"
             s "Mexican cuisine is definitely number one in my books!"
-            if favorite_food == "mexican": #add memory
+            if favorite_food == "mexican" and "food" not in player["sam"]:
                 u "Hey! Same!"
                 show sam surprised
                 s "Haha yess! High-five!"
                 $ characters["sam"]["hearts"] += 1
+                $ player["sam"].append("food")
         "How many hearts do I have with you?":
             show sam neutral
             $ hsam = characters["sam"]["hearts"]
