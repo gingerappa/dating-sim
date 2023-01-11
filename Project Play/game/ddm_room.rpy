@@ -40,6 +40,7 @@ label enzo:
         e "By the way, I'm Enzo."
         u "Hey Enzo! Pauline told me to come to the DDM class."
         $ player["enzo"].append("intro")
+        $ characters["enzo"]["hearts"] += 1
         $ characters["pauline"]["hearts"] += 1
     else:
         e "Hi again! Need anything?"
@@ -49,6 +50,7 @@ label enzo:
             e "Technically I don't teach the students anything since I'm not a teacher, but I can definitely help them out with 3D and general concepting."
             if "questionsWork_e" not in player["enzo"]:
                 $ player["enzo"].append("questionsWork_e")
+                $ characters["enzo"]["hearts"] += 1
             jump questionsWork_e
         "Favorite part of your job?":
             e "Interacting with the students, talking with them or helping them out."
@@ -66,6 +68,7 @@ label enzo:
             show enzo neutral
             if "questionsWork_e" not in player["enzo"]:
                 $ player["enzo"].append("questionsWork_e")
+                $ characters["enzo"]["hearts"] += 1
             jump questionsWork_e
         "I want to ask something else" if "questionsWork_e" in player["enzo"]:
             pass
@@ -91,12 +94,15 @@ label enzo:
                         $ characters["enzo"]["hearts"] -= 1
                 $ player["enzo"].append("gym_e")
         "Do you play games?":
-                e"Yes, for a while I've been playing a lot of CoD MW2, Rocket League, Noita and the binding of Isaac." 
+            e"Yes, for a while I've been playing a lot of CoD MW2, Rocket League, Noita and the binding of Isaac."
+            if "games" not in player["enzo"]:
+                $ player["enzo"].append("games")
+                $ characters["enzo"]["hearts"] += 1
         "Any special interests?":
             show enzo happy
             e"I have a special interest in computer hardware and anything that has to do with loud fast cars."
             e"And, of course, the gym."
-            $ characters["enzo"]["hearts"] -= 1
+            $ characters["enzo"]["hearts"] += 1
         "Favorite food?":
             show enzo happy
             e "My moms Nasi Goreng will forever be the most delicious meal I have ever had!"
@@ -122,10 +128,10 @@ label enzo:
                         e"Yes, I have a severe addiction to gaming and working out, so the touch of a female is something I do not come across very often." 
                         $ characters["enzo"]["hearts"] += 1
                         $ player["enzo"].append("single")
-                    if characters["enzo"]["hearts"] < 0:
+                    elif characters["enzo"]["hearts"] <= 0:
                         show enzo angry
                         e"I'm taken!"
-                    if pronouns != ["she", "her"]:
+                    elif pronouns != ["she", "her"]:
                         show enzo neutral
                         e"Better stop trying, I'm straight" 
                     
@@ -187,7 +193,7 @@ label enzo:
             jump ddm_room
     show enzo neutral
     jump talk_e
-    
+
 label kevin:
     show kevin neutral at f11
     with move
@@ -206,6 +212,7 @@ label kevin:
             kd "I teach my students 3D modelling and Texturing."
             if "questionsWork_e" not in player["kevin"]:
                 $ player["kevin"].append("questionsWork_k")
+                $ characters["kevin"]["hearts"] += 1
             jump questionsWork_k
         "Favorite part of your job?":
             kd "My favorite part is joking around with students and colleagues."
@@ -223,6 +230,7 @@ label kevin:
             show kevin neutral
             if "questionsWork_k" not in player["kevin"]:
                 $ player["kevin"].append("questionsWork_k")
+                $ characters["kevin"]["hearts"] += 1
             jump questionsWork_k
         "I want to ask something else" if "questionsWork_k" in player["kevin"]:
             pass
@@ -249,7 +257,10 @@ label kevin:
                         $ characters["kevin"]["hearts"] -= 1
                 $ player["kevin"].append("dream_k")
         "Do you play games?":
-                kd "I have very little spare time, but when I do I usually play Gears of War competitive." 
+            kd "I have very little spare time, but when I do I usually play Gears of War competitive."
+            if "games" not in player["kevin"]:
+                $ characters["kevin"]["hearts"] += 1
+                $ player["kevin"].append("games")
         "Any special interests?": 
             show kevin happy
             kd "I am in love with the work made by ILM and movie scores by Hans Zimmer."
@@ -280,7 +291,7 @@ label kevin:
                         kd "For you I am!" 
                         $ characters["kevin"]["hearts"] += 1
                         $ player["kevin"].append("single")
-                    if characters["kevin"]["hearts"] < 0:
+                    elif characters["kevin"]["hearts"] <= 0:
                         show kevin angry
                         kd"You're too short for me."                   
                 "Any plans for after your'e done working??" if "plans" not in player["kevin"]:
@@ -345,7 +356,6 @@ label robin:
         $ player["robin"].append("intro")
         $ characters["pauline"]["hearts"] += 1
         $ characters["robin"]["hearts"] += 1
-
     else:
         rh "Hello!"
     menu questionsWork_r:
@@ -354,6 +364,7 @@ label robin:
             rh "I teach 2D!"
             if "questionsWork_r" not in player["robin"]:
                 $ player["robin"].append("questionsWork_r")
+                $ characters["robin"]["hearts"] += 1
             jump questionsWork_r
         "What's your favorite part of your job?":
             show robin happy
@@ -372,6 +383,7 @@ label robin:
             show robin neutral
             if "questionsWork_r" not in player["robin"]:
                 $ player["robin"].append("questionsWork_r")
+                $ characters["robin"]["hearts"] += 1
             jump questionsWork_r
         "I want to ask something else" if "questionsWork_r" in player["robin"]:
             pass
@@ -383,10 +395,16 @@ label robin:
             show robin happy
             rh "I like to draw in my free time, teaching is also something I enjoy."
             rh "But music piques my interest as well!"
+            if "hobby" not in player["robin"]:
+                $ characters["robin"]["hearts"] += 1
+                $ player["robin"].append("hobby")
         "Do you play games?":
             show robin happy
             rh "YESSSS!"
-            rh "I play Assassins Creed, Until Dawn... And many other games!" 
+            rh "I play Assassins Creed, Until Dawn... And many other games!"
+            if "games" not in player["robin"]:
+                $ characters["robin"]["hearts"] += 1
+                $ player["robin"].append("games")
         "Any special interests?":
             show robin happy
             rh "Hot moms!"
@@ -417,7 +435,7 @@ label robin:
                         rh "For you sweetie, I sure am." 
                         $ characters["robin"]["hearts"] += 1
                         $ player["robin"].append("single")
-                    if characters["robin"]["hearts"] < 0:
+                    elif characters["robin"]["hearts"] <= 0:
                         show robin angry
                         rh "You blind? I'm clearly outta your league."                   
                 "Any plans for after you're done working??" if "plans" not in player["robin"]:
@@ -472,6 +490,7 @@ label sam:
         s "I'm Sam Kaufmann, welcome!"
         u "Hey Sam! Nice to see you here."
         $ player["sam"].append("intro")
+        $ characters["sam"]["hearts"] += 1
     else:
         s "Welcome back!"
     menu questionsWork_s:
@@ -479,17 +498,19 @@ label sam:
         "What do you teach the Students?":
             s "IIllustration!"
             s "In my class the students get to discover the different sides of what illustration can be, with a focus on exploring all kinds ofways to create interesting and engaging images. Developing a strong concept is half the work sometimes."
+            if "grading" not in player["sam"]:
+                menu grading:
+                        "Is it actually that hard to keep up with grading?":
+                            show sam surprised
+                            s "I'm kind of a newbie to the whole teaching thing, so it's definitely taking me a while to get to everyone."
+                            s "And our class has about {i}65 students{/i}... which is a LOT."
+                            $ characters["sam"]["hearts"] += 1
+                        "Oh, cool!":
+                            show sam happy
+                            s "Yeah, right?"
+                $ player["sam"].append("grading")
             if "questionsWork_s" not in player["sam"]:
                 $ player["sam"].append("questionsWork_s")
-                menu grading:
-                    "Is it actually that hard to keep up with grading?":
-                        show sam surprised
-                        s "I'm kind of a newbie to the whole teaching thing, so it's definitely taking me a while to get to everyone."
-                        s "And our class has about {i}65 students{/i}... which is a LOT."
-                        $ characters["sam"]["hearts"] += 1
-                    "Oh, cool!":
-                        show sam happy
-                        s "Yeah, right?"
             show sam neutral
             jump questionsWork_s
         "Why did you pick teaching":
@@ -517,11 +538,16 @@ label sam:
         "What are your hobbies?":
             s "I guess you could say storytelling is the core of any of my hobbies!"
             s "Whether that's getting lost in a goodbook, playing videogames or D&D, or simply just creating stories and worlds with my friends.Love some good escapeism."
-            $ player["sam"].append("hobbies")
+            if "hobbies" not in player["sam"]:
+                $ characters["sam"]["hearts"] += 1
+                $ player["sam"].append("hobbies")
         "Do you play games?":
             show sam special interest
             s "Heck yes!"
             s "Specially if they involve me getting to hack and smash my way through a horde of monsters. Give me a big sword and I'm happy."
+            if "games" not in player["sam"]:
+                $ characters["sam"]["hearts"] += 1
+                $ player["sam"].append("games")
         "Any special interests?":
             show sam happy
             s "Does doing nothing and just napping in the sun count as an interest?"

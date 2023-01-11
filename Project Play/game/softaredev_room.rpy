@@ -42,7 +42,6 @@ label jorrit:
         js "I'm Jorrit, nice to meet you."
         u "Hi Jorrit! Nice to meet you too!"
         $ player["jorrit"].append("intro")
-        $ characters["thijs"]["hearts"] += 1
     else:
         js "Hello again!"
     menu questionsWork_js:
@@ -50,6 +49,7 @@ label jorrit:
         "What do you teach the students?":
             js "I teach Software development and the elective subject Gameplay."
             if "questionsWork_js" not in player["jorrit"]:
+                $ characters["jorrit"]["hearts"] += 1
                 $ player["jorrit"].append("questionsWork_js")
             show jorrit neutral
             jump questionsWork_js
@@ -75,6 +75,7 @@ label jorrit:
                         $ characters["jorrit"]["hearts"] += 1
                 $ player["jorrit"].append("jobQuestions_js")
             if "questionsWork_js" not in player["jorrit"]:
+                $ characters["jorrit"]["hearts"] += 1
                 $ player["jorrit"].append("questionsWork_js")
             show jorrit neutral
             jump questionsWork_js
@@ -117,12 +118,16 @@ label jorrit:
                         pause
                         $ characters["jorrit"]["hearts"] -= 1
                 $ player["jorrit"].append("wantDrink_js")
-            $ player["jorrit"].append("hobbies")
+            if "hobbies" not in player["jorrit"]:
+                $ player["jorrit"].append("hobbies")
         "Do you play games?":
             if "hobbies" in player["jorrit"]:
                 js "As I said before..." 
             js "Quite frequently still!"
             js "Right now I'm very into Dark Souls, Binding of Isaac and Dead by Daylight."
+            if "games" not in player["jorrit"]:
+                $ characters["jorrit"]["hearts"] += 1
+                $ player["jorrit"].append("games")
         "Any special interests?":
             show jorrit special_interest
             js "AI image generation, Dungeons&Dragons..."
@@ -154,7 +159,7 @@ label jorrit:
                     if characters["jorrit"]["hearts"] > 1:
                         show jorrit blushing
                         js "I would love that!"
-                        $ characters["jorrit"]["hearts"] +=  1
+                        $ characters["jorrit"]["hearts"] += 1
                     $ player["jorrit"].append("foodFlirt")
         "How many hearts do I have with you?":
             show jorrit neutral
@@ -167,7 +172,7 @@ label jorrit:
         "Flirt!" if adult:
             menu flirt_js:
                 "Are you single?" if "single" not in player["jorrit"]:
-                    if characters["jorrit"]["hearts"] > 3:
+                    if characters["jorrit"]["hearts"] > 1:
                         show jorrit blushing
                         js "As a pringle!" 
                         $ characters["jorrit"]["hearts"] += 1
@@ -177,7 +182,7 @@ label jorrit:
                         js "Maybe you should ask again when I'm in a better mood." 
                     
                 "Any plans for after your'e done working??" if "plans" not in player["jorrit"]:
-                    if characters["jorrit"]["hearts"] > 2:
+                    if characters["jorrit"]["hearts"] > 1:
                         show jorrit happy
                         js "I'll probably visit some friends during the weekend!" 
                         $ characters["jorrit"]["hearts"] += 1
@@ -188,7 +193,7 @@ label jorrit:
                     $ player["jorrit"].append("plans")
 
                 "If you were my teacher I would be a teachers pet!" if "teachersPet" not in player["jorrit"]:
-                    if characters["jorrit"]["hearts"] > 2:
+                    if characters["jorrit"]["hearts"] > 1:
                         show jorrit blushing
                         js "If you are thinking of bringing me an apple, make sure to bring a green one!" 
                         $ characters["jorrit"]["hearts"] += 1
@@ -280,6 +285,7 @@ label thijs:
             ts "And depending on what options you picked my hearts went up or down"
             ts "Determining if I like you or {i}well{/i}, if my character likes you haha..."
             if "questionsStudent_ts" not in player["thijs"]:
+                $ characters["thijs"]["hearts"] += 1
                 $ player["thijs"].append("questionsStudent_ts")
             jump questionsStudent_ts
         "What's your elective subject?":
@@ -288,6 +294,7 @@ label thijs:
             ts "It has notting to do with programming. More with how to create a game"
             ts "And what makes a game good, as well as how to design a game in the real world"
             if "questionsStudent_ts" not in player["thijs"]:
+                $ characters["thijs"]["hearts"] += 1
                 $ player["thijs"].append("questionsStudent_ts")
             jump questionsStudent_ts
         "Do you have a favorite teacher?":
@@ -319,11 +326,13 @@ label thijs:
                         $ characters["thijs"]["hearts"] += 1
                 $ player["thijs"].append("knowJorrit_ts")
             if "questionsStudent_ts" not in player["thijs"]:
+                $ characters["thijs"]["hearts"] += 1
                 $ player["thijs"].append("questionsStudent_ts")
             jump questionsStudent_ts
         "What are they teaching you right now?":
             ts "How to make a unity game, even though this game is not made in Unity haha"
             if "questionsStudent_ts" not in player["thijs"]:
+                $ characters["thijs"]["hearts"] += 1
                 $ player["thijs"].append("questionsStudent_ts")
             show thijs neutral
             jump questionsStudent_ts
@@ -337,10 +346,16 @@ label thijs:
             ts "I like playing games and coding of course and I have started climbing with some friends recently."
             show thijs happy
             ts "I realy like doing it. And its a great workout for my mind as well as my body."
+            if "hobbies" not in player["thijs"]:
+                $ characters["thijs"]["hearts"] += 1
+                $ player["thijs"].append("hobbies")
         "Do you play games?":
             ts "Yes."
             u "Well... what games?"
             ts "What I play varies from time to time but I always seem to come back to League of Legends and Brawlhalla somehow"
+            if "hobbies" not in player["thijs"]:
+                $ characters["thijs"]["hearts"] += 1
+                $ player["thijs"].append("games")
         "Have any special interests?" if "specialInterstGood_ts" not in player["thijs"]:
             ts "Something not a lot of people know is that I do acting again for about a year."
             ts "I did it in high school for 2 years and youth drama but I picked it back up again last year with a local acting club."
@@ -397,7 +412,7 @@ label thijs:
                             $ characters["thijs"]["hearts"] += 1
                         "Home made":
                             show thijs happy
-                            ts "Can i come get some wings next time?"
+                            ts "Can i come get some wings next time you make them?"
                             menu whatThijs4wings:
                                 "Yes":
                                     show thijs blushing
@@ -418,14 +433,14 @@ label thijs:
         "Flirt!" if adult:
             menu flirt_ts:
                 "You single?":
-                    if characters["thijs"]["hearts"] > 3:
+                    if characters["thijs"]["hearts"] > 1:
                         show thijs blushing
                         ts "Do you want me to be?"
                     else:
                         show thijs angry
                         ts "Not for you..."
                 "You are really good looking, did you know that?" if "GoodLooking_ts" not in player["thijs"]:
-                    if characters["thijs"]["hearts"] > 3:
+                    if characters["thijs"]["hearts"] > 1:
                         show thijs surprised
                         ts "Agree to disagree"
                         $ characters["thijs"]["hearts"] += 1
@@ -435,7 +450,7 @@ label thijs:
                         $ characters["thijs"]["hearts"] -= 1
                     $ player["thijs"].append("GoodLooking_ts")
                 "Are you a 90 degree angle because you look so right!" if "angle_ts" not in player["thijs"]:
-                    if characters["thijs"]["hearts"] > 3:
+                    if characters["thijs"]["hearts"] > 1:
                         show thijs blush
                         pause
                         ts "Really, with that. Damn, you're good."
@@ -446,7 +461,7 @@ label thijs:
                         $ characters["thijs"]["hearts"] -= 1
                     $ player["thijs"].append("angle_ts")
                 "Does school keep you busy? Or is love also a priority?" if "busy_ts" not in player["thijs"]:
-                    if characters["thijs"]["hearts"] > 3:
+                    if characters["thijs"]["hearts"] > 1:
                         show thijs blush
                         pause
                         ts "For you, it is..."
@@ -513,7 +528,7 @@ label lusi:
                         ls "Ok"
                         $ characters["lusi"]["hearts"] += 1
                     "What things?":
-                        show lusi angry
+                        show lusi suprised
                         ls "Nothing..."
                         "{i}clown noises...{/i}"
                 $ player["lusi"].append("otherThings")
