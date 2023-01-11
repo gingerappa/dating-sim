@@ -101,7 +101,7 @@ label enzo:
             show enzo happy
             e "My moms Nasi Goreng will forever be the most delicious meal I have ever had!"
             e "But I'm also a big fan of sushi or anything else rice related. "
-            if favorite_food == "sushi":
+            if favorite_food == "sushi": #add memory
                 u "OMG same I love sushi"
                 show enzo surprised
                 e"Haha nice!"
@@ -249,14 +249,15 @@ label kevin:
                 $ player["kevin"].append("dream_k")
         "Do you play games?":
                 kd "I have very little spare time, but when I do I usually play Gears of War competitive." 
-        "Any special interests?":
+        "Any special interests?": 
             show kevin happy
             kd "I am in love with the work made by ILM and movie scores by Hans Zimmer."
+            #add memory
             $ characters["kevin"]["hearts"] += 1
         "Favorite food?":
             show kevin happy
             kd "My favorite food is a good warm bowl of udon noodles with teriyaki sauce and vegetables!"
-            if favorite_food == "noodles":
+            if favorite_food == "noodles": #add memory
                 u "Slay! Same!"
                 show kevin suprised
                 kd "Haha nice!"
@@ -386,6 +387,7 @@ label robin:
         "Any special interests?":
             show robin happy
             rh "Hot moms!"
+            #add memory
             $ characters["robin"]["hearts"] += 1
         "Favorite food?":
             show robin happy
@@ -394,6 +396,7 @@ label robin:
                 u "Saaaame!"
                 show robin suprised
                 rh "Come on, let's head to the city and get us a burger!"
+                #add memory
                 $ characters["robin"]["hearts"] += 1
         "How many hearts do I have with you?":
             show robin neutral
@@ -521,7 +524,7 @@ label sam:
         "Favorite food?":
             s "What a good question! I'm a very food motivated person!"
             s "Mexican cuisine is definitely number one in my books!"
-            if favorite_food == "mexican":
+            if favorite_food == "mexican": #add memory
                 u "Hey! Same!"
                 show sam surprised
                 s "Haha yess! High-five!"

@@ -29,7 +29,7 @@ label max:
         "What would you like to ask Max about his study?"
         "What are you studying right now?":
             m "I'm studying AV!"
-            menu studyQuestions_max:
+            menu studyQuestions_max: #add memory
                 "What's that?":
                         show max happy
                         m "It's an abbreviation for “Audio Visual”, basically film production. We learn how to make videos from start to end!"
@@ -80,12 +80,13 @@ label max:
             m "I play an Italian gangster. It's very fun. I do this with Grayson from DDM actually! He kinda plays my son."
             if "marcushi" not in player["max"]:
                 m "If you see him tell him Marcus said {i}hi kiddo{/i}"
+            #add memory
             $ characters["max"]["hearts"] += 1
             $ player["max"].append("games")
         "Favorite food?":
             show max happy
             m "Anything Italian really."
-            if favorite_food == "italian":
+            if favorite_food == "italian": #add memory
                 u "Wait, so pasta and such?"
                 show max happy
                 m "Yes! I love it!"

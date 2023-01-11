@@ -48,6 +48,7 @@ label grayson:
                         show grayson happy
                         gm "So you're not all bark no bite then"
                         gm "Hmpf."
+                        #add memory
                         $ characters["grayson"]["hearts"] += 1
                 $ player["grayson"].append("jobQuestions_g")
                 show grayson neutral
@@ -76,6 +77,7 @@ label grayson:
                     "DnD is super cool!":
                         show grayson happy
                         gm "Damn right it is baby."
+                        #add memory
                         $ characters["grayson"]["hearts"] += 1
                     "Ew...":
                         show grayson angry
@@ -92,8 +94,8 @@ label grayson:
             gm"Larping! Once I month I do Vampire Larp."
             show grayson special interest
             gm"Max from AV dragged me along and now I love it! I play this character Shiva Lentile. The “adoptive” son of Marcus."
-            $ characters["grayson"]["hearts"] += 1
             if "shiva" not in player["grayson"]:
+                $ characters["grayson"]["hearts"] += 1
                 gm "If you see Max? Tell him that Shiva said {i}hiya old hag{/i}" 
                 u "Okay! Will do!"
                 show grayson blushing
@@ -104,7 +106,7 @@ label grayson:
             gm "Fuuuuck, I wouldn't say I have a favourite food."
             gm "Mainly because eating just about anything while being high? Everything fucking slaps."
             gm "But if you really must know? Sushi has a special place in my heart."
-            if favorite_food == "sushi":
+            if favorite_food == "sushi": #add memory
                 u "Oh wow! I love sushi"
                 show grayson happy
                 gm "Let's be real. If you don't, you're crazy."
@@ -191,7 +193,7 @@ label grayson:
     show grayson neutral
     jump talk_g
 
-label lex:
+label lex: #add more hearts
     show lex happy at f11, left
     with move
     if "intro" not in player["lex"]:
