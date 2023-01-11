@@ -22,6 +22,8 @@ init python:
 ##
 ## The colors of text in the interface.
 
+define config.mouse = {"default":[ ("gui/cursor.png", 1, 1) ] }
+
 ## An accent color used throughout the interface to label and highlight text.
 define gui.accent_color = '#49095f'
 
@@ -55,7 +57,7 @@ define gui.interface_text_color = '#ffffff'
 ## Fonts and Font Sizes ########################################################
 
 ## The font used for in-game text.
-define gui.text_font = "Font3.ttf"
+define gui.text_font = "Font2.ttf"
 
 ## The font used for character names.
 define gui.name_text_font = "pixel.ttf"
@@ -67,7 +69,7 @@ define gui.interface_text_font = "Font2.ttf"
 define gui.text_size = 50
 
 ## The size of character names.
-define gui.name_text_size = 45
+define gui.name_text_size = 50
 
 ## The size of text in the game's user interface.
 define gui.interface_text_size = 50
