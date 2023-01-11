@@ -212,12 +212,12 @@ label lex: #add more hearts
         "What would you like to ask Lex as a student?"
         "What are you studying right now?":
             l "I'm studying Photography right now and I am a second year student."
-                menu elective:
-                    "Cool! What's your elective subject?":
-                        l "At photography they don't really do elective subjects unlike the other studies here. But we do have Photography focused subjects!"
-                        l "Right now, we're focusing on {i}Software Verdieping{/i}"
-                    "Nice!":
-                        l "Yeah, right?"
+            menu elective:
+                "Cool! What's your elective subject?":
+                    l "At photography they don't really do elective subjects unlike the other studies here. But we do have Photography focused subjects!"
+                    l "Right now, we're focusing on {i}Software Verdieping{/i}"
+                "Nice!":
+                    l "Yeah, right?"
             if "questionsWork_l" not in player["lex"]:
                 $ characters["lex"]["hearts"] += 1
                 $ player["lex"].append("questionsWork_l")
