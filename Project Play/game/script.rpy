@@ -13,11 +13,6 @@ define s = Character("Sam Kaufmann")
 define ts = Character("Thijs Swinkels")
 define u = Character("You")
 
-"""
-totalhearts (if food +1)
-jorrit     : 5 | 8
-thijs      : 6 | 9
-"""
 transform f11:
     zoom 1.5
     
@@ -29,7 +24,6 @@ transform midright:
     zoom 1.5
     xpos 900
 
-
 init python:
     config.keymap['rollback'] = []
     config.keymap['screenshot'] = []
@@ -39,10 +33,11 @@ init python:
     config.keymap['launch_editor'] = []
     config.keymap['inspector'] = []
     config.keymap['hide_windows'] = []
-    #TODO make wasd work on select
+    config.keymap['focus_down'] = ["K_s",'K_DOWN', 'repeat_K_DOWN']
+    config.keymap['focus_up'] = ["K_w", 'K_UP', 'repeat_K_UP']
     for x in ["K_r", "K_LSHIFT", "K_f", "K_SPACE", "K_LCTRL", "K_e",  "K_KP4", "K_KP5", "K_KP6", "K_KP7", "K_KP8", "K_KP9"]:
         config.keymap['dismiss'].append(x)
-    
+        config.keymap['button_select'].append(x)
     def getDic(*args):
         if not args:
             dir = characters

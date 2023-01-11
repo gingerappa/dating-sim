@@ -1,6 +1,6 @@
 ﻿label tutorial:
-
     scene sintlucas bg
+    play music "music/map_music.mp3" fadein 1.0 volume 1
     show pauline happy at f11
 
     p "Hi! Welcome to SintLucas!"
