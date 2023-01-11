@@ -39,7 +39,7 @@ label max:
                             show max angry
                             m "Hey, are you even listening?"
                             $ characters["max"]["hearts"] -= 1
-                player["max"].append("studyQuestions")
+                #player["max"].append("studyQuestions")
             if "studyQuestions_max" not in player["max"]:
                 $ player["max"].append("studyQuestions_max")
             jump questionsStudy_max

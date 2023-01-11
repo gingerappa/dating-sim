@@ -30,6 +30,7 @@ define config.version = "1.0"
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
+Tired of talking to people in real life? We got you! In SLDS you can talk to whoever you'd like to! And maybe even date them...
 """)
 
 
@@ -37,7 +38,7 @@ define gui.about = _p("""
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "ProjectPlay"
+define build.name = "SLDS"
 
 
 ## Sounds and music ############################################################
