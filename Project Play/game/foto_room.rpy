@@ -92,8 +92,8 @@ label grayson:
             gm"Larping! Once I month I do Vampire Larp."
             show grayson special interest
             gm"Max from AV dragged me along and now I love it! I play this character Shiva Lentile. The “adoptive” son of Marcus."
-            $ characters["grayson"]["hearts"] += 1
             if "shiva" not in player["grayson"]:
+                $ characters["grayson"]["hearts"] += 1
                 gm "If you see Max? Tell him that Shiva said {i}hiya old hag{/i}" 
                 u "Okay! Will do!"
                 show grayson blushing
@@ -104,11 +104,12 @@ label grayson:
             gm "Fuuuuck, I wouldn't say I have a favourite food."
             gm "Mainly because eating just about anything while being high? Everything fucking slaps."
             gm "But if you really must know? Sushi has a special place in my heart."
-            if favorite_food == "sushi":
+            if favorite_food == "sushi" and "food" not in player["grayson"]:
                 u "Oh wow! I love sushi"
                 show grayson happy
                 gm "Let's be real. If you don't, you're crazy."
                 $ characters["grayson"]["hearts"] += 1
+                $ player["grayson"].append("food")
         "I spoke to Max!" if "marcushi" in player["max"]:
             show grayson surprised
             gm "What did the cumwipe have to say for himself"
@@ -191,7 +192,7 @@ label grayson:
     show grayson neutral
     jump talk_g
 
-label lex:
+label lex: #add more hearts
     show lex happy at f11, left
     with move
     if "intro" not in player["lex"]:
@@ -261,10 +262,12 @@ label lex:
             l "But hot buff fantasy woman also pique my interest. Like, have you seen Lexa from the hundred??? {b}MY GOD.{/b}"
         "Favorite food?":
             l "I really like sushi, but just any dish from Asia is also very good."
-            if favorite_food == "sushi":
+            if favorite_food == "sushi" and "food" not in player["lex"]:
                 u "Yeah, me too."
                 show lex surprised
                 l "Meow! That's amazing"
+                $ characters["lex"]["hearts"] += 1
+                $ player["lex"].append("food")
         "How many hearts do I have with you?":
             show lex neutral
             $ hlex = characters["lex"]["hearts"]
